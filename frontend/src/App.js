@@ -8,17 +8,37 @@ import TeacherDashboard from './pages/teacher/TeacherDashboard';
 import LoginPage from './pages/LoginPage';
 import AdminRegisterPage from './pages/admin/AdminRegisterPage';
 import ChooseUser from './pages/ChooseUser';
+import HomePage from './pages/FrontUIPages/HomePage';
+import AboutPage from './pages/FrontUIPages/AboutPage';
+import Courses from './components/FrontUIComponent/container/courses/Courses';
+import FacultyPage from './components/FrontUIComponent/components/Faculty/FacultyPage';
+import Event from './components/FrontUIComponent/components/Events/Event';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Notify from './components/FrontUIComponent/components/Notification/Notify';
+// import ContactPage from './pages/FrontUIPages/ContactPage';
 
 const App = () => {
+  AOS.init({
+    duration: 900,
+  });
+
   const { currentRole } = useSelector(state => state.user);
 
   return (
     <Router>
       {currentRole === null &&
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/login" element={<Homepage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/notification" element={<Notify />} />
+          <Route path="/faculty" element={<FacultyPage />} />
+          <Route path="/events" element={<Event />} />
+          {/* <Route path="/contact" element={<ContactPage />} /> */}
+
           <Route path="/choose" element={<ChooseUser visitor="normal" />} />
-          <Route path="/chooseasguest" element={<ChooseUser visitor="guest" />} />
           <Route path="/Adminlogin" element={<LoginPage role="Admin" />} />
           <Route path="/Studentlogin" element={<LoginPage role="Student" />} />
           <Route path="/Teacherlogin" element={<LoginPage role="Teacher" />} />
