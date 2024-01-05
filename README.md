@@ -2,11 +2,22 @@
     UNIVERSITY MANAGEMENT SYSTEM
 </h1>
 
-<h3 align="center">
+<h2 align="center">
+   EduConnect+ Website 
+</h2>
+<h4 align="center">
+Streamline Educonnect+, HomePage,AboutPage, Contact Us, FacultyPage, <br>Admission Page, and Events
+
+</h4>
+
+<h2 align="center">
+   EduConnect+ Dashboard 
+</h2>
+<h4 align="center">
 Streamline University management, class organization, and add students and faculty.<br>
 Seamlessly track attendance, assess performance, and provide feedback. <br>
 Access records, view marks, and communicate effortlessly.
-</h3>
+</h4>
 
 <br>
 
