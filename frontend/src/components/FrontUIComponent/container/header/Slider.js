@@ -4,6 +4,7 @@ import slide01 from "../../images/slide-01.jpg";
 import slide02 from "../../images/slide-02.jpg";
 import slide03 from "../../images/slide-03.jpg";
 import "./header.css";
+import { Link } from "react-router-dom";
 
 function Slider() {
     return (
@@ -33,8 +34,8 @@ function Slider() {
                     Nulla vitae elit libero, a pharetra augue mollis interdum.
                     Nulla vitae elit libero, a pharetra augue mollis interdum.
                   </p>
-                  <Button variant="danger" style={{ marginBottom: 10 }}>
-                    Now
+                  <Button className="start-header-btn" >
+                  <Link to='/' className='link'> Get Started</Link> 
                   </Button>
                 </Carousel.Caption>
               </Carousel.Item>
@@ -52,8 +53,8 @@ function Slider() {
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
-                  <Button variant="danger" style={{ marginBottom: 10 }}>
-                    Now
+                  <Button className="start-header-btn" >
+                  <Link to='/' className='link'> Get Started</Link> 
                   </Button>
                 </Carousel.Caption>
               </Carousel.Item>
@@ -72,8 +73,8 @@ function Slider() {
                     Praesent commodo cursus magna, vel scelerisque nisl
                     consectetur.
                   </p>
-                  <Button variant="danger" style={{ marginBottom: 10 }}>
-                    Now
+                  <Button className="start-header-btn" >
+                  <Link to='/' className='link'> Get Started</Link> 
                   </Button>
                 </Carousel.Caption>
               </Carousel.Item>

@@ -12,8 +12,12 @@
 }
 
 .banner-title {
-  color: brown;
+  color: #7A1CCB;
   font-size: 3rem;
+}
+
+.about{
+  margin-top:20px;
 }
 
 .aboutpage {
@@ -29,6 +33,18 @@
   align-items: center;
   flex-direction: column;
 }
+
+.read-header-btn{
+    background-color: #7A1CCB;
+    color: #fff;
+    border:none;
+  }
+
+  .read-header-btn:hover {
+    background-color: #552285;
+    color: #fff;
+    border:none;
+  }
 
 .learn-more:hover a {
   color: #ffffff;

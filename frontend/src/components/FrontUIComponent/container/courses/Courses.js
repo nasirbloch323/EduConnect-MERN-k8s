@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import course01 from "../../images/course01.jpeg";
 import "./courses.css";
-import Topbar from "../header/Topbar";
-import Footer from "../footer/Footer";
+import { Link } from "react-router-dom";
 
 function Courses() {
 
@@ -31,7 +30,9 @@ function Courses() {
               the bulk of the card's content.
             </Card.Text>
             <div className="text-center">
-              <Button variant="primary text-center">Register</Button>
+            <Button className="cor-header-btn" >
+              <Link to='/login' className='link'>Register</Link>
+            </Button>
             </div>
           </Card.Body>
         </Card>
@@ -66,7 +67,9 @@ function Courses() {
           <Row>
             <Col className="mx-auto my-3" data-aos="zoom-in">
               <div className="text-center">
-                <Button variant="danger">View More</Button>
+              <Button className="cor-header-btn" >
+              <Link to='/' className='link'>VIEW MORE</Link>
+            </Button>
               </div>
             </Col>
           </Row>

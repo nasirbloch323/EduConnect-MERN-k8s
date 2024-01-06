@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image,  Button } from "react-bootstrap";
 import logo from "../../../../../src/assets/logo.jpeg";
 import "./about.css";
 import { Link } from "react-router-dom";
@@ -33,10 +33,12 @@ function About() {
             </p>
             <a
               href="/about"
-              className="btn btn-outline-primary text-uppercase learn-more"
+
               data-aos="fade-right"
             >
-              <Link to="/about">learn more</Link>
+                <Button className="read-header-btn" >
+                  <Link to='/about' className='link'>LEARN MORE</Link> 
+                  </Button>
               <span>
                 <i
                   style={{ marginLeft: 10 }}

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 import "./LEvents.css";
 import course from "../../images/course01.jpeg";
+import { Link } from "react-router-dom";
+
 
 function LatestEvents() {
 
@@ -18,9 +20,10 @@ function LatestEvents() {
             <Card.Body>
               <Card.Title>Learn Js in ease</Card.Title>
               <Card.Text>Lorem ipsum dolet lorem ipsum dolet lorem</Card.Text>
-              <a href="/events" className="btn btn-success">
-                Learn More
-              </a>
+
+              <Button className="events-header-btn" >
+                <Link to='/events' className='links'>LEARN MORE</Link>
+              </Button>
             </Card.Body>
           </Col>
           <Col className="col-sm-5">
@@ -47,8 +50,8 @@ function LatestEvents() {
       <Row>{displayLatestEvents}</Row>
       <Row>
         <Col className="mx-auto text-center">
-          <Button variant="danger" style={{ margin: "20px 0" }}>
-            View More
+          <Button className="view-header-btn" >
+            <Link to='/' className='link'>VIEW MORE</Link>
           </Button>
         </Col>
       </Row>

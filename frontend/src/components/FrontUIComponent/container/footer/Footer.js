@@ -84,7 +84,7 @@ function Footer() {
                 <div class="input-group-append">
                   <span
                     class="input-group-text"
-                    style={{ backgroundColor: "darkorange", color: "white" }}
+                    style={{ backgroundColor: "#7A1CCB", color: "white" }}
                     id="basic-addon2"
                   >
                     subscribe

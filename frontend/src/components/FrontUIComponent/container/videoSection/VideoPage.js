@@ -2,20 +2,23 @@ import React, { Component } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import bookvideo from "../../videos/Book.mp4";
 import "./video.css";
+import { Link } from "react-router-dom";
 
 function VideoPage() {
  
     return (
-      <section style={{ backgroundColor: "#0d2d62" }}>
+      <section className='video-sion'>
         <Container fluid className="video-container">
           <Row className="video-row">
-            <Col xs={10} className="mx-auto video-col">
+            <Col xs={10} className="mx-auto w-100 video-col">
               <video autoPlay loop muted>
                 <source src={bookvideo} type="video/mp4"></source>
               </video>
               <div className="video-text">
                 <p>Trusted by 10,000+ students</p>
-                <Button variant="danger">Register</Button>
+                <Button className="video-header-btn" >
+              <Link to='/login' className='link'>Register</Link>
+            </Button>
               </div>
             </Col>
           </Row>

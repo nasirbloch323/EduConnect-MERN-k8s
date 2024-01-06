@@ -54,7 +54,7 @@ function Topbar() {
           </Link>
         </Nav>
         <Form inline>
-          <Button variant="outline-success enroll-btn"><Link to='/login'>Login</Link></Button>
+          <Button className="login-header-btn"><Link to='/login' className='link'>Login</Link></Button>
         </Form>
       </Navbar.Collapse>
     </Navbar>

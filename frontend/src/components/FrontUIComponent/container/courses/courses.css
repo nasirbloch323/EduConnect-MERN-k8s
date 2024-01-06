@@ -49,3 +49,19 @@
 .img-container:hover .course-item-icon {
   transform: translate(0, 0);
 }
+
+
+.cor-header-btn {
+  background-color: #7A1CCB;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cor-header-btn:hover {
+  background-color: #7A1CCB;
+  color: rgb(255, 255, 255);
+  border: none;
+}

@@ -3,9 +3,9 @@ import { Container, Row, Col, Image, Card, Button } from "react-bootstrap";
 import course from "../../images/course01.jpeg";
 import "./message.css";
 import LatestEvents from "./LatestEvents";
+import { Link } from "react-router-dom";
 
 function Message({ props }) {
-
 
   const displayMessageCard = [
     "card01",
@@ -29,9 +29,10 @@ function Message({ props }) {
             <Card.Body>
               <Card.Title>Learn Js in ease</Card.Title>
               <Card.Text>Lorem ipsum dolet lorem ipsum dolet lorem</Card.Text>
-              <a href="/notification" className="btn btn-success">
-                Learn More
-              </a>
+
+              <Button className="news-header-btn" >
+                <Link to='/notification' className='links'>LEARN MORE</Link>
+              </Button>
             </Card.Body>
           </Col>
         </Row>
@@ -44,8 +45,8 @@ function Message({ props }) {
       <Container fluid className="message-container my-3">
         <Row>
           <Col className="mx-auto my-3 text-center text-capitalize">
-            <h1>
-              Latest <strong style={{ color: "brown" }}>Updates</strong>
+            <h1 className='heading-1'>
+              Latest <strong className='span'>Updates</strong>
             </h1>
             <div className="latest-news">
               <marquee>
@@ -86,8 +87,8 @@ function Message({ props }) {
         <Row className="mx-3 main-row">{displayMessageCard}</Row>
         <Row>
           <Col className="mx-auto text-center">
-            <Button variant="danger" style={{ margin: "20px 0" }}>
-              View More
+            <Button className="view-header-btn" >
+              <Link to='/' className='link'>VIEW MORE</Link>
             </Button>
           </Col>
         </Row>
