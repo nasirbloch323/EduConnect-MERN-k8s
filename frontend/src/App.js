@@ -10,12 +10,14 @@ import AdminRegisterPage from './pages/admin/AdminRegisterPage';
 import ChooseUser from './pages/ChooseUser';
 import HomePage from './pages/FrontUIPages/HomePage';
 import AboutPage from './pages/FrontUIPages/AboutPage';
-import Courses from './components/FrontUIComponent/container/courses/Courses';
+import CoursesPage from './pages/FrontUIPages/CoursesPage';
 import FacultyPage from './components/FrontUIComponent/components/Faculty/FacultyPage';
 import Event from './components/FrontUIComponent/components/Events/Event';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Notify from './components/FrontUIComponent/components/Notification/Notify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import ContactPage from './pages/FrontUIPages/ContactPage';
 
 const App = () => {
@@ -32,7 +34,7 @@ const App = () => {
           <Route path="/login" element={<Homepage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/courses" element={<Courses />} />
+          <Route path="/courses" element={<CoursesPage />} />
           <Route path="/notification" element={<Notify />} />
           <Route path="/faculty" element={<FacultyPage />} />
           <Route path="/events" element={<Event />} />
@@ -63,6 +65,7 @@ const App = () => {
           <TeacherDashboard />
         </>
       }
+      <ToastContainer />
     </Router>
   )
 }

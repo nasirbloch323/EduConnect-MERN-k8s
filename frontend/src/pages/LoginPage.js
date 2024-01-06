@@ -9,7 +9,7 @@ import { LightPurpleButton } from '../components/buttonStyles';
 import styled from 'styled-components';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
-
+import { toast } from 'react-toastify';
 const defaultTheme = createTheme();
 
 const LoginPage = ({ role }) => {
@@ -103,8 +103,10 @@ const LoginPage = ({ role }) => {
                 navigate('/Admin/dashboard');
             }
             else if (currentRole === 'Student') {
+                toast.success('Login Successfully');
                 navigate('/Student/dashboard');
             } else if (currentRole === 'Teacher') {
+                toast.success('Login Successfully');
                 navigate('/Teacher/dashboard');
             }
         }

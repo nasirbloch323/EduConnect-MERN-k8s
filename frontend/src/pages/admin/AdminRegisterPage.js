@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress} from '@mui/material';
+import { Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import bgpic from "../../assets/designlogin.jpg"
@@ -10,7 +10,7 @@ import { LightPurpleButton } from '../../components/buttonStyles';
 import { registerUser } from '../../redux/userRelated/userHandle';
 import styled from 'styled-components';
 import Popup from '../../components/Popup';
-
+import { toast } from 'react-toastify';
 const defaultTheme = createTheme();
 
 const AdminRegisterPage = () => {
@@ -28,7 +28,7 @@ const AdminRegisterPage = () => {
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [adminNameError, setAdminNameError] = useState(false);
-    const [schoolNameError, setSchoolNameError] = useState(false);
+    const [departmentNameError, SetDepartmentNameError] = useState(false);
     const role = "Admin"
 
     const handleSubmit = (event) => {
@@ -41,7 +41,7 @@ const AdminRegisterPage = () => {
 
         if (!name || !schoolName || !email || !password) {
             if (!name) setAdminNameError(true);
-            if (!schoolName) setSchoolNameError(true);
+            if (!schoolName) SetDepartmentNameError(true);
             if (!email) setEmailError(true);
             if (!password) setPasswordError(true);
             return;
@@ -57,12 +57,14 @@ const AdminRegisterPage = () => {
         if (name === 'email') setEmailError(false);
         if (name === 'password') setPasswordError(false);
         if (name === 'adminName') setAdminNameError(false);
-        if (name === 'schoolName') setSchoolNameError(false);
+        if (name === 'DepartmentName') SetDepartmentNameError(false);
     };
 
     useEffect(() => {
         if (status === 'success' || (currentUser !== null && currentRole === 'Admin')) {
+            toast.success('Create Account Successfully');
             navigate('/Admin/dashboard');
+
         }
         else if (status === 'failed') {
             setMessage(response)
@@ -103,7 +105,7 @@ const AdminRegisterPage = () => {
                                 required
                                 fullWidth
                                 id="adminName"
-                                label="Enter your name"
+                                label="Enter your admin name"
                                 name="adminName"
                                 autoComplete="name"
                                 autoFocus
@@ -116,11 +118,11 @@ const AdminRegisterPage = () => {
                                 required
                                 fullWidth
                                 id="schoolName"
-                                label="Create your school name"
+                                label="Create your department name"
                                 name="schoolName"
                                 autoComplete="off"
-                                error={schoolNameError}
-                                helperText={schoolNameError && 'School name is required'}
+                                error={departmentNameError}
+                                helperText={departmentNameError && 'Department name is required'}
                                 onChange={handleInputChange}
                             />
                             <TextField
@@ -173,7 +175,7 @@ const AdminRegisterPage = () => {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                {loader ? <CircularProgress size={24} color="inherit"/> : "Register"}
+                                {loader ? <CircularProgress size={24} color="inherit" /> : "Register"}
                             </LightPurpleButton>
                             <Grid container>
                                 <Grid>

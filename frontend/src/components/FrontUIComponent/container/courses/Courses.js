@@ -41,7 +41,7 @@ function Courses() {
 
   return (
     <>
-      <Topbar />
+
       <section id="courses" className="courses py-5">
         <Container>
           <Row>
@@ -72,8 +72,6 @@ function Courses() {
           </Row>
         </Container>
       </section>
-
-      <Footer />
     </>
   );
 

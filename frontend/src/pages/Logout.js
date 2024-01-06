@@ -3,15 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authLogout } from '../redux/userRelated/userSlice';
 import styled from 'styled-components';
+import { toast } from 'react-toastify';
 
 const Logout = () => {
     const currentUser = useSelector(state => state.user.currentUser);
-
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleLogout = () => {
         dispatch(authLogout());
+       
+        toast.success('Logout Successfully');
         navigate('/');
     };
 
