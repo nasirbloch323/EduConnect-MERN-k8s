@@ -16,6 +16,7 @@ import Event from './components/FrontUIComponent/components/Events/Event';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Notify from './components/FrontUIComponent/components/Notification/Notify';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import ContactPage from './pages/FrontUIPages/ContactPage';
