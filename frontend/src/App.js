@@ -40,7 +40,7 @@ const App = () => {
           <Route path="/faculty" element={<FacultyPage />} />
           <Route path="/events" element={<Event />} />
           {/* <Route path="/contact" element={<ContactPage />} /> */}
-
+         
           <Route path="/choose" element={<ChooseUser visitor="normal" />} />
           <Route path="/Adminlogin" element={<LoginPage role="Admin" />} />
           <Route path="/Studentlogin" element={<LoginPage role="Student" />} />
