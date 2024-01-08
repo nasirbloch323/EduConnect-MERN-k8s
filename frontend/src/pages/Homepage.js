@@ -1,55 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Box} from '@mui/material';
+import { Container, Grid, Box } from '@mui/material';
 import styled from 'styled-components';
 import Students from "../assets/students.svg";
 import { LightPurpleButton } from '../components/buttonStyles';
-
+import Topbar from '../components/FrontUIComponent/container/header/Topbar'
 const Homepage = () => {
     return (
-        <StyledContainer>
-            <Grid container spacing={0}>
-                <Grid item xs={12} md={6}>
-                    <img src={Students} alt="students" style={{ width: '100%' }} />
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <StyledPaper elevation={3}>
-                        <StyledTitle>
-                            Welcome to
-                            <br />
-                            University Management
-                            <br />
-                            System
-                        </StyledTitle>
-                        <StyledText>
-                            Streamline University management, class organization, and add students and faculty.
-                            Seamlessly track attendance, assess performance, and provide feedback.
-                            Access records, view marks, and communicate effortlessly.
-                        </StyledText>
-                        <StyledBox>
-                            <StyledLink to="/choose">
-                                <LightPurpleButton variant="contained" fullWidth>
-                                    Login
-                                </LightPurpleButton>
-                            </StyledLink>
-                            {/* <StyledLink to="/chooseasguest">
+        <>
+            <Topbar/>
+            <StyledContainer>
+                <Grid container spacing={0}>
+                    <Grid item xs={12} md={6}>
+                        <img src={Students} alt="students" style={{ width: '100%' }} />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <StyledPaper elevation={3}>
+                            <StyledTitle>
+                                Welcome to
+                                <br />
+                                University Management
+                                <br />
+                                System
+                            </StyledTitle>
+                            <StyledText>
+                                Streamline University management, class organization, and add students and faculty.
+                                Seamlessly track attendance, assess performance, and provide feedback.
+                                Access records, view marks, and communicate effortlessly.
+                            </StyledText>
+                            <StyledBox>
+                                <StyledLink to="/choose">
+                                    <LightPurpleButton variant="contained" fullWidth>
+                                        Login
+                                    </LightPurpleButton>
+                                </StyledLink>
+                                {/* <StyledLink to="/chooseasguest">
                                 <Button variant="outlined" fullWidth
                                     sx={{ mt: 2, mb: 3, color: "#7f56da", borderColor: "#7f56da" }}
                                 >
                                     Login as Guest
                                 </Button>
                             </StyledLink> */}
-                            <StyledText>
-                                Don't have an account?{' '}
-                                <Link to="/Adminregister" style={{ color: "#550080" }}>
-                                    Sign up
-                                </Link>
-                            </StyledText>
-                        </StyledBox>
-                    </StyledPaper>
+                                <StyledText>
+                                    Don't have an account?{' '}
+                                    <Link to="/Adminregister" style={{ color: "#550080" }}>
+                                        Sign up
+                                    </Link>
+                                </StyledText>
+                            </StyledBox>
+                        </StyledPaper>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </StyledContainer>
+            </StyledContainer>
+        </>
     );
 };
 

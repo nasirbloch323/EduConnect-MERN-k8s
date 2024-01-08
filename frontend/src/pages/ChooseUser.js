@@ -13,6 +13,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
+import Topbar from '../components/FrontUIComponent/container/header/Topbar'
 
 const ChooseUser = ({ visitor }) => {
   const dispatch = useDispatch()
@@ -83,59 +84,62 @@ const ChooseUser = ({ visitor }) => {
   }, [status, currentRole, navigate, currentUser]);
 
   return (
-    <StyledContainer>
-      <Container>
-        <Grid container spacing={2} justifyContent="center">
-          <Grid item xs={12} sm={6} md={4}>
-            <div onClick={() => navigateHandler("Admin")}>
+    <>
+      <Topbar />
+      <StyledContainer>
+        <Container>
+          <Grid container spacing={2} justifyContent="center">
+            <Grid item xs={12} sm={6} md={4}>
+              <div onClick={() => navigateHandler("Admin")}>
+                <StyledPaper elevation={3}>
+                  <Box mb={2}>
+                    <AccountCircle fontSize="large" />
+                  </Box>
+                  <StyledTypography>
+                    Admin
+                  </StyledTypography>
+                  Login as an administrator to access the dashboard to manage app data.
+                </StyledPaper>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
               <StyledPaper elevation={3}>
-                <Box mb={2}>
-                  <AccountCircle fontSize="large" />
-                </Box>
-                <StyledTypography>
-                  Admin
-                </StyledTypography>
-                Login as an administrator to access the dashboard to manage app data.
+                <div onClick={() => navigateHandler("Student")}>
+                  <Box mb={2}>
+                    <School fontSize="large" />
+                  </Box>
+                  <StyledTypography>
+                    Student
+                  </StyledTypography>
+                  Login as a student to explore course materials and assignments.
+                </div>
               </StyledPaper>
-            </div>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <StyledPaper elevation={3}>
+                <div onClick={() => navigateHandler("Teacher")}>
+                  <Box mb={2}>
+                    <Group fontSize="large" />
+                  </Box>
+                  <StyledTypography>
+                    Teacher
+                  </StyledTypography>
+                  Login as a teacher to create courses, assignments, and track student progress.
+                </div>
+              </StyledPaper>
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3}>
-              <div onClick={() => navigateHandler("Student")}>
-                <Box mb={2}>
-                  <School fontSize="large" />
-                </Box>
-                <StyledTypography>
-                  Student
-                </StyledTypography>
-                Login as a student to explore course materials and assignments.
-              </div>
-            </StyledPaper>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <StyledPaper elevation={3}>
-              <div onClick={() => navigateHandler("Teacher")}>
-                <Box mb={2}>
-                  <Group fontSize="large" />
-                </Box>
-                <StyledTypography>
-                  Teacher
-                </StyledTypography>
-                Login as a teacher to create courses, assignments, and track student progress.
-              </div>
-            </StyledPaper>
-          </Grid>
-        </Grid>
-      </Container>
-      <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={loader}
-      >
-        <CircularProgress color="inherit" />
-        Please Wait
-      </Backdrop>
-      <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
-    </StyledContainer>
+        </Container>
+        <Backdrop
+          sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={loader}
+        >
+          <CircularProgress color="inherit" />
+          Please Wait
+        </Backdrop>
+        <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
+      </StyledContainer>
+    </>
   );
 };
 
