@@ -87,11 +87,11 @@ const SubjectForm = () => {
     }, [status, navigate, error, response, dispatch]);
 
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className="p-2">
             <Box mb={2}>
                 <Typography variant="h6" >Add Subjects</Typography>
             </Box>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} >
                 {subjects.map((subject, index) => (
                     <React.Fragment key={index}>
                         <Grid item xs={6}>
@@ -134,7 +134,8 @@ const SubjectForm = () => {
                                 {index === 0 ? (
                                     <Button
                                         variant="outlined"
-                                        color="primary"
+                                        // color="primary"
+                                        className="text-[#552285]"
                                         onClick={handleAddSubject}
                                     >
                                         Add Subject

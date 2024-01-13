@@ -43,22 +43,23 @@ const AdminProfile = () => {
     }
 
     return (
-        <div>
+        <div className='p-4'>
             Name: {currentUser.name}
             <br />
             Email: {currentUser.email}
             <br />
-            University: {currentUser.schoolName}
+            Department HOD: {currentUser.schoolName}
             <br />
-            <Button variant="contained" color="error" onClick={deleteHandler}>Delete</Button> 
+            <Button variant="contained" color="error" onClick={deleteHandler} className='mt-2'>Delete</Button> 
              <Button variant="contained" sx={styles.showButton}
-                onClick={() => setShowTab(!showTab)}>
+                onClick={() => setShowTab(!showTab)} className='ml-2 mt-2 bg-[#552285]'>
                 {showTab ? <KeyboardArrowUp /> : <KeyboardArrowDown />}{buttonText}
             </Button>
+
             <Collapse in={showTab} timeout="auto" unmountOnExit>
                 <div className="register">
                     <form className="registerForm" onSubmit={submitHandler}>
-                        <span className="registerTitle">Edit Details</span>
+                        <span className="registerTitle ">Edit Details</span>
                         <label>Name</label>
                         <input className="registerInput" type="text" placeholder="Enter your name..."
                             value={name}
@@ -95,9 +96,9 @@ export default AdminProfile
 
 const styles = {
     attendanceButton: {
-        backgroundColor: "#270843",
+        backgroundColor: "#552285",
         "&:hover": {
-            backgroundColor: "#3f1068",
+            backgroundColor: "#552285",
         }
     }
 }

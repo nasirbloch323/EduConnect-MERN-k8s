@@ -7,8 +7,8 @@ export const RedButton = styled(Button)`
     color: white;
     margin-left: 4px;
     &:hover {
-      background-color: #eb7979;
-      border-color: #f26767;
+      background-color: #552285;
+      border-color: #552285;
       box-shadow: none;
     }
   }
@@ -20,8 +20,8 @@ export const BlackButton = styled(Button)`
     color: white;
     margin-left: 4px;
     &:hover {
-      background-color: #212020;
-      border-color: #212020;
+      background-color: #552285;
+      border-color: #552285;
       box-shadow: none;
     }
   }
@@ -29,11 +29,11 @@ export const BlackButton = styled(Button)`
 
 export const DarkRedButton = styled(Button)`
   && {
-    background-color: #650909;
+    background-color: #552285;
     color: white;
     &:hover {
-      background-color: #eb7979;
-      border-color: #f26767;
+      background-color: #552285;
+      border-color: #552285;
       box-shadow: none;
     }
   }
@@ -41,51 +41,51 @@ export const DarkRedButton = styled(Button)`
 
 export const BlueButton = styled(Button)`
   && {
-    background-color: #080a43;
+    background-color: #552285;
     color: #fff;
     &:hover {
-      background-color: #0a1e82;
+      background-color: #552285;
     }
   }
 `;
 
 export const PurpleButton = styled(Button)`
   && {
-    background-color: #270843;
+    background-color: #552285;
     color: #fff;
     &:hover {
-      background-color: #3f1068;
+      background-color: #552285;
     }
   }
 `;
 
 export const LightPurpleButton = styled(Button)`
   && {
-    background-color: #7f56da;
+    background-color: #552285;
     color: #fff;
     &:hover {
-      background-color: #7a1ccb;
+      background-color: #552285;
     }
   }
 `;
 
 export const GreenButton = styled(Button)`
   && {
-    background-color: #133104;
+    background-color: #552285;
     color: #fff;
     &:hover {
-      background-color: #266810;
+      background-color: #552285;
     }
   }
 `;
 
 export const BrownButton = styled(Button)`
   && {
-    background-color: #2c1006;
+    background-color: #552285;
     color: white;
     &:hover {
-      background-color: #40220c;
-      border-color: #40220c;
+      background-color: #552285;
+      border-color: #552285;
       box-shadow: none;
     }
   }
@@ -93,11 +93,11 @@ export const BrownButton = styled(Button)`
 
 export const IndigoButton = styled(Button)`
   && {
-    background-color: #2f2b80;
+    background-color: #552285;
     color: white;
     &:hover {
-      background-color: #534ea6;
-      border-color: #473d90;
+      background-color: #552285;
+      border-color: #552285;
       box-shadow: none;
     }
   }

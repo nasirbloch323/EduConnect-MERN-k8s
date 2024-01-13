@@ -125,7 +125,7 @@ const AddStudent = ({ situation }) => {
                         onChange={(event) => setPassword(event.target.value)}
                         autoComplete="new-password" required />
 
-                    <button className="registerButton" type="submit" disabled={loader}>
+                    <button className="registerButton bg-[#552285]" type="submit" disabled={loader}>
                         {loader ? (
                             <CircularProgress size={24} color="inherit" />
                         ) : (

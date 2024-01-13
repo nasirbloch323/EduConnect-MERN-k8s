@@ -15,8 +15,8 @@ const location = {
 };
 
 const Map = () => (
-  <div className="map">
-    <div className="google-map" style={{ width: "100vw", height: "50vh" }}>
+  <div className="map p-0 m-0 ">
+    <div className="google-map m-0 p-0" style={{ width: "100vw", height: "50vh" }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyAW3ApmDWXZfP1LF0W6HAb5b5X-jUUNbHs" }}
         defaultCenter={location}

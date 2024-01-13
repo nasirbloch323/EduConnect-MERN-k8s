@@ -115,6 +115,6 @@ const StyledBox = styled(Box)`
   margin-top: 1rem;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border: 1px solid #ccc;
+  border: 1px solid #552285;
   border-radius: 4px;
 `;

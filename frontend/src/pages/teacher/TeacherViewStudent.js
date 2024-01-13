@@ -74,7 +74,7 @@ const TeacherViewStudent = () => {
                     <br />
                     Class: {sclassName.sclassName}
                     <br />
-                    School: {studentSchool.schoolName}
+                    Department: {studentSchool.schoolName}
                     <br /><br />
 
                     <h3>Attendance:</h3>

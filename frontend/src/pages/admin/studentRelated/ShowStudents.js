@@ -119,7 +119,7 @@ const ShowStudents = () => {
                 </BlueButton>
                 <React.Fragment>
                     <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
-                        <Button onClick={handleClick}>{options[selectedIndex]}</Button>
+                        <Button onClick={handleClick} className="bg-[#552285]" >{options[selectedIndex]}</Button>
                         <BlackButton
                             size="small"
                             aria-controls={open ? 'split-button-menu' : undefined}

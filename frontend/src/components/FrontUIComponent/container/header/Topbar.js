@@ -10,54 +10,60 @@ import {
 import logo from "../../../../../src/assets/logo.jpeg";
 import "./header.css";
 import { Link } from "react-router-dom";
+import Topnavbar from "./Topnavbar";
 
 function Topbar() {
 
   return (
-    <Navbar
-      expand="lg"
-      className="px-4 text-capitalize"
-      style={{ backgroundColor: "#fff" }}
-    >
-      <Navbar.Brand href="/" className="w-50">
-        <img src={logo} alt="logo" className="header-logo" />
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mx-auto">
-          <Link to="/" >
-            <Nav.Link href="/" className="nav-items">Home</Nav.Link>
-          </Link>
+    <>
+      <Topnavbar />
+      <Navbar
+        expand="lg"
+        className="px-5 m-0 p-2 text-capitalize"
+        style={{ backgroundColor: "#fff" }}
+      >
+        <Navbar.Brand href="/" className="logo">
+          <img src={logo} alt="logo" className="header-logo" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="mobile-humber " />
+        <Navbar.Collapse id="basic-navbar-nav border-0">
+          <Nav className="mx-auto">
+            <Link to="/" >
+              <Nav.Link href="/" className="nav-items">Home</Nav.Link>
+            </Link>
+            <li class="nav-item dropdown">
+              <Link class="nav-link dropdown-toggle nav-items" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administration
+              </Link>
+              <ul class="dropdown-menu rounded-0">
+                <li className="nav-items"><Link class="dropdown-item" to="/courses">Courses</Link></li>
+                <li className="nav-items"><Link class="dropdown-item" to="/gallery">gallery</Link></li>
+                <li className="nav-items"><Link class="dropdown-item" href="/events">events</Link></li>
+              </ul>
+            </li>
 
-          <NavDropdown title="Administration" id="administration-dropdown" className="nav-items">
-            <Link to="/courses" >
-              <NavDropdown.Item href="/courses" className="nav-items">Courses</NavDropdown.Item>
+            <Link to="/admission" className="nav-items">
+              <Nav.Link href="/admission" className="nav-items">Admission</Nav.Link>
             </Link>
-            <Link to="/gallery" >
-              <NavDropdown.Item href="/gallery" className="nav-items">gallery</NavDropdown.Item>
+            <Link to="/faculty" >
+              <Nav.Link href="/faculty" className="nav-items dropdown-item">Faculties</Nav.Link>
             </Link>
-            <Link to="/events" >
-              <NavDropdown.Item href="/events" className="nav-items">events</NavDropdown.Item>
+            <Link to="/about" >
+              <Nav.Link href="/about" className="nav-items">About</Nav.Link>
             </Link>
-          </NavDropdown>
-          <Link to="/admission" className="nav-items">
-            <Nav.Link href="/admission"   className="nav-items">Admission</Nav.Link>
-          </Link>
-          <Link to="/faculty" >
-            <Nav.Link href="/faculty" className="nav-items">Faculty</Nav.Link>
-          </Link>
-          <Link to="/about" >
-            <Nav.Link href="/about" className="nav-items">About</Nav.Link>
-          </Link>
-          <Link to="/contact" >
-            <Nav.Link href="/contact" className="nav-items">Contact</Nav.Link>
-          </Link>
-        </Nav>
-        <Form inline>
-          <Button className="login-header-btn"><Link to='/login' className='link'>Login</Link></Button>
-        </Form>
-      </Navbar.Collapse>
-    </Navbar>
+            <Link to="/" >
+              <Nav.Link href="/" className="nav-items">Academic</Nav.Link>
+            </Link>
+            <Link to="/" >
+              <Nav.Link href="/" className="nav-items">directorates</Nav.Link>
+            </Link>
+          </Nav>
+          <Form inline>
+            <Button className="login-header-btn"><Link to='/contact' className='link'>Contact</Link></Button>
+          </Form>
+        </Navbar.Collapse>
+      </Navbar>
+    </>
   );
 
 }
