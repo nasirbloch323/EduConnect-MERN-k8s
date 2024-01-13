@@ -10,13 +10,13 @@ import {
 import logo from "../../../../../src/assets/logo.jpeg";
 import "./header.css";
 import { Link } from "react-router-dom";
-import Topnavbar from "./Topnavbar";
+// import Topnavbar from "./Topnavbar";
 
 function Topbar() {
 
   return (
     <>
-      <Topnavbar />
+      {/* <Topnavbar /> */}
       <Navbar
         expand="lg"
         className="px-5 m-0 p-2 text-capitalize"

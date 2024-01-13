@@ -2,10 +2,12 @@ import React from 'react';
 import AboutPage1 from '../../components/FrontUIComponent/container/about/AboutPage1';
 import Topbar from '../../components/FrontUIComponent/container/header/Topbar';
 import Footer from '../../components/FrontUIComponent/container/footer/Footer';
+import Topnavbar from '../../components/FrontUIComponent/container/header/Topnavbar';
 
 function AboutPage() {
     return (
         <>
+            <Topnavbar />
             <Topbar />
             <AboutPage1 />
             <Footer />

@@ -37,7 +37,7 @@ function Topnavbar() {
                                 Offices
                             </Link>
                             <Form inline>
-                                <Button className="toplogin-header-btn"><Link to='/login' className='link'>Login</Link></Button>
+                                <Link to='/login' className='link'><Button className="toplogin-header-btn">Login</Button></Link>
                             </Form>
                         </Nav>
 

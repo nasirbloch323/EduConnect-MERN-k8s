@@ -1,5 +1,6 @@
 import React from 'react';
 import Topbar from '../../components/FrontUIComponent/container/header/Topbar';
+import Topnavbar from '../../components/FrontUIComponent/container/header/Topnavbar';
 import About from "../../components/FrontUIComponent/container/about/About";
 import VideoPage from "../../components/FrontUIComponent/container/videoSection/VideoPage";
 import Courses from "../../components/FrontUIComponent/container/courses/Courses";
@@ -12,6 +13,7 @@ import Footer from '../../components/FrontUIComponent/container/footer/Footer';
 const HomePage = () => {
     return (
         <>
+            <Topnavbar />
             <Topbar />
             <Slider />
             <About />
