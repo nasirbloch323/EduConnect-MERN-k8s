@@ -149,7 +149,7 @@ a:hover {
   border: none;
   border-radius: 0px;
   font-size: 13px;
-  /* padding: 3px 15px; */
+  padding: 5px 15px;
   /* text-transform: uppercase; */
 }
 
@@ -192,22 +192,42 @@ a:hover {
   color: black;
 }
 
+.slider {
+  background-color: #ffffff;
+  color: black;
+  height: fit-content;
+  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  opacity: 0.5;
+}
+
+
 /* Mobile responsiveness */
 @media only screen and (max-width: 768px) {
   .right-container {
-    padding-left: 20px; 
+    padding-left: 20px;
     justify-content: space-between;
     display: flex;
-    padding-bottom:5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
-  
-  .top-item {
-    font-size: 12px;
-  }
-  
+
+
+
   .top-item {
     background-color: #7A1CCB;
     color: #ffffff;
-    margin: 5px;
+    margin: 3px;
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+
+  .toplogin-header-btn {
+    background-color: #7A1CCB;
+    color: #ffffff;
+    margin: 3px;
+    padding: 5px 15px;
+    font-size: 12px;
   }
 }

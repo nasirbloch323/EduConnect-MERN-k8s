@@ -3,6 +3,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import logo from "../../../../../src/assets/logo.jpeg";
 import "./footer.css";
 import MapContainer from "./MapContainer";
+import { Link } from "react-router-dom";
 
 function Footer() {
 
@@ -19,25 +20,51 @@ function Footer() {
         <Row className="mt-5">
           <Col
             sm={6}
-            md={4}
+            md={3}
             data-aos="fade-right"
             className="mx-auto  d-flex justify-content-start align-items-center flex-column flex-wrap"
           >
-            <Image src={logo} fluid  className="footer-logo"/>
+            <Image src={logo} fluid className="footer-logo" />
             <h4 className="mt-3 text-center">
               EduConnect+ <br />
             </h4>
           </Col>
           <Col
             sm={6}
-            md={4}
+            md={3}
+            data-aos="fade-left"
+            className="d-flex mt-3 justify-content-start  flex-column flex-wrap"
+          >
+            <h3 className="mb-2 text-capitalize text-start">Important Links</h3>
+            <div
+              className="justify-content-start align-items-center flex-column"
+              style={{ borderTop: "2px solid blue", paddingTop: "0.5rem" }}
+            >
+              <p>
+                <Link className="link">Home</Link>
+              </p>
+              <p>
+                <Link className="link">About</Link>
+              </p>
+              <p>
+                <Link className="link">Blogs</Link>
+              </p>
+              <p>
+                <Link className="link">Jobs</Link>
+              </p>
+
+            </div>
+          </Col>
+          <Col
+            sm={6}
+            md={3}
             data-aos="fade-left"
             className="d-flex mt-3 justify-content-start  flex-column flex-wrap"
           >
             <h3 className="mb-2 text-capitalize text-start">contact us</h3>
             <div
               className="justify-content-start align-items-center flex-column"
-              style={{ borderTop: "2px solid green", paddingTop: "0.5rem" }}
+              style={{ borderTop: "2px solid blue", paddingTop: "0.5rem" }}
             >
               <p class="d-flex flex-wrap">
                 <span class="mr-4 footer-icon">
@@ -61,29 +88,29 @@ function Footer() {
           </Col>
           <Col
             sm={6}
-            md={4}
+            md={3}
             data-aos="fade-left"
             className="mx-auto mt-3 d-flex justify-content-start  flex-column flex-wrap"
           >
             <h3 className="mb-2">NewsLetter</h3>
 
             <div
-              style={{ borderTop: "2px solid green", paddingTop: "0.5rem" }}
+              style={{ borderTop: "2px solid blue", paddingTop: "0.5rem" }}
             >
               Enter your email address to get the latest University news,
               special events and student activities delivered right to your
               inbox.
-              <div class="input-group mb-3 mt-3 is-warning">
+              <div class="input-group mb-3 mt-3 is-warning ">
                 <input
                   type="email"
-                  class="form-control"
+                  class="form-control rounded-0"
                   placeholder="Email"
                   aria-label="Email"
                   aria-describedby="basic-addon2"
                 />
                 <div class="input-group-append">
                   <span
-                    class="input-group-text"
+                    class="input-group-text rounded-0"
                     style={{ backgroundColor: "#7A1CCB", color: "white" }}
                     id="basic-addon2"
                   >
@@ -96,7 +123,7 @@ function Footer() {
         </Row>
         <hr />
       </Container>
-      <Container>
+      <Container className="py-3">
         <Row>
           <Col md={8} sm={6} xs={12}>
             <p class="copyright-text">

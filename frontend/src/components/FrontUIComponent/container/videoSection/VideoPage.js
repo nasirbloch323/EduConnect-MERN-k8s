@@ -16,7 +16,7 @@ function VideoPage() {
               </video>
               <div className="video-text">
                 <p>Trusted by 10,000+ students</p>
-                <Button className="video-header-btn" >
+                <Button className="video-header-btn rounded-0" >
               <Link to='/login' className='link'>Register</Link>
             </Button>
               </div>

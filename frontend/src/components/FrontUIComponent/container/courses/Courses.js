@@ -30,7 +30,7 @@ function Courses() {
               the bulk of the card's content.
             </Card.Text>
             <div className="text-center">
-            <Button className="cor-header-btn" >
+            <Button className="cor-header-btn rounded-0" >
               <Link to='/login' className='link'>Register</Link>
             </Button>
             </div>
@@ -67,7 +67,7 @@ function Courses() {
           <Row>
             <Col className="mx-auto my-3" data-aos="zoom-in">
               <div className="text-center">
-              <Button className="cor-header-btn" >
+              <Button className="cor-header-btn rounded-0" >
               <Link to='/' className='link'>VIEW MORE</Link>
             </Button>
               </div>

@@ -25,12 +25,12 @@ function Message({ props }) {
               style={{ width: "100%", height: "100%" }}
             />
           </Col>
-          <Col className="col-sm-7">
-            <Card.Body>
+          <Col className="col-sm-7 rounded-0">
+            <Card.Body className="rounded-0">
               <Card.Title>Learn Js in ease</Card.Title>
               <Card.Text>Lorem ipsum dolet lorem ipsum dolet lorem</Card.Text>
 
-              <Button className="news-header-btn" >
+              <Button className="news-header-btn rounded-0" >
                 <Link to='/notification' className='links'>LEARN MORE</Link>
               </Button>
             </Card.Body>
@@ -87,7 +87,7 @@ function Message({ props }) {
         <Row className="mx-3 main-row">{displayMessageCard}</Row>
         <Row>
           <Col className="mx-auto text-center">
-            <Button className="view-header-btn" >
+            <Button className="view-header-btn rounded-0" >
               <Link to='/' className='link'>VIEW MORE</Link>
             </Button>
           </Col>

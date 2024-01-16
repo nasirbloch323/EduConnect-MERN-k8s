@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Image,  Button } from "react-bootstrap";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import logo from "../../../../../src/assets/logo.jpeg";
 import "./about.css";
 import { Link } from "react-router-dom";
@@ -36,9 +36,9 @@ function About() {
 
               data-aos="fade-right"
             >
-                <Button className="read-header-btn" >
-                  <Link to='/about' className='link'>LEARN MORE</Link> 
-                  </Button>
+              <Button className="read-header-btn rounded-0" >
+                <Link to='/about' className='link'>LEARN MORE</Link>
+              </Button>
               <span>
                 <i
                   style={{ marginLeft: 10 }}

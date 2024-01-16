@@ -21,7 +21,7 @@ function LatestEvents() {
               <Card.Title>Learn Js in ease</Card.Title>
               <Card.Text>Lorem ipsum dolet lorem ipsum dolet lorem</Card.Text>
 
-              <Button className="events-header-btn" >
+              <Button className="events-header-btn rounded-0" >
                 <Link to='/events' className='links'>LEARN MORE</Link>
               </Button>
             </Card.Body>
@@ -50,7 +50,7 @@ function LatestEvents() {
       <Row>{displayLatestEvents}</Row>
       <Row>
         <Col className="mx-auto text-center">
-          <Button className="view-header-btn" >
+          <Button className="view-header-btn rounded-0" >
             <Link to='/' className='link'>VIEW MORE</Link>
           </Button>
         </Col>

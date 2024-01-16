@@ -18,8 +18,8 @@ function Topnavbar() {
                 <div className="row">
                     <div className="right-container">
                         <Nav className="mx-auto d-flex ">
-                          
-                        <Link to="/" className="top-item" >
+
+                            <Link to="/" className="top-item" >
                                 Journals
                             </Link>
                             <Link to="/" className="top-item"  >
@@ -36,9 +36,7 @@ function Topnavbar() {
                             <Link to="/contact" className="top-item"  >
                                 Offices
                             </Link>
-                            <Form inline>
-                                <Link to='/login' className='link'><Button className="toplogin-header-btn">Login</Button></Link>
-                            </Form>
+                            <Link to='/login' className='toplogin-header-btn'>Login</Link>
                         </Nav>
 
                     </div>
