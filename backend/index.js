@@ -35,9 +35,9 @@ mongoose.connect(uri, {
 	.catch((err) => console.log("NOT CONNECTED TO NETWORK", err))
 
 app.use("/", Routes)
-// app.get("/", async (req, res) => {
-// 	res.json("Welcome to website")
-// })
+app.get("/", async (req, res) => {
+	res.json("Welcome to website")
+})
 app.listen(PORT, () => {
 	console.log(`Server started at port no. ${PORT}`)
 })
