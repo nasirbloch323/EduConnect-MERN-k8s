@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
-import logo from "../../../../../src/assets/logo.jpeg";
+import logo from "../../../../../src/assets/about.jpg";
 import "./about.css";
 import { Link } from "react-router-dom";
 
