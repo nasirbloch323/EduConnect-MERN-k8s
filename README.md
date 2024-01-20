@@ -1,5 +1,5 @@
 <h1 align="center">
-    UNIVERSITY MANAGEMENT SYSTEM
+    EDUCONNECT+
 </h1>
 
 <h2 align="center">
