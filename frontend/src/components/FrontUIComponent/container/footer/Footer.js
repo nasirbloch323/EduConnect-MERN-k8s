@@ -33,12 +33,12 @@ function Footer() {
             sm={6}
             md={3}
             data-aos="fade-left"
-            className="d-flex mt-3 justify-content-start  flex-column flex-wrap"
+            className="d-flex mt-3 px-3 justify-content-start  flex-column flex-wrap"
           >
             <h3 className="mb-2 text-capitalize text-start">Important Links</h3>
             <div
               className="justify-content-start align-items-center flex-column"
-              style={{ borderTop: "2px solid blue", paddingTop: "0.5rem" }}
+              style={{ borderTop: "1px solid #7A1CCB", paddingTop: "0.5rem" }}
             >
               <p>
                 <Link className="link">Home</Link>
@@ -59,12 +59,12 @@ function Footer() {
             sm={6}
             md={3}
             data-aos="fade-left"
-            className="d-flex mt-3 justify-content-start  flex-column flex-wrap"
+            className="d-flex mt-3 px-3 justify-content-start  flex-column flex-wrap"
           >
             <h3 className="mb-2 text-capitalize text-start">contact us</h3>
             <div
               className="justify-content-start align-items-center flex-column"
-              style={{ borderTop: "2px solid blue", paddingTop: "0.5rem" }}
+              style={{ borderTop: "1px solid #7A1CCB", paddingTop: "0.5rem" }}
             >
               <p class="d-flex flex-wrap">
                 <span class="mr-4 footer-icon">
@@ -90,12 +90,12 @@ function Footer() {
             sm={6}
             md={3}
             data-aos="fade-left"
-            className="mx-auto mt-3 d-flex justify-content-start  flex-column flex-wrap"
+            className="mx-auto mt-3 px-3 d-flex justify-content-start  flex-column flex-wrap"
           >
             <h3 className="mb-2">NewsLetter</h3>
 
             <div
-              style={{ borderTop: "2px solid blue", paddingTop: "0.5rem" }}
+              style={{ borderTop: "1px solid #7A1CCB", paddingTop: "0.5rem" }}
             >
               Enter your email address to get the latest University news,
               special events and student activities delivered right to your
