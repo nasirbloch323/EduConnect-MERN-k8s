@@ -11,8 +11,8 @@ function Slider() {
     <Container fluid style={{ height: "calc(100vh - 77px)" }}>
       <Row className="max-height">
         <Col xs={10} className="mx-auto div-col">
-          <Carousel>
-            <Carousel.Item >
+          <Carousel className="">
+            <Carousel.Item className="p-0 m-0 ">
               <Image
                 className="d-block w-100 "
                 src={slide01}
@@ -26,12 +26,9 @@ function Slider() {
               // data-aos-offset="300"
               // data-aos-easing="ease-in-sine"
               >
-                <h1> First slide label First slide label </h1>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-
+                <h1 className="slide-head"> University of Okara's High Achievement </h1>
+                <p className="slide-para">
+                Celebrating high achievers in research and international ranking 2024
                 </p>
                 <Button className="start-header-btn rounded-0" >
                   <Link to='/' className='link'> Get Started</Link>
@@ -48,9 +45,9 @@ function Slider() {
               />
 
               <Carousel.Caption data-aos="fade-right " className="text-left slider">
-                <h1>Second slide label</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <h1 className="slide-head">Annual Dinners in UO</h1>
+                <p className="slide-para">
+                2nd annual dinner, School of law, Computing Faculty
                 </p>
                 <Button className="start-header-btn rounded-0" >
                   <Link to='/' className='link'> Get Started</Link>
@@ -67,10 +64,9 @@ function Slider() {
               />
 
               <Carousel.Caption data-aos="fade-right " className="text-left slider">
-                <h1>Third slide label</h1>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
+                <h1 className="slide-head">Ex Chief Justice Visit and Explore Communities</h1>
+                <p className="slide-para">
+                Ex Chief Justice LHC , honourable justice Qasim Khan visited UO
                 </p>
                 <Button className="start-header-btn rounded-0" >
                   <Link to='/' className='link'> Get Started</Link>

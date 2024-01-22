@@ -7,6 +7,8 @@ import Courses from "../../components/FrontUIComponent/container/courses/Courses
 import Message from "../../components/FrontUIComponent/container/Messages/Message";
 import Slider from "../../components/FrontUIComponent/container/header/Slider";
 import Footer from '../../components/FrontUIComponent/container/footer/Footer';
+import Anoucment from '../../components/FrontUIComponent/container/Anoucment';
+import LatestEvents from '../../components/FrontUIComponent/container/Messages/LatestEvents';
 
 
 
@@ -16,8 +18,11 @@ const HomePage = () => {
             <Topnavbar />
             <Topbar />
             <Slider />
-            <About />
+            <Anoucment/>
+            {/* <About /> */}
+
             <Message />
+            {/* <LatestEvents/> */}
             <VideoPage />
             <Courses />
             <Footer />

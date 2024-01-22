@@ -16,17 +16,17 @@ function Topbar() {
 
   return (
     <>
-      {/* <Topnavbar /> */}
+    
       <Navbar
         expand="lg"
-        className="px-5 m-0 p-2 text-capitalize"
+        className="topbar  text-capitalize"
         style={{ backgroundColor: "#fff" }}
       >
-        <Navbar.Brand href="/" className="logo">
+        <Navbar.Brand href="/" className="logo p-0 m-0">
           <img src={logo} alt="logo" className="header-logo" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="mobile-humber " />
-        <Navbar.Collapse id="basic-navbar-nav border-0">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="mobile-humber p-0 m-0" />
+        <Navbar.Collapse id="basic-navbar-nav w-100 border-0 p-0 m-0">
           <Nav className="mx-auto">
             <Link to="/" >
               <Nav.Link href="/" className="nav-items">Home</Nav.Link>
@@ -42,7 +42,7 @@ function Topbar() {
               </ul>
             </li>
 
-            <Link to="/admission" className="nav-items">
+            <Link to="/admission" >
               <Nav.Link href="/admission" className="nav-items">Admission</Nav.Link>
             </Link>
             <Link to="/faculty" >
@@ -59,7 +59,7 @@ function Topbar() {
             </Link>
           </Nav>
           <Form inline>
-            <Button className="login-header-btn"><Link to='/contact' className='link'>Contact</Link></Button>
+            <Button className="login-header-btn"><Link to='/login' className='link'>STARTED</Link></Button>
           </Form>
         </Navbar.Collapse>
       </Navbar>

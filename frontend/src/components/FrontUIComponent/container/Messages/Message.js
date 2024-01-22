@@ -15,8 +15,8 @@ function Message({ props }) {
     "card05",
     "card06",
   ].map((cards, index) => (
-    <Col className="mx-auto my-3" lg={4} sm={6} data-aos="zoom-in-up">
-      <Card className="message-card">
+    <Col className="mx-auto my-1" lg={4} sm={6} data-aos="zoom-in-up">
+      <Card className="message-card rounded-0">
         <Row className="no-gutters">
           <Col className="col-sm-5">
             <Image
@@ -26,7 +26,7 @@ function Message({ props }) {
             />
           </Col>
           <Col className="col-sm-7 rounded-0">
-            <Card.Body className="rounded-0">
+            <Card.Body className="car-body">
               <Card.Title>Learn Js in ease</Card.Title>
               <Card.Text>Lorem ipsum dolet lorem ipsum dolet lorem</Card.Text>
 
@@ -42,11 +42,11 @@ function Message({ props }) {
 
   return (
     <section id="messages">
-      <Container fluid className="message-container my-3">
+      <Container fluid className="message-container ">
         <Row>
-          <Col className="mx-auto my-3 text-center text-capitalize">
-            <h1 className='heading-1'>
-              Latest <strong className='span'>Updates</strong>
+          <Col className="mx-auto mt-5 text-capitalize">
+            <h1 className='a-title pl-4'>
+              Latest <strong className='a-titles'>Updates</strong>
             </h1>
             <div className="latest-news">
               <marquee>

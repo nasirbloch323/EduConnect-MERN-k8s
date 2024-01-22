@@ -84,9 +84,10 @@ a:hover {
   border: none;
   padding: 0px;
   margin: 0px;
-  font-weight: 600;
+  font-weight: 800;
   outline: none;
 }
+
 
 @media (max-width: 750px) {
   .carousel-caption {
@@ -106,7 +107,9 @@ a:hover {
   .nav-items {
     font-size: 14px;
     margin-top: 5px;
-
+    margin-bottom: 3px;
+    margin-top: 3px;
+    border-bottom: 1px solid rgb(190, 190, 190);
   }
 
   .login-header-btn {
@@ -133,6 +136,7 @@ a:hover {
   /* font-weight: 550; */
   text-transform: uppercase;
   color: black;
+
 
 }
 
@@ -167,8 +171,16 @@ a:hover {
   font-size: 13px;
   color: #dadada;
 } */
+.topbar {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
 .right-container {
-  padding-left: 700px;
+  padding-left: 650px;
   width: 100%;
 }
 
@@ -192,15 +204,7 @@ a:hover {
   color: black;
 }
 
-.slider {
-  background-color: #ffffff;
-  color: black;
-  height: fit-content;
-  padding: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  opacity: 0.5;
-}
+
 
 
 /* Mobile responsiveness */
@@ -209,11 +213,17 @@ a:hover {
     padding-left: 20px;
     justify-content: space-between;
     display: flex;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
+  .topbar {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
+  }
 
   .top-item {
     background-color: #7A1CCB;
@@ -230,4 +240,33 @@ a:hover {
     padding: 5px 15px;
     font-size: 12px;
   }
+
+}
+
+
+
+/* slider */
+
+.slider {
+  background-color: #ffffff;
+  color: black;
+  height: fit-content;
+  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  opacity: 0.5;
+}
+
+.slide-head {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.slide-para {
+  font-size: 15px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  width: 10%;
 }
