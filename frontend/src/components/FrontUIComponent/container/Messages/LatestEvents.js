@@ -71,13 +71,6 @@ function LatestEvents() {
     <Col className="mx-auto my-1" lg={4} sm={6} data-aos="zoom-in-up">
       <Card className="message-card rounded-0">
         <Row className="no-gutters">
-          <Col className="col-sm-5">
-            <Image
-              src={course}
-              fluid
-              style={{ width: "100%", height: "100%" }}
-            />
-          </Col>
           <Col className="col-sm-7 rounded-0">
             <Card.Body className="car-body">
               <Card.Title>Learn Js in ease</Card.Title>
@@ -88,13 +81,21 @@ function LatestEvents() {
               </Button>
             </Card.Body>
           </Col>
+          <Col className="col-sm-5">
+            <Image
+              src={course}
+              fluid
+              style={{ width: "100%", height: "100%" }}
+            />
+          </Col>
+
         </Row>
       </Card>
     </Col>
   ));
 
   return (
-    <section id="messages">
+    <>
       <Container fluid className="message-container ">
         <Row>
           <Col className="mx-auto mt-5 text-capitalize">
@@ -146,8 +147,9 @@ function LatestEvents() {
           </Col>
         </Row>
       </Container>
-      <LatestEvents />
-    </section>
+
+    </>
+
   );
 
 }
