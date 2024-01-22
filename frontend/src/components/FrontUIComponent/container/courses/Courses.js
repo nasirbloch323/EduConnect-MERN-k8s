@@ -30,9 +30,9 @@ function Courses() {
               the bulk of the card's content.
             </Card.Text>
             <div className="text-center">
-            <Button className="cor-header-btn rounded-0" >
-              <Link to='/login' className='link'>Register</Link>
-            </Button>
+              <Button className="cor-header-btn rounded-0" >
+                <Link to='/login' className='link'>Register</Link>
+              </Button>
             </div>
           </Card.Body>
         </Card>
@@ -42,39 +42,77 @@ function Courses() {
 
   return (
     <>
-
-      <section id="courses" className="courses py-5">
-        <Container>
-          <Row>
-            <Col xs={10} sm={6} className="mx-auto text-center course-title">
-              <h1 className="text-capitalize">
-                Our Featured <strong style={{ color: "brown" }}>Courses</strong>
-              </h1>
-              <p
-                style={{
-                  borderTop: "3px solid white",
-                  width: 70,
-                  marginTop: 20,
-                }}
-              ></p>
-              <p className="text-muted" data-aos="fade-up">
-                Our Featured Courses are selected through a rigorous process and
-                uniquely created for each semester.
-              </p>
-            </Col>
-          </Row>
-          <Row>{displayCourse}</Row>
-          <Row>
-            <Col className="mx-auto my-3" data-aos="zoom-in">
-              <div className="text-center">
-              <Button className="cor-header-btn rounded-0" >
-              <Link to='/' className='link'>VIEW MORE</Link>
-            </Button>
+      <div className="container mt-4 mb-4">
+        <h1 className="a-title">
+          RESEARCH IN<strong className="a-titles"> LIMELIGHT</strong>
+        </h1>
+        <div className="row">
+          <div className="p-1 a-card col-md-3 " data-aos="zoom-in-up">
+            <div className="card-r p-0 center" >
+              <Link to='' className='w-100'>
+                <img src={course01} className='w-100 p-1' alt=' ' />
+              </Link>
+              <div class="middle">
+                <div class="text-white "> <h5 className='fs-6 bg-[#7A1CCB] p-2  uppercase'>NARRATIVE ART</h5>
+                </div>
               </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+            </div>
+            <div class=" ">
+              <h5 className='fs-6 p-2 text-black uppercase'>UO ARCHAEOLOGY DEPT. DISCOVERED 2000 YEARS OLD UNIQUE EVIDENCES OF BUDDHIST NARRATIVE ART</h5>
+            </div>
+          </div>
+          <div className="p-1 a-card col-md-3" data-aos="zoom-in-up">
+
+            <Link to='' className='w-100'>
+              <img src={course01} className='w-100 p-1' alt=' ' />
+            </Link>
+
+            <div class="middle1">
+              <div class="text-white "> <h5 className='fs-6 bg-[#7A1CCB] p-2  uppercase'>TRANSGENIC COTTON</h5>
+              </div>
+            </div>
+
+            <div class=" ">
+              <h5 className='fs-6 p-2 text-black uppercase'>TRANSGENIC COTTON VARIETIES DEVELOPED AT CEMB</h5>
+            </div>
+          </div>
+          <div className="p-1 a-card col-md-3" data-aos="zoom-in-up">
+            <div className="card-r p-0 center" >
+              <Link to='' className='w-100'>
+                <img src={course01} className='w-100 p-1' alt=' ' />
+              </Link>
+
+              <div class="middle2">
+                <div class="text-white "> <h5 className='fs-6 bg-[#7A1CCB] p-2  uppercase'>HEPATITIS & CANCER TREATMENT</h5>
+
+                </div>
+              </div>
+            </div>
+            <div class=" ">
+              <h5 className='fs-6 p-2 text-black uppercase'>HEPATITIS AND CANCER TREATMENT       </h5>
+            </div>
+          </div>
+          <div className="p-1 a-card col-md-3" data-aos="zoom-in-up">
+            <div className="card-r p-0 center" >
+              <Link to='' className='w-100'>
+                <img src={course01} className='w-100 p-1' alt=' ' />
+              </Link>
+
+              <div class="middle3">
+                <div class="text-white "> <h5 className='fs-6 bg-[#7A1CCB] p-2  uppercase'>HEAVY METALS TOXICITY</h5>
+
+                </div>
+              </div>
+            </div>
+            <div class=" ">
+              <h5 className='fs-6 p-2 text-black uppercase'>Uo RESEARCHER FINDS HEAVY METALS TOXICITY IN CHASHMA BARRAGE MUSSELS</h5>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
     </>
   );
 

@@ -9,6 +9,7 @@ import Slider from "../../components/FrontUIComponent/container/header/Slider";
 import Footer from '../../components/FrontUIComponent/container/footer/Footer';
 import Anoucment from '../../components/FrontUIComponent/container/Anoucment';
 import LatestEvents from '../../components/FrontUIComponent/container/Messages/LatestEvents';
+import Gotop from '../../components/FrontUIComponent/Gotop/Gotop';
 
 
 
@@ -18,14 +19,13 @@ const HomePage = () => {
             <Topnavbar />
             <Topbar />
             <Slider />
-            <Anoucment/>
+            <Anoucment />
             {/* <About /> */}
-
             <Message />
-            {/* <LatestEvents/> */}
-            <VideoPage />
             <Courses />
+            <VideoPage />
             <Footer />
+            <Gotop/>
         </>
     );
 };

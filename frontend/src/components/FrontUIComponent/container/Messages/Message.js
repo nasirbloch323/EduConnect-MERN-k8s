@@ -46,7 +46,7 @@ function Message({ props }) {
         <Row>
           <Col className="mx-auto mt-5 text-capitalize">
             <h1 className='a-title pl-4'>
-              Latest <strong className='a-titles'>Updates</strong>
+              Latest <strong className='a-titles'>Events</strong>
             </h1>
             <div className="latest-news">
               <marquee>
@@ -93,7 +93,7 @@ function Message({ props }) {
           </Col>
         </Row>
       </Container>
-      <LatestEvents />
+      {/* <LatestEvents /> */}
     </section>
   );
 

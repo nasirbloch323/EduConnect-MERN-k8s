@@ -10,7 +10,7 @@ function Anoucment() {
             Latest <strong className="a-titles">Annocment</strong>
           </h1>      
                 <div className="row">
-                    <div className="p-1 col-md-3">
+                    <div className="p-1 a-card col-md-3 " data-aos="zoom-in-up">
                         <div class=" card1" >
                             <img src={img} class="card-img-top " alt="..." />
                             <div class="card-body p-2">
@@ -21,7 +21,7 @@ function Anoucment() {
 
                         </div>
                     </div>
-                    <div className="p-1 col-md-3">
+                    <div className="p-1 a-card col-md-3" data-aos="zoom-in-up">
                         <div class=" card1" >
                             <img src={img} class="card-img-top " alt="..." />
                             <div class="card-body p-2">
@@ -32,7 +32,7 @@ function Anoucment() {
 
                         </div>
                     </div>
-                    <div className="p-1 col-md-3">
+                    <div className="p-1 a-card col-md-3" data-aos="zoom-in-up">
                         <div class=" card1" >
                             <img src={img} class="card-img-top " alt="..." />
                             <div class="card-body p-2">
@@ -43,7 +43,7 @@ function Anoucment() {
 
                         </div>
                     </div>
-                    <div className="p-1 col-md-3">
+                    <div className="p-1 a-card col-md-3" data-aos="zoom-in-up">
                         <div class=" card1" >
                             <img src={img} class="card-img-top " alt="..." />
                             <div class="card-body p-2">
@@ -54,8 +54,6 @@ function Anoucment() {
 
                         </div>
                     </div>
-
-
 
                 </div>
             </div>
