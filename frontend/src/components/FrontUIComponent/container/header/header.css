@@ -64,6 +64,14 @@ a:hover {
   color: #fff;
   border: none;
   margin-top: 20px;
+  font-size: 15px;
+  
+  border-radius: 0px;
+  /* padding-left:15px;
+  padding-right:15px;
+  padding-top:8px;
+  padding-bottom:8px;
+  border-radius: 0px 20px 0px 20px; */
 }
 
 .start-header-btn:hover {

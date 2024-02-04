@@ -30,7 +30,7 @@ function Slider() {
                 <p className="slide-para">
                 Celebrating high achievers in research and international ranking 2024
                 </p>
-                <Button className="start-header-btn rounded-0" >
+                <Button className="start-header-btn " >
                   <Link to='/' className='link'> Get Started</Link>
                 </Button>
               </Carousel.Caption>
@@ -49,7 +49,7 @@ function Slider() {
                 <p className="slide-para">
                 2nd annual dinner, School of law, Computing Faculty
                 </p>
-                <Button className="start-header-btn rounded-0" >
+                <Button className="start-header-btn " >
                   <Link to='/' className='link'> Get Started</Link>
                 </Button>
               </Carousel.Caption>
@@ -68,7 +68,7 @@ function Slider() {
                 <p className="slide-para">
                 Ex Chief Justice LHC , honourable justice Qasim Khan visited UO
                 </p>
-                <Button className="start-header-btn rounded-0" >
+                <Button className="start-header-btn " >
                   <Link to='/' className='link'> Get Started</Link>
                 </Button>
               </Carousel.Caption>

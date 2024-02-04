@@ -51,7 +51,7 @@ function Topbar() {
             <Link to="/about" >
               <Nav.Link href="/about" className="nav-items">About</Nav.Link>
             </Link>
-            <Link to="/" >
+            <Link to="/acadmic" >
               <Nav.Link href="/" className="nav-items">Academic</Nav.Link>
             </Link>
             <Link to="/" >

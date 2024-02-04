@@ -3,6 +3,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import "./faculty.css";
 import Topbar from "../../container/header/Topbar";
 import Footer from "../../container/footer/Footer";
+import Topnavbar from "../../container/header/Topnavbar";
 
 function FacultyPage() {
 
@@ -51,6 +52,7 @@ function FacultyPage() {
 
   return (
     <>
+    <Topnavbar/>
       <Topbar />
       <section>
         <Container
