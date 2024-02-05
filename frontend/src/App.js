@@ -19,7 +19,8 @@ import Notify from './components/FrontUIComponent/components/Notification/Notify
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Acadmic from './components/Acadmic';
+import AcadmicPage from './pages/FrontUIPages/AcadmicPage';
+// import  Login from './pages/Login';
 // import ContactPage from './pages/FrontUIPages/ContactPage';
 
 const App = () => {
@@ -40,9 +41,10 @@ const App = () => {
           <Route path="/notification" element={<Notify />} />
           <Route path="/faculty" element={<FacultyPage />} />
           <Route path="/events" element={<Event />} />
-          <Route path="/acadmic" element={<Acadmic />} />
+          <Route path="/acadmic" element={<AcadmicPage />} />
           {/* <Route path="/contact" element={<ContactPage />} /> */}
 
+          {/* <Route path="/log" element={<Login />} /> */}
           <Route path="/choose" element={<ChooseUser visitor="normal" />} />
           <Route path="/Adminlogin" element={<LoginPage role="Admin" />} />
           <Route path="/Studentlogin" element={<LoginPage role="Student" />} />

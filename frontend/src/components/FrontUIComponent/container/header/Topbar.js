@@ -16,7 +16,7 @@ function Topbar() {
 
   return (
     <>
-    
+
       <Navbar
         expand="lg"
         className="topbar  text-capitalize"
@@ -27,36 +27,215 @@ function Topbar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="mobile-humber p-0 m-0" />
         <Navbar.Collapse id="basic-navbar-nav w-100 border-0 p-0 m-0">
-          <Nav className="mx-auto">
-            <Link to="/" >
-              <Nav.Link href="/" className="nav-items">Home</Nav.Link>
-            </Link>
-            <li class="nav-item dropdown">
-              <Link class="nav-link dropdown-toggle nav-items" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Administration
-              </Link>
-              <ul class="dropdown-menu rounded-0">
-                <li className="nav-items"><Link class="dropdown-item" to="/courses">Courses</Link></li>
-                <li className="nav-items"><Link class="dropdown-item" to="/gallery">gallery</Link></li>
-                <li className="nav-items"><Link class="dropdown-item" href="/events">events</Link></li>
-              </ul>
-            </li>
+          <Nav className="mx-auto ">
+            <button className="dropbtn" >
+              <Link to="/" className="nav-items ">   Home</Link>
+            </button>
+            <div className="dropdown">
+              <button className="dropbtn" >
+                <Link to="/" className="nav-items ">   Administration</Link>
+              </button>
+              <div className="dropdown-content " >
+                <Link class="dropdown-item " to="/courses">Courses</Link>
+                <Link class="dropdown-item " to="/gallery">gallery</Link>
+                <Link class="dropdown-item " href="/events">events</Link>
+              </div>
+            </div>
+            <div class='megamenu'>
+              <button className="megamenu__option-label" >
+                <Link to="/admission" className="nav-items ">   Admission</Link>
+              </button>
+              <div class='megamenu__option-children'>
+                <div class='megamenu__option'>
+                  <div class='megamenu__option-label'>
+                    FACULTY OF COMPUTING
+                  </div>
+                  <div class='megamenu__option-children'>
+                    <div class='megamenu__option'>
+                      <div class='megamenu__option-label'>
+                        Deparment of CS
+                      </div>
+                      <div class='megamenu__option-children'>
+                        <div class='megamenu__options-wrapper'>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the first leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the second leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the third leaf.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='megamenu__option'>
+                      <div class='megamenu__option-label'>
+                        Group Two
+                      </div>
+                      <div class='megamenu__option-children'>
+                        <div class='megamenu__options-wrapper'>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the first leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the second leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the third leaf.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='megamenu__option'>
+                      <div class='megamenu__option-label'>
+                        Group Three
+                      </div>
+                      <div class='megamenu__option-children'>
+                        <div class='megamenu__options-wrapper'>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the first leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the second leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the third leaf.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-            <Link to="/admission" >
-              <Nav.Link href="/admission" className="nav-items">Admission</Nav.Link>
-            </Link>
-            <Link to="/faculty" >
-              <Nav.Link href="/faculty" className="nav-items dropdown-item">Faculties</Nav.Link>
-            </Link>
-            <Link to="/about" >
-              <Nav.Link href="/about" className="nav-items">About</Nav.Link>
-            </Link>
-            <Link to="/acadmic" >
-              <Nav.Link href="/" className="nav-items">Academic</Nav.Link>
-            </Link>
-            <Link to="/" >
-              <Nav.Link href="/" className="nav-items">directorates</Nav.Link>
-            </Link>
+                </div>
+                <div class='megamenu__option'>
+                  <div class='megamenu__option-label'>
+                    FACULTY OF COMPUTING
+                  </div>
+                  <div class='megamenu__option-children'>
+                    <div class='megamenu__option'>
+                      <div class='megamenu__option-label'>
+                        Group One
+                      </div>
+                      <div class='megamenu__option-children'>
+                        <div class='megamenu__options-wrapper'>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the first leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the second leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the third leaf.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='megamenu__option'>
+                      <div class='megamenu__option-label'>
+                        Group Two
+                      </div>
+                      <div class='megamenu__option-children'>
+                        <div class='megamenu__options-wrapper'>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the first leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the second leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the third leaf.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class='megamenu__option'>
+                      <div class='megamenu__option-label'>
+                        Group Three
+                      </div>
+                      <div class='megamenu__option-children'>
+                        <div class='megamenu__options-wrapper'>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the first leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the second leaf.
+                            </div>
+                          </div>
+                          <div class='megamenu__option'>
+                            <div class='megamenu__option-label megamenu__option-label--leaf'>
+                              I am the third leaf.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="dropdown">
+              <button className="dropbtn" >
+                <Link to="/faculty" className="nav-items ">Faculties</Link>
+              </button>
+              <div className="dropdown-content " >
+                <div className="dropdown1">
+                  <Link class="dropdown-item dropbtn1" to="/courses">Courses</Link>
+                  <div className="dropdown-content1 " >
+                    <Link class="dropdown-item " to="/gallery">gallery</Link>
+                    <Link class="dropdown-item " href="/events">events</Link>
+                  </div>
+                </div>
+
+                <Link class="dropdown-item " to="/gallery">gallery</Link>
+                <Link class="dropdown-item " href="/events">events</Link>
+              </div>
+
+            </div>
+            <button className="dropbtn" >
+              <Link to="/about" className="nav-items "> About</Link>
+            </button>
+
+            <button className="dropbtn" >
+              <Link to="/acadmic" className="nav-items "> Academic</Link>
+            </button>
+            <button className="" >
+              <Link to="/directorates" className=" nav-items "> directorates</Link>
+            </button>
           </Nav>
           <Form inline>
             <Button className="login-header-btn"><Link to='/login' className='link'>STARTED</Link></Button>
