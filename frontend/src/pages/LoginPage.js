@@ -4,13 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress, Backdrop } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import bgpic from "../assets/designlogin.jpg"
+// import bgpic from "../assets/designlogin.jpg"
+import bgpic from "../assets/login-logo.png"
 import { LightPurpleButton } from '../components/buttonStyles';
 import Topbar from '../components/FrontUIComponent/container/header/Topbar'
 import styled from 'styled-components';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
 import { toast } from 'react-toastify';
+
+import logo from '../assets/login-logo-1.png'
+import vectorArt from '../assets/login-logo-1.png'
+import axios from 'axios'
+
+
+
 const defaultTheme = createTheme();
 
 const LoginPage = ({ role }) => {
@@ -107,12 +115,13 @@ const LoginPage = ({ role }) => {
 
             <ThemeProvider theme={defaultTheme}>
                 <Grid container component="main" sx={{ height: '100vh' }}>
-
-                    
-
-
                     <CssBaseline />
                     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                        {/* <Box className="d-flex align-items-center justify-content-start ml-4">
+                            <button className="btn btn-secondary">
+                                <i className="fas fa-book me-2"></i> User Manual
+                            </button>
+                        </Box> */}
                         <Box
                             sx={{
                                 my: 8,
@@ -122,7 +131,8 @@ const LoginPage = ({ role }) => {
                                 alignItems: 'center',
                             }}
                         >
-                            <Typography variant="h4" sx={{ mb: 2, color: "#2c2143" }}>
+
+                            <Typography variant="h4" sx={{ mb: 2, color: "#2c2143" }} className='fs-3'>
                                 {role} Login
                             </Typography>
                             <Typography variant="h7">
@@ -219,7 +229,7 @@ const LoginPage = ({ role }) => {
                                         <CircularProgress size={24} color="inherit" />
                                         : "Login"}
                                 </LightPurpleButton>
-                            
+
                                 {role === "Admin" &&
                                     <Grid container>
                                         <Grid>
@@ -249,6 +259,7 @@ const LoginPage = ({ role }) => {
                             backgroundPosition: 'center',
                         }}
                     />
+
                 </Grid>
                 <Backdrop
                     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}

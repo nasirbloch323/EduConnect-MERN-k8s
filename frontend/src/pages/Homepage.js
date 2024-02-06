@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Box } from '@mui/material';
 import styled from 'styled-components';
-import Students from "../assets/students.svg";
+import Students from "../assets/login-logo.png"
 import { LightPurpleButton } from '../components/buttonStyles';
 import Topbar from '../components/FrontUIComponent/container/header/Topbar'
 const Homepage = () => {

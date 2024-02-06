@@ -1,157 +1,180 @@
-// /**
-//  * v0 by Vercel.
-//  * @see https://v0.dev/t/cxkULKxzxk7
-//  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
-//  */
-// import { TabsTrigger, TabsList, TabsContent, Tabs } from "@/components/ui/tabs"
-// import { CardTitle, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
-// import { Label } from "@/components/ui/label"
-// import { Input } from "@/components/ui/input"
-// import { Button } from "@/components/ui/button"
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import logo from '../assets/login-logo-1.png'
+import vectorArt from '../assets/login-logo-1.png'
+import axios from 'axios'
+// import CustomSnackbar from '../utilities/SnackBar'
+import { Box } from '@mui/material'
 
-// export default function Component() {
-//   return (
-//     <Tabs className="w-full max-w-md mx-auto" defaultValue="user">
-//       <TabsList className="grid w-full grid-cols-3">
-//         <TabsTrigger className="bg-[#552285]" value="user">
-//           <UserIcon className="h-6 w-6 mr-2" />
-//           User Login
-//         </TabsTrigger>
-//         <TabsTrigger className="bg-[#552285]" value="admin">
-//           <ShieldIcon className="h-6 w-6 mr-2" />
-//           Admin Login
-//         </TabsTrigger>
-//         <TabsTrigger className="bg-[#552285]" value="teacher">
-//           <BookIcon className="h-6 w-6 mr-2" />
-//           Teacher Login
-//         </TabsTrigger>
-//       </TabsList>
-//       <TabsContent value="user">
-//         <Card>
-//           <CardHeader>
-//             <CardTitle>User Login</CardTitle>
-//           </CardHeader>
-//           <CardContent className="space-y-2">
-//             <div className="space-y-1">
-//               <Label htmlFor="usernameUser">Username</Label>
-//               <Input id="usernameUser" required />
-//             </div>
-//             <div className="space-y-1">
-//               <Label htmlFor="passwordUser">Password</Label>
-//               <Input id="passwordUser" required type="password" />
-//             </div>
-//           </CardContent>
-//           <CardFooter>
-//             <Button className="w-full bg-[#552285]" type="submit">
-//               Login
-//             </Button>
-//           </CardFooter>
-//         </Card>
-//       </TabsContent>
-//       <TabsContent value="admin">
-//         <Card>
-//           <CardHeader>
-//             <CardTitle>Admin Login</CardTitle>
-//           </CardHeader>
-//           <CardContent className="space-y-2">
-//             <div className="space-y-1">
-//               <Label htmlFor="usernameAdmin">Username</Label>
-//               <Input id="usernameAdmin" required />
-//             </div>
-//             <div className="space-y-1">
-//               <Label htmlFor="passwordAdmin">Password</Label>
-//               <Input id="passwordAdmin" required type="password" />
-//             </div>
-//           </CardContent>
-//           <CardFooter>
-//             <Button className="w-full bg-[#552285]" type="submit">
-//               Login
-//             </Button>
-//           </CardFooter>
-//         </Card>
-//       </TabsContent>
-//       <TabsContent value="teacher">
-//         <Card>
-//           <CardHeader>
-//             <CardTitle>Teacher Login</CardTitle>
-//           </CardHeader>
-//           <CardContent className="space-y-2">
-//             <div className="space-y-1">
-//               <Label htmlFor="usernameTeacher">Username</Label>
-//               <Input id="usernameTeacher" required />
-//             </div>
-//             <div className="space-y-1">
-//               <Label htmlFor="passwordTeacher">Password</Label>
-//               <Input id="passwordTeacher" required type="password" />
-//             </div>
-//           </CardContent>
-//           <CardFooter>
-//             <Button className="w-full bg-[#552285]" type="submit">
-//               Login
-//             </Button>
-//           </CardFooter>
-//         </Card>
-//       </TabsContent>
-//     </Tabs>
-//   )
-// }
+export default function UserLogin() {
 
-// function BookIcon(props) {
-//   return (
-//     <svg
-//       {...props}
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="2"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//     >
-//       <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-//     </svg>
-//   )
-// }
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState('')
+
+    const [loginCredentials, setLoginCredentials] = useState({ role: 'user', email: '', password: '', remember: false })
+
+    const navigate = useNavigate();
+
+    // Login function
+    const loginSubmit = (e) => {
+        e.preventDefault()
+        setLoading(true)
+
+        axios.get('/sanctum/csrf-cookie').then(_response => {
+            axios.post(`/api/${loginCredentials.role}/login`, loginCredentials).then(res => {
+                if (res.status === 200) {
+                    if (loginCredentials.remember) {
+                        localStorage.setItem(`${loginCredentials.role}Token`, res.data.access_token)
+                        localStorage.setItem('user', JSON.stringify(res.data.user))
+                        localStorage.setItem('role', loginCredentials.role)
+                    } else {
+                        sessionStorage.setItem(`${loginCredentials.role}Token`, res.data.access_token)
+                        sessionStorage.setItem('user', JSON.stringify(res.data.user))
+                        sessionStorage.setItem('role', loginCredentials.role)
+                    }
+                    setLoading(false)
+                    navigate(`/${loginCredentials.role === 'User' ? '' : loginCredentials.role}`)
+                } else {
+                    setLoading(false)
+                    setError(res.data.message)
+                    setTimeout(() => { setError('') }, 5000)
+                }
+            }).catch(err => {
+                setLoading(false)
+                setError(err.response.data.message)
+                setTimeout(() => { setError('') }, 5000)
+            });
+        });
+    }
+
+    return (
+        <Box>
+            <Box className="container col-lg-10">
+
+                {/* Heading Section */}
+                <Box className="d-md-flex justify-content-between">
+                    <Box className="d-flex align-items-center py-2 ms-lg-4">
+                        <Box className="shadow rounded-8">
+                            <img className="my-3 px-2" src={logo} alt="Icon" style={{ width: '80px', height: '50px' }} />
+                        </Box>
+                        <Box className="ms-4">
+                            <h1 className="text-primary mt-3 fw-bold mb-0">EDU</h1>
+                            <p>A teaching-learning evaluation system</p>
+                        </Box>
+                    </Box>
+
+                    <Box className="d-flex align-items-center justify-content-end">
+                        <button className="btn btn-secondary">
+                            <i className="fas fa-book me-2"></i> User Manual
+                        </button>
+                    </Box>
+                </Box>
 
 
-// function ShieldIcon(props) {
-//   return (
-//     <svg
-//       {...props}
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="2"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//     >
-//       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-//     </svg>
-//   )
-// }
+                <Box className="row d-md-flex align-items-center">
+                    {/* left image */}
+                    <Box className="col-md-5 col-lg-6 p-3 p-lg-5 d-none d-md-block">
+                        <img className="img-fluid mb-3" src={vectorArt} alt='Welcome' style={{ width: '95%' }} />
+                    </Box>
+
+                    {/* login form box */}
+                    <Box className="col-md-7 col-lg-6 mt-4 mt-md-0">
+                        <Box className="card px-md-4 py-3 rounded-8 shadow-lg">
+                            <Box className="card-header">
+                                <h2>Login</h2>
+                                <p className='mb-0'>Input your login credentials here</p>
+                            </Box>
+
+                            <Box className="card-body pb-3">
+                                <form onSubmit={loginSubmit}>
+
+                                    {/* role select */}
+                                    <Box className="mb-3">
+                                        <label className='form-label' htmlFor="loginAs">Login as-</label>
+
+                                        <Box className="d-flex align-items-center">
+                                            <Box type='button' className={`btn pe-3 border w-100 d-flex justify-content-between align-items-center ${loginCredentials.role === 'user' && 'border-primary'}`}
+                                                onClick={() => setLoginCredentials({ ...loginCredentials, role: 'user' })} >
+                                                <span><i className="fas fa-user-pen text-secondary me-1"></i> Teacher</span>
+                                                <i className={`far fa-${loginCredentials.role === 'user' ? 'circle-dot text-primary' : 'circle text-grey'}`}></i>
+                                            </Box>
+
+                                            <Box type='button' className={`btn pe-3 border w-100 mx-3 d-flex justify-content-between align-items-center ${loginCredentials.role === 'moderator' && 'border-primary'}`}
+                                                onClick={() => setLoginCredentials({ ...loginCredentials, role: 'moderator' })} >
+                                                <span><i className="fas fa-user-gear text-secondary me-1"></i> HOD</span>
+                                                <i className={`far fa-${loginCredentials.role === 'moderator' ? 'circle-dot text-primary' : 'circle text-grey'}`}></i>
+                                            </Box>
+
+                                            <Box type='button' className={`btn pe-3 border w-100 d-flex justify-content-between align-items-center ${loginCredentials.role === 'admin' && 'border-primary'}`}
+                                                onClick={() => setLoginCredentials({ ...loginCredentials, role: 'admin' })} >
+                                                <span><i className="fas fa-user-shield text-secondary me-1"></i> Admin</span>
+                                                <i className={`far fa-${loginCredentials.role === 'admin' ? 'circle-dot text-primary' : 'circle text-grey'}`}></i>
+                                            </Box>
+                                        </Box>
+                                    </Box>
+
+                                    {/* email input */}
+                                    <Box className="mb-3">
+                                        <label className='form-label' htmlFor="email">Email</label>
+                                        <input type="email" name="email" id="email" className='form-control form-control-lg' placeholder='user@example.com'
+                                            value={loginCredentials.email} onChange={(e) => setLoginCredentials({ ...loginCredentials, email: e.target.value })} />
+                                    </Box>
+
+                                    {/* password input */}
+                                    <Box className="mb-3">
+                                        <label className='form-label' htmlFor="password">Password</label>
+                                        <input type="password" name="password" id="password" className='form-control form-control-lg' placeholder='********'
+                                            value={loginCredentials.password} onChange={(e) => setLoginCredentials({ ...loginCredentials, password: e.target.value })} />
+                                    </Box>
+
+                                    {/* remember me */}
+                                    <label htmlFor="remember" className='form-label mb-3'>
+                                        <input type="checkbox" name="remember" id="remember" checked={loginCredentials.remember}
+                                            onChange={(e) => setLoginCredentials({ ...loginCredentials, remember: e.target.checked })} /> Remember Me
+                                    </label>
+
+                                    {/* submit button */}
+                                    <button type="submit" className='btn btn-primary btn-block'>
+                                        {loading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> :
+                                            <>Login <i className="fas fa-sign-in ms-1"></i></>}
+                                    </button>
+                                </form>
+
+                                <Box className='mt-3 text-center'>
+                                    <Link to='/admin/forgot-password'>Forgot Password?</Link>
+                                </Box>
+                            </Box>
+                        </Box>
+                    </Box >
+                </Box >
+            </Box >
 
 
-// function UserIcon(props) {
-//   return (
-//     <svg
-//       {...props}
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="2"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//     >
-//       <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-//       <circle cx="12" cy="7" r="4" />
-//     </svg>
-//   )
-// }
+            {/* footer section */}
+            <Box className="py-3 mt-5">
+                <Box className="container">
+                    {/* <Box className="d-flex justify-content-center">
+            <img src="{{ asset('images/logos/Digital-Bangladesh.png') }}" alt="" style={{ height: "45px" }} />
+            <img className="ms-4" src={''} alt="" style={{ height: "45px" }} />
+            <img className="ms-4" src={''} alt="" style={{ height: "45px" }} />
+            <img className="ms-4" src={''} alt="" style={{ height: "45px" }} />
+          </Box> */}
+                    <Box className="d-md-flex justify-content-center small mt-3">
+                        <Box className="text-muted">
+                            {`© ${new Date().getFullYear().toString()}. Developed by `}
+                            <a href="" target="blank">M</a> {' & '}
+                            <a href="" target="blank">Mah</a>
+                        </Box>
+                        <Box className="ms-1">
+                            {" • "}
+                            <Link to={'#'}>Privacy Policy</Link>
+                            {" • "}
+                            <Link to={'#'}>Terms &amp; Conditions</Link>
+                        </Box>
+                    </Box>
+                </Box>
+            </Box>
+
+        </Box>
+    )
+}
