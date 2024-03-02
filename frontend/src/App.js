@@ -21,8 +21,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AcadmicPage from './pages/FrontUIPages/AcadmicPage';
 import Login from './pages/Login';
-import DevRegister from './pages/developer/DevRegister';
-import DevDashboard from './pages/developer/DevDashboard';
+
 // import ContactPage from './pages/FrontUIPages/ContactPage';
 
 const App = () => {
