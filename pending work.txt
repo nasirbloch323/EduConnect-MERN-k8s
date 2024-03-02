@@ -1,0 +1,29 @@
+
+ ::::Remaining Solve Problems:::
+
+1- Search field in students, teachers and others.
+2- Admin(HOD) ko Register karty waqat Code ana chaiye.
+3- assignment part ko dynamic bana hain.
+4- student chart color problem.
+5- students ka Semester ka result print karwana hain.
+6- students ka previous semester ka data show hona chaiye.
+7- ak semester ka Sabhi subject ka automatically total cgpa calculate.
+8- add functionality Students data excel-sheet ka zarya.
+
+9- Developer Role Create, Developer work role: 
+  i- Jo basically Admin(HOD) ko Create kary ga, 
+ ii- Events, Courses, Announcement and Notifications  
+     🔔 ko dynamic kary ga. 
+ iii- Contact form ko fill karny per developer ko 
+      contact kary waly ki info show hon.
+iv- Faculty Members ka data dynamic hon.
+    |  Edit | Delete |
+    Like: prof. Ghulam Ali
+             Name: Ghulam Ali
+             Head: Software Engineering
+             Bio: 50words
+             Email: Ghulamali@gmail.com
+             About:  100words
+
+10- Show all Courses details like Software engineering:
+All subjects, Outline subjects, credit hours, short summary.
