@@ -236,9 +236,9 @@ const LoginPage = ({ role }) => {
                                             Don't have an account?
                                         </Grid>
                                         <Grid item sx={{ ml: 2 }}>
-                                            <StyledLink to="/Adminregister">
+                                            {/* <StyledLink to="/Adminregister">
                                                 Sign up
-                                            </StyledLink>
+                                            </StyledLink> */}
                                         </Grid>
                                     </Grid>
                                 }

@@ -10,7 +10,6 @@ const connnectDB = async () => {
 		useUnifiedTopology: true,
 	}
 	mongoose
-		// .connect("mongodb://127.0.0.1:27017/vidmeti")
 		.connect(uri)
 		.then(() => console.log("Mongodb is connected"))
 		.catch((error) => console.log("Mongodb connection error", error))
