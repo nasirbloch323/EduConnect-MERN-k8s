@@ -20,7 +20,7 @@ import Notify from './components/FrontUIComponent/components/Notification/Notify
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AcadmicPage from './pages/FrontUIPages/AcadmicPage';
-import  Login from './pages/Login';
+import Login from './pages/Login';
 import DevRegister from './pages/developer/DevRegister';
 import DevDashboard from './pages/developer/DevDashboard';
 // import ContactPage from './pages/FrontUIPages/ContactPage';
@@ -54,15 +54,15 @@ const App = () => {
           <Route path="/Adminregister" element={<AdminRegisterPage />} />
           <Route path='*' element={<Navigate to="/" />} />
 
-          <Route path="/devregister" element={<DevRegister />} />
+          {/* <Route path="/devregister" element={<DevRegister />} /> */}
 
         </Routes>}
-
+      {/* 
         {currentRole === "Developer" &&
         <>
           <DevDashboard />
         </>
-      }
+      } */}
       {currentRole === "Admin" &&
         <>
           <AdminDashboard />
