@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }))
 app.use(express.json({ limit: "10mb" }))
 app.use(cors(
 	{
-		origin: ["http://localhost:3000"],
+		origin: ["https://edu-connect1.vercel.app"],
 		methods: ["POST", "GET"],
 		credentials: true
 	}
