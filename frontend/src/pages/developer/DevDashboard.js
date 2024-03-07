@@ -73,7 +73,7 @@ const DevDashboard = () => {
                             noWrap
                             sx={{ flexGrow: 1 }}
                         >
-                            Admin Dashboard
+                            Dev Dashboard
                         </Typography>
                         <AccountMenu />
                     </Toolbar>

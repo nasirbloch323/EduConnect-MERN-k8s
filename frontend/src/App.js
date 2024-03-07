@@ -21,8 +21,10 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AcadmicPage from './pages/FrontUIPages/AcadmicPage';
 import Login from './pages/Login';
+import DevRegister from './pages/developer/DevRegister';
+import DevDashboard from './pages/developer/DevDashboard';
 
-// import ContactPage from './pages/FrontUIPages/ContactPage';
+import ContactPage from './pages/FrontUIPages/ContactPage';
 
 const App = () => {
   AOS.init({
@@ -43,25 +45,28 @@ const App = () => {
           <Route path="/faculty" element={<FacultyPage />} />
           <Route path="/events" element={<Event />} />
           <Route path="/acadmic" element={<AcadmicPage />} />
-          {/* <Route path="/contact" element={<ContactPage />} /> */}
+          <Route path="/contact" element={<ContactPage />} />
 
           <Route path="/log" element={<Login />} />
           <Route path="/choose" element={<ChooseUser visitor="normal" />} />
+          {/* <Route path="/Developerlogin" element={<LoginPage role="Developer" />} /> */}
           <Route path="/Adminlogin" element={<LoginPage role="Admin" />} />
           <Route path="/Studentlogin" element={<LoginPage role="Student" />} />
           <Route path="/Teacherlogin" element={<LoginPage role="Teacher" />} />
           <Route path="/Adminregister" element={<AdminRegisterPage />} />
           <Route path='*' element={<Navigate to="/" />} />
 
-          {/* <Route path="/devregister" element={<DevRegister />} /> */}
+          {/* <Route path="/Developerregister" element={<DevRegister />} /> */}
+
+
 
         </Routes>}
-      {/* 
-        {currentRole === "Developer" &&
+
+      {currentRole === "Developer" &&
         <>
           <DevDashboard />
         </>
-      } */}
+      }
       {currentRole === "Admin" &&
         <>
           <AdminDashboard />

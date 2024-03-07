@@ -91,4 +91,4 @@ const updatedeveloper = async (req, res) => {
 
 module.exports = { developerRegister, developerLogIn, getdeveloperDetail, updatedeveloper };
 
-module.exports = { developerRegister, developerLogIn, getdeveloperDetail };
+// module.exports = { developerRegister, developerLogIn, getdeveloperDetail };
