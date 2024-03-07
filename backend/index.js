@@ -14,24 +14,16 @@ app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }))
 
 app.use(express.json({ limit: "10mb" }))
 app.use(cors())
-<<<<<<< HEAD
+
 app.use("/files", express.static("files"))
-// app.use(cors(
-// 	{
-// 		origin: ["https://edu-connect1.vercel.app"],
-// 		methods: ["POST", "GET"],
-// 		credentials: true
-// 	}
-// ));
-=======
-app.use(cors(
-	{
-		origin: ["https://edu-connect1.vercel.app"],
+
+app.use(
+	cors({
+		origin: ["https://edu-connect1.vercel.app", "http://localhost:3000"],
 		methods: ["POST", "GET"],
-		credentials: true
-	}
-));
->>>>>>> 7391803e950bdc3638b76bfe29cd9a24e0c1408a
+		credentials: true,
+	})
+)
 app.use(express.json())
 
 const uri =

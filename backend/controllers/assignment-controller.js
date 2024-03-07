@@ -16,10 +16,10 @@ const createAssignment = async (req, res) => {
 
 		// Update relevant users (students) with the new assignment.
 		const students = await studentSchema.find({ role: "Student" })
-		//   for (const student of students) {
-		//     student.assignments.push(assignment._id);
-		//     await student.save();
-		//   }
+		for (const student of students) {
+			student.assignments.push(assignment._id)
+			await student.save()
+		}
 
 		res
 			.status(201)
