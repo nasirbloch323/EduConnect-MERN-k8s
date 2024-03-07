@@ -8,11 +8,6 @@ const {
 	updateAdmin,
 } = require("../controllers/admin-controller.js")
 
-const {
-	adminRegister,
-	adminLogIn,
-	getAdminDetail,
-} = require("../controllers/admin-controller.js")
 const createAssignment = require("../controllers/assignment-controller.js")
 
 const {
