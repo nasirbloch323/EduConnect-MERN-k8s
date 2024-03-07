@@ -1,15 +1,19 @@
 const router = require("express").Router()
 
-// const { adminRegister, adminLogIn, deleteAdmin, getAdminDetail, updateAdmin } = require('../controllers/admin-controller.js');
+const { adminRegister, adminLogIn, deleteAdmin, getAdminDetail, updateAdmin } = require('../controllers/admin-controller.js');
 
+<<<<<<< HEAD
 const {
 	adminRegister,
 	adminLogIn,
 	getAdminDetail,
 } = require("../controllers/admin-controller.js")
 const createAssignment = require("../controllers/assignment-controller.js")
+=======
+// const { adminRegister, adminLogIn, getAdminDetail } = require('../controllers/admin-controller.js');
+>>>>>>> 7391803e950bdc3638b76bfe29cd9a24e0c1408a
 
-// const { developerRegister, developerLogIn, getdeveloperDetail, updatedeveloper } = require('../controllers/developer-controller.js');
+const { developerRegister, developerLogIn, getdeveloperDetail, updatedeveloper } = require('../controllers/developer-controller.js');
 
 const {
 	sclassCreate,
@@ -73,19 +77,19 @@ const {
 } = require("../controllers/teacher-controller.js")
 const upload = require("../helper/multerConfig.js")
 
-// router.post('/DeveloperReg', developerRegister);
-// router.post('/DeveloperLogin', developerLogIn);
-// router.get("/Developer/:id", getdeveloperDetail)
-// router.put("/dev/:id", updatedeveloper)
+router.post('/DeveloperReg', developerRegister);
+router.post('/DeveloperLogin', developerLogIn);
+router.get("/Developer/:id", getdeveloperDetail)
+router.put("/dev/:id", updatedeveloper)
 
 // Admin
 router.post("/AdminReg", adminRegister)
 router.post("/AdminLogin", adminLogIn)
 
 router.get("/Admin/:id", getAdminDetail)
-// router.delete("/Admin/:id", deleteAdmin)
+router.delete("/Admin/:id", deleteAdmin)
 
-// router.put("/Admin/:id", updateAdmin)
+router.put("/Admin/:id", updateAdmin)
 
 // Student
 

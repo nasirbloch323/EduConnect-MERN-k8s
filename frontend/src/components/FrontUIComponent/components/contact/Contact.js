@@ -6,7 +6,7 @@ function Contact() {
 	return (
 		<section>
 			<Container
-				style={{ backgroundColor: "brown", color: "#fff" }}
+				style={{ backgroundColor: "#552285", color: "#fff" }}
 				className='text-center py-5'
 				fluid
 			>
@@ -35,7 +35,7 @@ function Contact() {
 							answer your questions.
 						</p>
 						<Form>
-							<Form.Row>
+							<Row>
 								<Form.Group as={Col} controlId='formGridFirstName'>
 									<Form.Label>First Name</Form.Label>
 									<Form.Control type='text' placeholder='Enter First Name' />
@@ -45,8 +45,8 @@ function Contact() {
 									<Form.Label>Last Name</Form.Label>
 									<Form.Control type='text' placeholder='Enter Last Name' />
 								</Form.Group>
-							</Form.Row>
-							<Form.Row>
+							</Row>
+							<Row>
 								<Form.Group as={Col} controlId='formGridEmail'>
 									<Form.Label>Email</Form.Label>
 									<Form.Control type='email' placeholder='Enter email' />
@@ -56,7 +56,7 @@ function Contact() {
 									<Form.Label>Password</Form.Label>
 									<Form.Control type='password' placeholder='Password' />
 								</Form.Group>
-							</Form.Row>
+							</Row>
 
 							<Form.Group controlId='formGridAddress1'>
 								<Form.Label>Address</Form.Label>
@@ -68,7 +68,7 @@ function Contact() {
 								<Form.Control placeholder='Apartment, studio, or floor' />
 							</Form.Group>
 
-							<Form.Row>
+							{/* <Form.Row>
 								<Form.Group as={Col} controlId='formGridCity'>
 									<Form.Label>City</Form.Label>
 									<Form.Control />
@@ -86,9 +86,9 @@ function Contact() {
 									<Form.Label>Zip</Form.Label>
 									<Form.Control />
 								</Form.Group>
-							</Form.Row>
+							</Form.Row> */}
 
-							<Button variant='primary' type='submit'>
+							<Button className='btn btn-primary mt-4 bg-[#552285] text-[#fff] border-0' type='submit'>
 								Send Message
 							</Button>
 						</Form>
@@ -97,7 +97,7 @@ function Contact() {
 						<h3>Social</h3>
 						<hr />
 						<div>
-							<ul className='social-icons'>
+							<ul className='social-icons  mt-1'>
 								<li>
 									<a className='facebook' href='#fb'>
 										<i className='fab fa-facebook-f'></i>

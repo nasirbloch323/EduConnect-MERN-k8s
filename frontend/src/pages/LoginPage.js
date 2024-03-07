@@ -85,6 +85,9 @@ const LoginPage = ({ role }) => {
 
     useEffect(() => {
         if (status === 'success' || currentUser !== null) {
+            if (currentRole === 'Developer') {
+                navigate('/Developer/dashboard');
+            }
             if (currentRole === 'Admin') {
                 navigate('/Admin/dashboard');
             }
@@ -230,18 +233,18 @@ const LoginPage = ({ role }) => {
                                         : "Login"}
                                 </LightPurpleButton>
 
-                                {role === "Admin" &&
+                                {/* {role === "Admin" &&
                                     <Grid container>
                                         <Grid>
                                             Don't have an account?
                                         </Grid>
                                         <Grid item sx={{ ml: 2 }}>
-                                            {/* <StyledLink to="/Adminregister">
+                                            <StyledLink to="/Adminregister">
                                                 Sign up
-                                            </StyledLink> */}
+                                            </StyledLink>
                                         </Grid>
                                     </Grid>
-                                }
+                                } */}
                             </Box>
                         </Box>
                     </Grid>

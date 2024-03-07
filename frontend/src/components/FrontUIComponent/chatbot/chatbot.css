@@ -1,0 +1,12 @@
+.chatbot {
+  right: 4rem;
+  z-index: 999;
+  cursor: pointer;
+  
+}
+
+.chat {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 6rem;
+}

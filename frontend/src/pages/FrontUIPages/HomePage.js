@@ -11,6 +11,8 @@ import Anoucment from '../../components/FrontUIComponent/container/Anoucment';
 import LatestEvents from '../../components/FrontUIComponent/container/Messages/LatestEvents';
 import Gotop from '../../components/FrontUIComponent/Gotop/Gotop';
 
+// import Chatbot from '../../components/FrontUIComponent/chatbot/Chatbot';
+
 
 
 const HomePage = () => {
@@ -25,7 +27,8 @@ const HomePage = () => {
             <Courses />
             <VideoPage />
             <Footer />
-            <Gotop/>
+            <Gotop />
+            {/* <Chatbot /> */}
         </>
     );
 };

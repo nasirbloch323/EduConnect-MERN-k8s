@@ -172,7 +172,7 @@ const DevRegister = () => {
                                         Already have an account?
                                     </Grid>
                                     <Grid item sx={{ ml: 2 }}>
-                                        <StyledLink to="/Adminlogin">
+                                        <StyledLink to="/Developerlogin">
                                             Log in
                                         </StyledLink>
                                     </Grid>
