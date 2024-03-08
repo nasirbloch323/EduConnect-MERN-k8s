@@ -25,6 +25,7 @@ import DevRegister from './pages/developer/DevRegister';
 import DevDashboard from './pages/developer/DevDashboard';
 
 import ContactPage from './pages/FrontUIPages/ContactPage';
+import PageNotFound from './components/FrontUIComponent/PageNotFound/PageNotFound';
 
 const App = () => {
   AOS.init({
@@ -54,7 +55,8 @@ const App = () => {
           <Route path="/Studentlogin" element={<LoginPage role="Student" />} />
           <Route path="/Teacherlogin" element={<LoginPage role="Teacher" />} />
           <Route path="/Adminregister" element={<AdminRegisterPage />} />
-          <Route path='*' element={<Navigate to="/" />} />
+          {/* <Route path='*' element={<Navigate to="/" />} /> */}
+          <Route path='*' element={<PageNotFound />} />
 
           {/* <Route path="/Developerregister" element={<DevRegister />} /> */}
 
