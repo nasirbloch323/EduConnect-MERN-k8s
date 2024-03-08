@@ -28,3 +28,4 @@ iv- Faculty Members ka data dynamic hon.
 All subjects, Outline subjects, credit hours, short summary.
 
 11- jab Admin Student ko create kar daita hain, toh student login kar ka apni informations add kar sahky, like address(city,zip code), phone number, image etc.
+12- Subject Create karty waqat, credit hours ki field bhi add kar.
