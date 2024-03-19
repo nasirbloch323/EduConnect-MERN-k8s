@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Gotop.css";
 import { FaArrowUp } from "react-icons/fa";
 
 function Gotop() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > window.innerHeight) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   function gototop() {
     window.scrollTo({
       top: 0,
@@ -12,7 +30,12 @@ function Gotop() {
   }
 
   return (
-    <div className="top-btn  d-flex justify-content-center sticky-bottom  rounded-circle bg-[#7A1CCB] position-fixed fs-1 w-8 h-8  text-[#fff]" onClick={gototop}>
+    <div
+      className={`top-btn d-flex justify-content-center sticky-bottom rounded-circle bg-[#7A1CCB] position-fixed fs-1 w-8 h-8 text-[#fff] ${
+        isVisible ? "visible" : "invisible"
+      }`}
+      onClick={gototop}
+    >
       <FaArrowUp className="text-sm m-2 text-white" />
     </div>
   );
