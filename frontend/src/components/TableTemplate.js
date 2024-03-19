@@ -9,7 +9,8 @@ import {
 	TextField,
 	Typography,
 } from "@mui/material"
-
+import SearchIcon from "@mui/icons-material/Search"
+import InputAdornment from "@mui/material/InputAdornment"
 const TableTemplate = ({ buttonHaver: ButtonHaver, columns, rows }) => {
 	const [page, setPage] = useState(0)
 	const [rowsPerPage, setRowsPerPage] = useState(5)
@@ -30,6 +31,13 @@ const TableTemplate = ({ buttonHaver: ButtonHaver, columns, rows }) => {
 					onChange={(e) => setSearchQuery(e.target.value)}
 					margin='normal'
 					size='small'
+					InputProps={{
+						endAdornment: (
+							<InputAdornment position='end'>
+								<SearchIcon />
+							</InputAdornment>
+						),
+					}}
 				/>
 				<Table stickyHeader aria-label='sticky table'>
 					<TableHead>
