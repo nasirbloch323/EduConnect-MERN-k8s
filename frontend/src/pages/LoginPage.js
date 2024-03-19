@@ -148,7 +148,7 @@ const LoginPage = ({ role }) => {
 
 						<Box
 							sx={{
-								my: 3,
+								my: 5,
 								mx: 5,
 								display: "flex",
 								flexDirection: "column",
@@ -168,12 +168,12 @@ const LoginPage = ({ role }) => {
 								
 								<Tabs
 									defaultValue='student'
-									className='flex flex-col '
+									className='flex bg-0 flex-col '
 									onValueChange={(e) => {
 										e === "student" ? setRole("student") : setRole("")
 									}}
 								>
-									<TabsList className='w-full'>
+									<TabsList className='w-auto bg-0'>
 										<Link to='/Studentlogin'>
 											<TabsTrigger className="bg-[#552285] p-1 m-0 text-xs text-[#fff]" value="student">
 												<UserIcon className="h-7 w-5 mr-1" />
