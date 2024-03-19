@@ -37,7 +37,7 @@ const defaultTheme = createTheme()
 const LoginPage = ({ role }) => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-
+	const [Role, setRole] = useState("student")
 	const { status, currentUser, response, error, currentRole } = useSelector(
 		(state) => state.user
 	)
@@ -55,8 +55,8 @@ const LoginPage = ({ role }) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
-
-		if (role === "Student") {
+		console.log({ Role })
+		if (Role === "student") {
 			const rollNum = event.target.rollNumber.value
 			const studentName = event.target.studentName.value
 			const password = event.target.password.value
@@ -167,7 +167,13 @@ const LoginPage = ({ role }) => {
 								onSubmit={handleSubmit}
 								sx={{ mt: 2 }}
 							>
-								<Tabs defaultValue='student' className='flex flex-col '>
+								<Tabs
+									defaultValue='student'
+									className='flex flex-col '
+									onValueChange={(e) => {
+										e === "student" ? setRole("student") : setRole("")
+									}}
+								>
 									<TabsList className='w-full'>
 										<TabsTrigger value='teacher'>Teacher</TabsTrigger>
 										<TabsTrigger value='student'>Student</TabsTrigger>
