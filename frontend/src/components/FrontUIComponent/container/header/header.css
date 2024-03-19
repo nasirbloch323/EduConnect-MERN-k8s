@@ -194,7 +194,7 @@ a:hover {
 }
 
 .right-container {
-  padding-left: 650px;
+  padding-left: 500px;
   width: 100%;
 }
 
@@ -203,7 +203,7 @@ a:hover {
   color: #525252;
   border: none;
   border-radius: 0px;
-  padding: 5px 15px;
+  padding: 7px 16px;
 }
 
 .top-item:hover {

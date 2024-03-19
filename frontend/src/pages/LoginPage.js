@@ -140,37 +140,32 @@ const LoginPage = ({ role }) => {
 						elevation={6}
 						square
 					>
-						{/* <Box className="ml-4 d-flex align-items-center justify-content-start">
+						<Box className="ml-5 d-flex align-items-center justify-content-start">
                             <button className="btn btn-secondary">
                                 <i className="fas fa-book me-2"></i> User Manual
                             </button>
-                        </Box> */}
+                        </Box>
 
 						<Box
 							sx={{
-								my: 8,
+								my: 4,
 								mx: 4,
 								display: "flex",
 								flexDirection: "column",
 								alignItems: "center",
 							}}
 						>
-							{/* <Typography
-								variant='h4'
-								sx={{ mb: 2, color: "#2c2143" }}
-								className='fs-3'
-							>
-								{role} Login
-							</Typography>
-							<Typography variant='h7'>
+						 
+							{/* <Typography variant='h7'>
 								Welcome back! Please enter your details
-							</Typography> */}
+							</Typography>  */}
 							<Box
 								component='form'
 								noValidate
 								onSubmit={handleSubmit}
-								sx={{ mt: 2 }}
+								sx={{ mt: 1 }}
 							>
+								
 								<Tabs
 									defaultValue='student'
 									className='flex flex-col '
@@ -179,32 +174,36 @@ const LoginPage = ({ role }) => {
 									}}
 								>
 									<TabsList className='w-full'>
-										{/* <TabsTrigger value='teacher'>Teacher</TabsTrigger>
-										<TabsTrigger value='student'>Student</TabsTrigger>
-										<TabsTrigger value='admin'>Admin</TabsTrigger> */}
 										<Link to='/Studentlogin'>
-											<TabsTrigger className="bg-[#552285]" value="student">
-												<UserIcon className="h-6 w-6 mr-2" />
-          User Login
+											<TabsTrigger className="bg-[#552285] text-[#fff]" value="student">
+												<UserIcon className="h-7 w-7 mr-2" />
+          Student Login
         </TabsTrigger></Link>
 										<Link to='/Adminlogin'>
-											<TabsTrigger className="bg-[#552285]" value="admin">
-												<ShieldIcon className="h-6 w-6 mr-2" />
+											<TabsTrigger className="bg-[#552285] text-[#fff]" value="admin">
+												<ShieldIcon className="h-7 w-7 mr-2" />
           Admin Login
         </TabsTrigger>
 										</Link>
 										<Link to='/Teacherlogin'>
-											<TabsTrigger className="bg-[#552285]" value="teacher">
-												<BookIcon className="h-6 w-6 mr-2" />
+											<TabsTrigger className="bg-[#552285] text-[#fff] " value="teacher">
+												<BookIcon className="h-7 w-7 mr-2" />
           Teacher Login
         </TabsTrigger></Link>
 									</TabsList>
-									<Typography variant='h7' className='pt-4 text-center'>
+									<Typography
+								variant='h4'
+								sx={{ mb: 2, color: "#2c2143" }}
+								className='fs-3 pt-4 text-center p-0 m-0'
+							>
+								{role} Login
+							</Typography>
+									<Typography variant='h7' className='pt-1 m-0 text-center'>
 										Welcome back! Please enter your details {currentUser}
 									</Typography>
 
 									<TabsContent value='teacher'>
-								
+
 										<TextField
 											margin='normal'
 											required
@@ -257,7 +256,7 @@ const LoginPage = ({ role }) => {
 											helperText={rollNumberError && "Roll Number is required"}
 											onChange={handleInputChange}
 										/>
-									 <TextField
+										<TextField
 											margin='normal'
 											required
 											fullWidth
