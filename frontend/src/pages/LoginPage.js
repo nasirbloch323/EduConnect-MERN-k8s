@@ -140,16 +140,16 @@ const LoginPage = ({ role }) => {
 						elevation={6}
 						square
 					>
-						<Box className="ml-5 d-flex align-items-center justify-content-start">
-                            <button className="btn btn-secondary">
+						<Box className="ml-4 d-flex align-items-center justify-content-start">
+                            <button className="btn btn-secondary text-sm ">
                                 <i className="fas fa-book me-2"></i> User Manual
                             </button>
                         </Box>
 
 						<Box
 							sx={{
-								my: 4,
-								mx: 4,
+								my: 3,
+								mx: 5,
 								display: "flex",
 								flexDirection: "column",
 								alignItems: "center",
@@ -163,7 +163,7 @@ const LoginPage = ({ role }) => {
 								component='form'
 								noValidate
 								onSubmit={handleSubmit}
-								sx={{ mt: 1 }}
+								sx={{ mx: 2 }}
 							>
 								
 								<Tabs
@@ -175,19 +175,19 @@ const LoginPage = ({ role }) => {
 								>
 									<TabsList className='w-full'>
 										<Link to='/Studentlogin'>
-											<TabsTrigger className="bg-[#552285] text-[#fff]" value="student">
-												<UserIcon className="h-7 w-7 mr-2" />
+											<TabsTrigger className="bg-[#552285] p-1 m-0 text-xs text-[#fff]" value="student">
+												<UserIcon className="h-7 w-5 mr-1" />
           Student Login
         </TabsTrigger></Link>
 										<Link to='/Adminlogin'>
-											<TabsTrigger className="bg-[#552285] text-[#fff]" value="admin">
-												<ShieldIcon className="h-7 w-7 mr-2" />
+											<TabsTrigger className="bg-[#552285] p-1 m-0 text-xs text-[#fff]" value="admin">
+												<ShieldIcon className="h-7 w-5 mr-1" />
           Admin Login
         </TabsTrigger>
 										</Link>
 										<Link to='/Teacherlogin'>
-											<TabsTrigger className="bg-[#552285] text-[#fff] " value="teacher">
-												<BookIcon className="h-7 w-7 mr-2" />
+											<TabsTrigger className="bg-[#552285] p-1 m-0 text-xs text-[#fff] " value="teacher">
+												<BookIcon className="h-7 w-5 mr-1" />
           Teacher Login
         </TabsTrigger></Link>
 									</TabsList>
