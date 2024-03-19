@@ -234,20 +234,6 @@ const LoginPage = ({ role }) => {
 											margin='normal'
 											required
 											fullWidth
-											id='rollNumber'
-											label='Enter your Roll Number'
-											name='rollNumber'
-											autoComplete='off'
-											type='number'
-											autoFocus
-											error={rollNumberError}
-											helperText={rollNumberError && "Roll Number is required"}
-											onChange={handleInputChange}
-										/>
-										{/* <TextField
-											margin='normal'
-											required
-											fullWidth
 											id='studentName'
 											label='Enter your name'
 											name='studentName'
@@ -256,7 +242,7 @@ const LoginPage = ({ role }) => {
 											error={studentNameError}
 											helperText={studentNameError && "Name is required"}
 											onChange={handleInputChange}
-										/> */}
+										/>
 										<TextField
 											margin='normal'
 											required
