@@ -26,11 +26,15 @@ import { loginUser } from "../redux/userRelated/userHandle"
 import Popup from "../components/Popup"
 import { toast } from "react-toastify"
 
+import { TabsTrigger, TabsList, TabsContent, Tabs } from "@/components/ui/tabs"
+
+
+
 import logo from "../assets/login-logo-1.png"
 import vectorArt from "../assets/login-logo-1.png"
 import axios from "axios"
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const defaultTheme = createTheme()
 
@@ -169,15 +173,32 @@ const LoginPage = ({ role }) => {
 							>
 								<Tabs defaultValue='student' className='flex flex-col '>
 									<TabsList className='w-full'>
-										<TabsTrigger value='teacher'>Teacher</TabsTrigger>
+										{/* <TabsTrigger value='teacher'>Teacher</TabsTrigger>
 										<TabsTrigger value='student'>Student</TabsTrigger>
-										<TabsTrigger value='admin'>Admin</TabsTrigger>
+										<TabsTrigger value='admin'>Admin</TabsTrigger> */}
+										<Link to='/Studentlogin'>
+											<TabsTrigger className="bg-[#552285]" value="student">
+												<UserIcon className="h-6 w-6 mr-2" />
+          User Login
+        </TabsTrigger></Link>
+										<Link to='/Adminlogin'>
+											<TabsTrigger className="bg-[#552285]" value="admin">
+												<ShieldIcon className="h-6 w-6 mr-2" />
+          Admin Login
+        </TabsTrigger>
+										</Link>
+										<Link to='/Teacherlogin'>
+											<TabsTrigger className="bg-[#552285]" value="teacher">
+												<BookIcon className="h-6 w-6 mr-2" />
+          Teacher Login
+        </TabsTrigger></Link>
 									</TabsList>
 									<Typography variant='h7' className='pt-4 text-center'>
-										Welcome back! Please enter your details
+										Welcome back! Please enter your details {currentUser}
 									</Typography>
 
 									<TabsContent value='teacher'>
+								
 										<TextField
 											margin='normal'
 											required
@@ -230,7 +251,7 @@ const LoginPage = ({ role }) => {
 											helperText={rollNumberError && "Roll Number is required"}
 											onChange={handleInputChange}
 										/>
-										<TextField
+										{/* <TextField
 											margin='normal'
 											required
 											fullWidth
@@ -243,8 +264,8 @@ const LoginPage = ({ role }) => {
 											error={rollNumberError}
 											helperText={rollNumberError && "Roll Number is required"}
 											onChange={handleInputChange}
-										/>
-										{/* <TextField
+										/> */}
+										<TextField
 											margin='normal'
 											required
 											fullWidth
@@ -256,7 +277,7 @@ const LoginPage = ({ role }) => {
 											error={studentNameError}
 											helperText={studentNameError && "Name is required"}
 											onChange={handleInputChange}
-										/> */}
+										/>
 										<TextField
 											margin='normal'
 											required
@@ -338,8 +359,8 @@ const LoginPage = ({ role }) => {
 									{loader ? (
 										<CircularProgress size={24} color='inherit' />
 									) : (
-										"Login"
-									)}
+											"Login"
+										)}
 								</LightPurpleButton>
 
 								{/* {role === "Admin" &&
@@ -387,12 +408,75 @@ const LoginPage = ({ role }) => {
 					showPopup={showPopup}
 				/>
 			</ThemeProvider>
+
+
+
+
 		</>
 	)
 }
 
 export default LoginPage
 
+function BookIcon(props) {
+	return (
+		<svg
+			{...props}
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+		</svg>
+	)
+}
+
+
+function ShieldIcon(props) {
+	return (
+		<svg
+			{...props}
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+		</svg>
+	)
+}
+
+
+function UserIcon(props) {
+	return (
+		<svg
+			{...props}
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+			<circle cx="12" cy="7" r="4" />
+		</svg>
+	)
+}
 const StyledLink = styled(Link)`
 	margin-top: 9px;
 	text-decoration: none;

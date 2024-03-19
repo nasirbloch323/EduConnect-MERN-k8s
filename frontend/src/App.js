@@ -48,8 +48,8 @@ const App = () => {
           <Route path="/acadmic" element={<AcadmicPage />} />
           <Route path="/contact" element={<ContactPage />} />
 
-          <Route path="/log" element={<Login />} />
-          <Route path="/choose" element={<ChooseUser visitor="normal" />} />
+          {/* <Route path="/Studentlogin" element={<Login />} /> */}
+          {/* <Route path="/choose" element={<ChooseUser visitor="normal" />} /> */}
           {/* <Route path="/Developerlogin" element={<LoginPage role="Developer" />} /> */}
           <Route path="/Adminlogin" element={<LoginPage role="Admin" />} />
           <Route path="/Studentlogin" element={<LoginPage role="Student" />} />

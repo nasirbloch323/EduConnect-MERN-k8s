@@ -29,7 +29,7 @@ const Homepage = () => {
                                 Access records, view marks, and communicate effortlessly.
                             </StyledText>
                             <StyledBox>
-                                <StyledLink to="/choose">
+                                <StyledLink to="/Studentlogin">
                                     <LightPurpleButton variant="contained" fullWidth>
                                         Login
                                     </LightPurpleButton>
