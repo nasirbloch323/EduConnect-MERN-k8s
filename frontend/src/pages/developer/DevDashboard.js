@@ -13,12 +13,12 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { AppBar, Drawer } from '../../components/styles';
 import Logout from '../Logout';
-import SideBar from '../admin/SideBar';
-// import AdminProfile from '../admin/AdminProfile';
+import DevSideBar from './DevSideBar';
+// import AdminProfile from '..';
 import DevHomePage from '../developer/DevHomePage';
 
 // import AddStudent from './studentRelated/AddStudent';
-// import SeeComplains from './studentRelated/SeeComplains';
+import SeeComplains from '../student/StudentComplain';
 // import ShowStudents from './studentRelated/ShowStudents';
 // import StudentAttendance from './studentRelated/StudentAttendance';
 // import StudentExamMarks from './studentRelated/StudentExamMarks';
@@ -40,7 +40,12 @@ import DevHomePage from '../developer/DevHomePage';
 // import AddClass from './classRelated/AddClass';
 // import ClassDetails from './classRelated/ClassDetails';
 // import ShowClasses from './classRelated/ShowClasses';
-import AccountMenu from '../../components/AccountMenu';
+// import AccountMenu from '../../components/AccountMenu';
+import DeveloperProfile from './DeveloperProfile';
+import DevMenu from '@/pages/developer/DevMenu';
+import AllAdmin from './admin/AllAdmin';
+import UpdateAdmin from './admin/UpdateAdmin';
+import AddAdmin from './admin/AddAdmin';
 
 const DevDashboard = () => {
     const [open, setOpen] = useState(false);
@@ -75,7 +80,7 @@ const DevDashboard = () => {
                         >
                             Dev Dashboard
                         </Typography>
-                        <AccountMenu />
+                        <DevMenu />
                     </Toolbar>
                 </AppBar>
                 <Drawer variant="permanent" open={open} sx={open ? styles.drawerStyled : styles.hideDrawer}>
@@ -86,7 +91,7 @@ const DevDashboard = () => {
                     </Toolbar>
                     <Divider />
                     <List component="nav">
-                        <SideBar />
+                        <DevSideBar />
                     </List>
                 </Drawer>
                 <Box component="main" sx={styles.boxStyled}>
@@ -95,9 +100,14 @@ const DevDashboard = () => {
                         <Route path="/" element={<DevHomePage />} />
                         <Route path='*' element={<Navigate to="/" />} />
                         <Route path="/Developer/dashboard" element={<DevHomePage />} />
+                        <Route path="/Developer/all-admin" element={<AllAdmin />} />
 
-                        {/* <Route path="/Admin/profile" element={<AdminProfile />} />
-                        <Route path="/Admin/complains" element={<SeeComplains />} /> */}
+                        <Route path="/Developer/add-admin" element={<AddAdmin />} />
+                        <Route path="/Developer/update-admin" element={<UpdateAdmin />} />
+
+
+                        <Route path="/Developer/profile" element={<DeveloperProfile />} />
+                        <Route path="/Developer/complains" element={<SeeComplains />} />
 
                         {/* Notice */}
                         {/* <Route path="/Admin/addnotice" element={<AddNotice />} />

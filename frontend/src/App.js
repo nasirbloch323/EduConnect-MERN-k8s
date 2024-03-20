@@ -25,12 +25,15 @@ import Notify from "./components/FrontUIComponent/components/Notification/Notify
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import AcadmicPage from "./pages/FrontUIPages/AcadmicPage"
-import Login from "./pages/Login"
+import Login from "./pages/developer/Login"
 import DevRegister from "./pages/developer/DevRegister"
 import DevDashboard from "./pages/developer/DevDashboard"
 
 import ContactPage from "./pages/FrontUIPages/ContactPage"
 import PageNotFound from "./components/FrontUIComponent/PageNotFound/PageNotFound"
+import Jobs from "./pages/FrontUIPages/Jobs"
+import AdminHomePage from "./pages/admin/AdminHomePage"
+import AllAdmin from "./pages/developer/admin/AllAdmin"
 
 const App = () => {
 	AOS.init({
@@ -63,7 +66,14 @@ const App = () => {
 					<Route path='/Adminlogin' element={<LoginPage role='Admin' />} />
 
 					{/* <Route path='*' element={<Navigate to="/" />} /> */}
+
+					<Route path='/jobs' element={<Jobs/>} />
+					<Route path='/admission' element={<AdminHomePage/>} />
 					<Route path='*' element={<PageNotFound />} />
+
+
+					{/* developer all */}
+					
 				</Routes>
 			)}
 

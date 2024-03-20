@@ -23,14 +23,14 @@ function Topnavbar() {
                         </Link>
                         <Link to="/" className="top-item"  >
                             Conference
-                        </Link>  <Link to="/" className="top-item" >
+                        </Link>  <Link to="/blogs" className="top-item" >
                             Blogs
                         </Link>
 
                         <Link to="/about" className="top-item" >
                             About
                         </Link>
-                        <Link to="/" className="top-item"  >
+                        <Link to="/jobs" className="top-item"  >
                             Jobs
                         </Link>
                         <Link to="/contact" className="top-item" >

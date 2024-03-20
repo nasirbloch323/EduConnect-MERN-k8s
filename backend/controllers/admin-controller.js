@@ -15,27 +15,22 @@ const adminRegister = async (req, res) => {
 
 		const admin = new Admin({
 			...req.body,
-			DepartmentName: req.body.schoolName,
+			schoolName: req.body.schoolName,
+			phoneNo: req.body.phoneNo,
 			password: hashedPass,
 		})
 		const existingAdminByEmail = await Admin.findOne({ email: req.body.email })
-		const existingSchool = await Admin.findOne({
-			schoolName: req.body.schoolName,
+		
+		const existingNo = await Admin.findOne({
+			phoneNo: req.body.phoneNo
 		})
 		console.log({ existingSchool })
 		if (existingAdminByEmail) {
 			res.send({ message: "Email already exists" })
-		} else if (existingSchool) {
-			res.send({ message: "Department name already exists" })
-		} else {
-			// let res = await Admin.create({
-			// 	name,
-			// 	email,
-			// 	password,
-			// 	role,
-			// 	schoolName,
-			// 	DepartmentName: schoolName,
-			// })
+		} else if (existingNo) {
+			res.send({ message: "Phone No already exists" })
+		}
+		else {
 			let result = await admin.save()
 			console.log(result)
 			result.password = undefined
@@ -109,6 +104,23 @@ const adminLogIn = async (req, res) => {
 // 	}
 // }
 
+const getAdmins = async (req, res) => {
+	try {
+		let admins = await Admin.find({ email: req.body.email })
+			.populate("email", "email")
+		if (admins.length > 0) {
+			let modifiedAdmins = admins.map((admin) => {
+				return { ...admin._doc, password: undefined };
+			});
+			res.send(modifiedAdmins);
+		} else {
+			res.send({ message: "No admins found" });
+		}
+	} catch (err) {
+		res.status(500).json(err);
+	}
+};
+
 const getAdminDetail = async (req, res) => {
 	try {
 		let admin = await Admin.findById(req.params.id)
@@ -161,6 +173,7 @@ const updateAdmin = async (req, res) => {
 module.exports = {
 	adminRegister,
 	adminLogIn,
+	getAdmins,
 	getAdminDetail,
 	deleteAdmin,
 	updateAdmin,

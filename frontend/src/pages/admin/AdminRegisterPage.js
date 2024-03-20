@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import { Container } from "@mui/material"
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, CssBaseline, IconButton, InputAdornment, CircularProgress } from '@mui/material';
@@ -29,6 +30,7 @@ const AdminRegisterPage = () => {
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [adminNameError, setAdminNameError] = useState(false);
+    const [adminNoError, setAdminNoError] = useState(false);
     const [departmentNameError, SetDepartmentNameError] = useState(false);
     const role = "Admin"
 
@@ -37,18 +39,20 @@ const AdminRegisterPage = () => {
 
         const name = event.target.adminName.value;
         const schoolName = event.target.schoolName.value;
+        const phoneNo = event.target.password.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
 
         if (!name || !schoolName || !email || !password) {
             if (!name) setAdminNameError(true);
             if (!schoolName) SetDepartmentNameError(true);
+            if (!phoneNo) setAdminNoError(true);
             if (!email) setEmailError(true);
             if (!password) setPasswordError(true);
             return;
         }
 
-        const fields = { name, email, password, role, schoolName }
+        const fields = { name, email, password, role, schoolName, phoneNo }
         setLoader(true)
         dispatch(registerUser(fields, role))
     };
@@ -59,6 +63,7 @@ const AdminRegisterPage = () => {
         if (name === 'password') setPasswordError(false);
         if (name === 'adminName') setAdminNameError(false);
         if (name === 'DepartmentName') SetDepartmentNameError(false);
+        if (name === 'phoneno') setAdminNoError(false);
     };
 
     useEffect(() => {
@@ -80,8 +85,7 @@ const AdminRegisterPage = () => {
     return (
         <>
 
-            <Topbar />
-            <ThemeProvider theme={defaultTheme}>
+            <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
                 <Grid container component="main" sx={{ height: '100vh' }}>
                     <CssBaseline />
                     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -127,6 +131,18 @@ const AdminRegisterPage = () => {
                                     autoComplete="off"
                                     error={departmentNameError}
                                     helperText={departmentNameError && 'Department name is required'}
+                                    onChange={handleInputChange}
+                                />
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="phoneNo"
+                                    label="Create your phone no"
+                                    name="phoneNo"
+                                    autoComplete="off"
+                                    error={adminNoError}
+                                    helperText={adminNoError && 'Phone no is required'}
                                     onChange={handleInputChange}
                                 />
                                 <TextField
@@ -194,7 +210,7 @@ const AdminRegisterPage = () => {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid
+                    {/* <Grid
                         item
                         xs={false}
                         sm={4}
@@ -207,10 +223,10 @@ const AdminRegisterPage = () => {
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                         }}
-                    />
+                    /> */}
                 </Grid>
                 <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
-            </ThemeProvider>
+            </Container>
         </>
     );
 }

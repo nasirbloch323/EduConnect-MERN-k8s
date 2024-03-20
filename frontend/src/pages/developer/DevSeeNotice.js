@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllNotices } from '../redux/noticeRelated/noticeHandle';
+import { getAllNotices } from '../../redux/noticeRelated/noticeHandle';
 import { Paper } from '@mui/material';
-import TableViewTemplate from './TableViewTemplate';
+import TableViewTemplate from '../../components/TableViewTemplate';
 
-const SeeNotice = () => {
+const DevSeeNotice = () => {
     const dispatch = useDispatch();
 
     const { currentUser, currentRole } = useSelector(state => state.user);
     const { noticesList, loading, error, response } = useSelector((state) => state.notice);
 
     useEffect(() => {
-        if (currentRole === "") {
+        if (currentRole === "Developer") {
             dispatch(getAllNotices(currentUser._id, "Notice"));
         }
         else {
@@ -60,4 +60,4 @@ const SeeNotice = () => {
     )
 }
 
-export default SeeNotice
+export default DevSeeNotice

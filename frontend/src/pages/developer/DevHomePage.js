@@ -1,11 +1,116 @@
+import { Container, Grid, Paper } from "@mui/material"
+import DevSeeNotice from "../../pages/developer/DevSeeNotice"
+import Students from "../../assets/img1.png"
+import Classes from "../../assets/img2.png"
+import Teachers from "../../assets/img3.png"
+import Fees from "../../assets/img4.png"
+import styled from "styled-components"
+import CountUp from "react-countup"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { getAllSclasses } from "../../redux/sclassRelated/sclassHandle"
+import { getAllStudents } from "../../redux/studentRelated/studentHandle"
+import { getAllAdmins } from "../../redux/AdminRelated/AdminHandle"
+
 const DevHomePage = () => {
+	const dispatch = useDispatch()
+	const { studentsList } = useSelector((state) => state.student)
+	const { sclassesList } = useSelector((state) => state.sclass)
+	const { AdminsList } = useSelector((state) => state.teacher)
+
+	const { currentUser } = useSelector((state) => state.user)
+
+	const adminID = currentUser._id
+
+	useEffect(() => {
+		dispatch(getAllStudents(adminID))
+		dispatch(getAllSclasses(adminID, "Sclass"))
+		dispatch(getAllAdmins(adminID))
+	}, [adminID, dispatch])
+
+	const numberOfStudents = studentsList && studentsList.length
+	const numberOfClasses = sclassesList && sclassesList.length
+	const numberOfAdmins = AdminsList && AdminsList.length
+
 	return (
 		<>
-			<h1 className='flex items-center justify-center h-full '>
-				Great You have done! <span className='animate-pulse'>💗</span>
-			</h1>
+			<Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
+				<Grid container spacing={3}>
+					<Grid item xs={12} md={3} lg={3}>
+						<StyledPaper>
+							<img src={Students} alt='Students' />
+							<Title>Total Admin</Title>
+							<Data start={0} end={numberOfAdmins} duration={2.5} />
+						</StyledPaper>
+					</Grid>
+					<Grid item xs={12} md={3} lg={3}>
+						<StyledPaper>
+							<img src={Students} alt='Students' />
+							<Title>Total Anoucment</Title>
+							<Data start={0} end={numberOfStudents} duration={2.5} />
+						</StyledPaper>
+					</Grid><Grid item xs={12} md={3} lg={3}>
+						<StyledPaper>
+							<img src={Students} alt='Students' />
+							<Title>Total Event</Title>
+							<Data start={0} end={numberOfStudents} duration={2.5} />
+						</StyledPaper>
+					</Grid><Grid item xs={12} md={3} lg={3}>
+						<StyledPaper>
+							<img src={Students} alt='Students' />
+							<Title>Total Notification</Title>
+							<Data start={0} end={numberOfStudents} duration={2.5} />
+						</StyledPaper>
+					</Grid>
+					<Grid item xs={12} md={3} lg={3}>
+						<StyledPaper>
+							<img src={Classes} alt='Classes' />
+							<Title>Total Research</Title>
+							<Data start={0} end={numberOfClasses} duration={5} />
+						</StyledPaper>
+					</Grid>
+					<Grid item xs={12} md={3} lg={3}>
+						<StyledPaper>
+							<img src={Teachers} alt='Teachers' />
+							<Title>Total Blogs</Title>
+							<Data start={0} end={numberOfAdmins} duration={2.5} />
+						</StyledPaper>
+					</Grid>
+					<Grid item xs={12} md={3} lg={3}>
+						<StyledPaper>
+							<img src={Fees} alt='Fees' />
+							<Title>All Contact</Title>
+							<Data start={0} end={2} duration={2.5} prefix='' />{" "}
+						</StyledPaper>
+					</Grid>
+					<Grid item xs={12} md={12} lg={12}>
+						<Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+							<DevSeeNotice />
+						</Paper>
+					</Grid>
+				</Grid>
+			</Container>
 		</>
 	)
 }
+
+const StyledPaper = styled(Paper)`
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	height: 200px;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+`
+
+const Title = styled.p`
+	font-size: 1.25rem;
+`
+
+const Data = styled(CountUp)`
+	font-size: calc(1.3rem + 0.6vw);
+	color: green;
+`
 
 export default DevHomePage

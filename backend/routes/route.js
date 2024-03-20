@@ -5,6 +5,7 @@ const {
 	adminLogIn,
 	deleteAdmin,
 	getAdminDetail,
+	getAdmins,
 	updateAdmin,
 } = require("../controllers/admin-controller.js")
 
@@ -87,7 +88,7 @@ router.put("/Developer/:id", updatedeveloper)
 // Admin
 router.post("/AdminReg", adminRegister)
 router.post("/AdminLogin", adminLogIn)
-
+router.get("/Admin/:id", getAdmins)
 router.get("/Admin/:id", getAdminDetail)
 router.delete("/Admin/:id", deleteAdmin)
 

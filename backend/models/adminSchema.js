@@ -20,11 +20,11 @@ const adminSchema = new mongoose.Schema({
 	},
 	schoolName: {
 		type: String,
-		unique: true,
+		// unique: true,
 		required: true,
 	},
-	DepartmentName: {
-		type: String,
+	phoneNo: {
+		type: Number,
 		required: true,
 		unique: true,
 	},
