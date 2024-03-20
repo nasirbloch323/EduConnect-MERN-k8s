@@ -17,6 +17,7 @@ export const loginUser = (fields, role) => async (dispatch) => {
 	dispatch(authRequest())
 
 	try {
+		// console.log(role)
 		const result = await axios.post(
 			`${process.env.REACT_APP_BASE_URL}/${role}Login`,
 			fields,
@@ -47,6 +48,29 @@ export const registerUser = (fields, role) => async (dispatch) => {
 		)
 		console.log({ result })
 		if (result.data.schoolName) {
+			dispatch(authSuccess(result.data))
+		} else if (result.data.school) {
+			dispatch(stuffAdded())
+		} else {
+			dispatch(authFailed(result.data.message))
+		}
+	} catch (error) {
+		dispatch(authError(error))
+	}
+}
+export const registerDev = (fields, role) => async (dispatch) => {
+	dispatch(authRequest())
+	console.log(fields)
+	try {
+		const result = await axios.post(
+			`${process.env.REACT_APP_BASE_URL}/${role}Reg`,
+			fields,
+			{
+				headers: { "Content-Type": "application/json" },
+			}
+		)
+		console.log({ result })
+		if (result.data) {
 			dispatch(authSuccess(result.data))
 		} else if (result.data.school) {
 			dispatch(stuffAdded())

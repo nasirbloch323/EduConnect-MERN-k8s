@@ -19,7 +19,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import bgpic from "../../assets/login-logo.png"
 import { LightPurpleButton } from "../../components/buttonStyles"
-import { registerUser } from "../../redux/userRelated/userHandle"
+import { registerDev, registerUser } from "../../redux/userRelated/userHandle"
 import styled from "styled-components"
 import Popup from "../../components/Popup"
 import { toast } from "react-toastify"
@@ -33,7 +33,7 @@ const DevRegister = () => {
 	const { status, currentUser, response, error, currentRole } = useSelector(
 		(state) => state.user
 	)
-
+	console.log({ status, currentUser, response, error, currentRole })
 	const [toggle, setToggle] = useState(false)
 	const [loader, setLoader] = useState(false)
 	const [showPopup, setShowPopup] = useState(false)
@@ -60,7 +60,7 @@ const DevRegister = () => {
 
 		const fields = { name, email, password, role }
 		setLoader(true)
-		dispatch(registerUser(fields, role))
+		dispatch(registerDev(fields, role))
 	}
 
 	const handleInputChange = (event) => {
@@ -75,6 +75,7 @@ const DevRegister = () => {
 			status === "success" ||
 			(currentUser !== null && currentRole === "Developer")
 		) {
+			console.log({ status })
 			toast.success("Create Account Successfully")
 			navigate("/Developer/dashboard")
 		} else if (status === "failed") {
