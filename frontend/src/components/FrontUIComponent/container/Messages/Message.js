@@ -1,8 +1,8 @@
-import React, { Component } from "react"
+import React from "react"
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap"
 import course from "../../images/course01.jpeg"
 import "./message.css"
-import LatestEvents from "./LatestEvents"
+// import LatestEvents from "./LatestEvents"
 import { Link } from "react-router-dom"
 
 function Message({ props }) {
@@ -43,10 +43,10 @@ function Message({ props }) {
 
 	return (
 		<section id='messages'>
-			<Container fluid className='message-container '>
+			<Container fluid className='overflow-x-hidden  message-container'>
 				<Row>
 					<Col className='mx-auto mt-5 text-capitalize'>
-						<h1 className='a-title pl-4'>
+						<h1 className='pl-4 a-title'>
 							Latest <strong className='a-titles'>Events</strong>
 						</h1>
 						<div className='latest-news'>

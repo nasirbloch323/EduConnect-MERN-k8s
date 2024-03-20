@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap"
 // import "./LEvents.css";
 import course from "../../images/course01.jpeg"
@@ -11,7 +11,7 @@ function LatestEvents() {
 	//   "event03",
 	//   "event04",
 	// ].map((levent, index) => (
-	//   <Col className="mx-auto w-100  mb-1" lg={4} sm={6} data-aos="zoom-in-up">
+	//   <Col className="mx-auto mb-1 w-100" lg={4} sm={6} data-aos="zoom-in-up">
 	//     <Card className="message-card rounded-0">
 	//       <Row className="no-gutters">
 	//         <Col className="col-sm-7 w-100">
@@ -37,10 +37,10 @@ function LatestEvents() {
 	// ));
 
 	// return (
-	//   <section className="w-100 p-0 m-0">
+	//   <section className="p-0 m-0 w-100">
 	//   <Container fluid className="massage-container">
 	//     <Row>
-	//       <Col className="mx-auto mt-5 text-capitalize mb-1 pl-4">
+	//       <Col className="pl-4 mx-auto mt-5 mb-1 text-capitalize">
 	//         <h1 className="a-title">
 	//           Latest <strong className="a-titles">Events</strong>
 	//         </h1>
@@ -98,7 +98,7 @@ function LatestEvents() {
 			<Container fluid className='message-container '>
 				<Row>
 					<Col className='mx-auto mt-5 text-capitalize'>
-						<h1 className='a-title pl-4'>
+						<h1 className='pl-4 a-title'>
 							Latest <strong className='a-titles'>Events</strong>
 						</h1>
 						<div className='latest-news'>

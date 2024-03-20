@@ -1,2 +1,5 @@
 -> Assignment by teachers 
 -> after submitting the assignment its will send to the teachers / add status of submitted
+
+
+dev registerd toastiy redirect admin page

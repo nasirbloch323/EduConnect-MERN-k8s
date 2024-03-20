@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { Container, Row, Col, Image } from "react-bootstrap"
 import logo from "../../../../../src/assets/logo.jpeg"
 import "./footer.css"
@@ -13,15 +13,15 @@ function Footer() {
 			style={{ backgroundColor: "#fff" }}
 		>
 			<Container fluid>
-				<Row>
+				<Row className='overflow-x-hidden'>
 					<MapContainer />
 				</Row>
-				<Row className='mt-5'>
+				<Row className='mt-5 overflow-x-hidden'>
 					<Col
 						sm={6}
 						md={3}
 						data-aos='fade-right'
-						className='mx-auto  d-flex justify-content-start align-items-center flex-column flex-wrap'
+						className='flex-wrap mx-auto d-flex justify-content-start align-items-center flex-column'
 					>
 						<Image src={logo} fluid className='footer-logo' />
 						<h4 className='mt-3 text-center'>
@@ -32,7 +32,7 @@ function Footer() {
 						sm={6}
 						md={3}
 						data-aos='fade-left'
-						className='d-flex mt-3 px-3 justify-content-start  flex-column flex-wrap'
+						className='flex-wrap px-3 mt-3 d-flex justify-content-start flex-column'
 					>
 						<h3 className='mb-2 text-capitalize text-start'>Important Links</h3>
 						<div
@@ -57,26 +57,26 @@ function Footer() {
 						sm={6}
 						md={3}
 						data-aos='fade-left'
-						className='d-flex mt-3 px-3 justify-content-start  flex-column flex-wrap'
+						className='flex-wrap px-3 mt-3 d-flex justify-content-start flex-column'
 					>
 						<h3 className='mb-2 text-capitalize text-start'>contact us</h3>
 						<div
 							className='justify-content-start align-items-center flex-column'
 							style={{ borderTop: "1px solid #7A1CCB", paddingTop: "0.5rem" }}
 						>
-							<p className='d-flex flex-wrap'>
+							<p className='flex-wrap d-flex'>
 								<span className='mr-4 footer-icon'>
 									<i className='fas fa-map'></i>
 								</span>
 								<span>Okara, Pakistan</span>
 							</p>
-							<p className='d-flex flex-wrap'>
+							<p className='flex-wrap d-flex'>
 								<span className='mr-4 footer-icon'>
 									<i className='fas fa-phone'></i>
 								</span>
 								<span>+92 3000 0000 </span>
 							</p>
-							<p className='d-flex flex-wrap'>
+							<p className='flex-wrap d-flex'>
 								<span className='mr-4 footer-icon'>
 									<i className='fas fa-envelope'></i>
 								</span>
@@ -88,7 +88,7 @@ function Footer() {
 						sm={6}
 						md={3}
 						data-aos='fade-left'
-						className='mx-auto mt-3 px-3 d-flex justify-content-start  flex-column flex-wrap'
+						className='flex-wrap px-3 mx-auto mt-3 d-flex justify-content-start flex-column'
 					>
 						<h3 className='mb-2'>NewsLetter</h3>
 
@@ -98,7 +98,7 @@ function Footer() {
 							Enter your email address to get the latest University news,
 							special events and student activities delivered right to your
 							inbox.
-							<div className='input-group mb-3 mt-3 is-warning '>
+							<div className='mt-3 mb-3 input-group is-warning '>
 								<input
 									type='email'
 									className='form-control rounded-0'
