@@ -69,7 +69,7 @@ const AdminRegisterPage = () => {
     useEffect(() => {
         if (status === 'success' || (currentUser !== null && currentRole === 'Admin')) {
             toast.success('Create Account Successfully');
-            navigate('/Admin/dashboard');
+
 
         }
         else if (status === 'failed') {
