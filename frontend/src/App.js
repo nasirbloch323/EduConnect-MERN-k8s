@@ -25,7 +25,7 @@ import Notify from "./components/FrontUIComponent/components/Notification/Notify
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import AcadmicPage from "./pages/FrontUIPages/AcadmicPage"
-// import Login from "./pages/Login"
+import Login from "./pages/Login"
 import DevRegister from "./pages/developer/DevRegister"
 import DevDashboard from "./pages/developer/DevDashboard"
 
@@ -53,12 +53,10 @@ const App = () => {
 					<Route path='/acadmic' element={<AcadmicPage />} />
 					<Route path='/contact' element={<ContactPage />} />
 
-					{/* <Route path='/log' element={<Login />} /> */}
-					{/* <Route path="/choose" element={<ChooseUser visitor="normal" />} /> */}
-					{/* Tabs added here */}
-					{/* <Route path='/choose' element={<LoginPage visitor='normal' />} /> */}
+					{/* Developer */}
 					<Route path="/Developerregister" element={<DevRegister />} />
-					<Route path="/Developerlogin" element={<LoginPage role="Developer" />} />
+					<Route path="/Developerlogin" element={<Login role="Developer" />} />
+					{/* Admin {teacher,student} */}
 					<Route path='/Studentlogin' element={<LoginPage role='Student' />} />
 					<Route path='/Teacherlogin' element={<LoginPage role='Teacher' />} />
 					<Route path='/Adminregister' element={<AdminRegisterPage />} />

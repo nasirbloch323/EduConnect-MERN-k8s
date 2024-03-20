@@ -14,7 +14,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { AppBar, Drawer } from '../../components/styles';
 import Logout from '../Logout';
 import SideBar from '../admin/SideBar';
-import AdminProfile from '../admin/AdminProfile';
+// import AdminProfile from '../admin/AdminProfile';
 import DevHomePage from '../developer/DevHomePage';
 
 // import AddStudent from './studentRelated/AddStudent';
@@ -95,6 +95,7 @@ const DevDashboard = () => {
                         <Route path="/" element={<DevHomePage />} />
                         <Route path='*' element={<Navigate to="/" />} />
                         <Route path="/Developer/dashboard" element={<DevHomePage />} />
+
                         {/* <Route path="/Admin/profile" element={<AdminProfile />} />
                         <Route path="/Admin/complains" element={<SeeComplains />} /> */}
 

@@ -82,7 +82,7 @@ const upload = require("../helper/multerConfig.js")
 router.post("/DeveloperReg", developerRegister)
 router.post("/DeveloperLogin", developerLogIn)
 router.get("/Developer/:id", getdeveloperDetail)
-router.put("/dev/:id", updatedeveloper)
+router.put("/Developer/:id", updatedeveloper)
 
 // Admin
 router.post("/AdminReg", adminRegister)

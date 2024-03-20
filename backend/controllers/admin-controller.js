@@ -47,22 +47,22 @@ const adminRegister = async (req, res) => {
 }
 
 const adminLogIn = async (req, res) => {
-    if (req.body.email && req.body.password) {
-        let admin = await Admin.findOne({ email: req.body.email });
-        if (admin) {
-            const validated = await bcrypt.compare(req.body.password, admin.password);
-            if (validated) {
-                admin.password = undefined;
-                res.send(admin);
-            } else {
-                res.send({ message: "Invalid password" });
-            }
-        } else {
-            res.send({ message: "User not found" });
-        }
-    } else {
-        res.send({ message: "Email and password are required" });
-    }
+	if (req.body.email && req.body.password) {
+		let admin = await Admin.findOne({ email: req.body.email });
+		if (admin) {
+			const validated = await bcrypt.compare(req.body.password, admin.password);
+			if (validated) {
+				admin.password = undefined;
+				res.send(admin);
+			} else {
+				res.send({ message: "Invalid password" });
+			}
+		} else {
+			res.send({ message: "User not found" });
+		}
+	} else {
+		res.send({ message: "Email and password are required" });
+	}
 };
 
 // const adminRegister = async (req, res) => {
@@ -126,7 +126,6 @@ const getAdminDetail = async (req, res) => {
 const deleteAdmin = async (req, res) => {
 	try {
 		const result = await Admin.findByIdAndDelete(req.params.id)
-
 		await Sclass.deleteMany({ school: req.params.id })
 		await Student.deleteMany({ school: req.params.id })
 		await Teacher.deleteMany({ school: req.params.id })
