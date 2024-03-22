@@ -43,7 +43,7 @@ function Message({ props }) {
 
 	return (
 		<section id='messages'>
-			<Container fluid className='overflow-x-hidden  message-container'>
+			<Container fluid className='overflow-x-hidden message-container'>
 				<Row>
 					<Col className='mx-auto mt-5 text-capitalize'>
 						<h1 className='pl-4 a-title'>

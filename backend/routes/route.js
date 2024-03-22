@@ -16,6 +16,10 @@ const {
 	developerLogIn,
 	getdeveloperDetail,
 	updatedeveloper,
+	getAnn,
+	createAnn,
+	deleteAnn,
+	updateAnn,
 } = require("../controllers/developer-controller.js")
 
 const {
@@ -84,7 +88,12 @@ router.post("/DeveloperReg", developerRegister)
 router.post("/DeveloperLogin", developerLogIn)
 router.get("/Developer/:id", getdeveloperDetail)
 router.put("/Developer/:id", updatedeveloper)
-
+// Dev Announcements
+router.post("/announcements", createAnn)
+router.get("/announcements", getAnn)
+// router.get("/announcement/:id", getAnn)
+router.delete("/announcements/:id", deleteAnn)
+router.put("/announcements/:id", updateAnn)
 // Admin
 router.post("/AdminReg", adminRegister)
 router.post("/AdminLogin", adminLogIn)

@@ -28,11 +28,9 @@ import { toast } from "react-toastify"
 
 import { TabsTrigger, TabsList, TabsContent, Tabs } from "@/components/ui/tabs"
 
-
-
-import logo from "../assets/login-logo-1.png"
-import vectorArt from "../assets/login-logo-1.png"
-import axios from "axios"
+// import logo from "../assets/login-logo-1.png"
+// import vectorArt from "../assets/login-logo-1.png"
+// import axios from "axios"
 
 // import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
@@ -140,11 +138,11 @@ const LoginPage = ({ role }) => {
 						elevation={6}
 						square
 					>
-						<Box className="ml-4 d-flex align-items-center justify-content-start">
-                            <button className="btn btn-secondary text-sm ">
-                                <i className="fas fa-book me-2"></i> User Manual
-                            </button>
-                        </Box>
+						<Box className='ml-4 d-flex align-items-center justify-content-start'>
+							<button className='text-sm btn btn-secondary '>
+								<i className='fas fa-book me-2'></i> User Manual
+							</button>
+						</Box>
 
 						<Box
 							sx={{
@@ -155,7 +153,6 @@ const LoginPage = ({ role }) => {
 								alignItems: "center",
 							}}
 						>
-						 
 							{/* <Typography variant='h7'>
 								Welcome back! Please enter your details
 							</Typography>  */}
@@ -165,45 +162,54 @@ const LoginPage = ({ role }) => {
 								onSubmit={handleSubmit}
 								sx={{ mx: 2 }}
 							>
-								
 								<Tabs
 									defaultValue='student'
-									className='flex bg-0 flex-col '
+									className='flex flex-col bg-0 '
 									onValueChange={(e) => {
 										e === "student" ? setRole("student") : setRole("")
 									}}
 								>
 									<TabsList className='w-auto bg-0'>
 										<Link to='/Studentlogin'>
-											<TabsTrigger className="bg-[#552285] p-1 m-0 text-xs text-[#fff]" value="student">
-												<UserIcon className="h-7 w-5 mr-1" />
-          Student Login
-        </TabsTrigger></Link>
+											<TabsTrigger
+												className='bg-[#552285] p-1 m-0 text-xs text-[#fff]'
+												value='student'
+											>
+												<UserIcon className='w-5 mr-1 h-7' />
+												Student Login
+											</TabsTrigger>
+										</Link>
 										<Link to='/Adminlogin'>
-											<TabsTrigger className="bg-[#552285] p-1 m-0 text-xs text-[#fff]" value="admin">
-												<ShieldIcon className="h-7 w-5 mr-1" />
-          Admin Login
-        </TabsTrigger>
+											<TabsTrigger
+												className='bg-[#552285] p-1 m-0 text-xs text-[#fff]'
+												value='admin'
+											>
+												<ShieldIcon className='w-5 mr-1 h-7' />
+												Admin Login
+											</TabsTrigger>
 										</Link>
 										<Link to='/Teacherlogin'>
-											<TabsTrigger className="bg-[#552285] p-1 m-0 text-xs text-[#fff] " value="teacher">
-												<BookIcon className="h-7 w-5 mr-1" />
-          Teacher Login
-        </TabsTrigger></Link>
+											<TabsTrigger
+												className='bg-[#552285] p-1 m-0 text-xs text-[#fff] '
+												value='teacher'
+											>
+												<BookIcon className='w-5 mr-1 h-7' />
+												Teacher Login
+											</TabsTrigger>
+										</Link>
 									</TabsList>
 									<Typography
-								variant='h4'
-								sx={{ mb: 2, color: "#2c2143" }}
-								className='fs-3 pt-4 text-center p-0 m-0'
-							>
-								{role} Login
-							</Typography>
+										variant='h4'
+										sx={{ mb: 2, color: "#2c2143" }}
+										className='p-0 pt-4 m-0 text-center fs-3'
+									>
+										{role} Login
+									</Typography>
 									<Typography variant='h7' className='pt-1 m-0 text-center'>
 										Welcome back! Please enter your details {currentUser}
 									</Typography>
 
 									<TabsContent value='teacher'>
-
 										<TextField
 											margin='normal'
 											required
@@ -330,7 +336,6 @@ const LoginPage = ({ role }) => {
 											}}
 										/>
 									</TabsContent>
-								
 								</Tabs>
 
 								<Grid
@@ -352,8 +357,8 @@ const LoginPage = ({ role }) => {
 									{loader ? (
 										<CircularProgress size={24} color='inherit' />
 									) : (
-											"Login"
-										)}
+										"Login"
+									)}
 								</LightPurpleButton>
 
 								{/* {role === "Admin" &&
@@ -401,10 +406,6 @@ const LoginPage = ({ role }) => {
 					showPopup={showPopup}
 				/>
 			</ThemeProvider>
-
-
-
-
 		</>
 	)
 }
@@ -415,58 +416,56 @@ function BookIcon(props) {
 	return (
 		<svg
 			{...props}
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round"
+			xmlns='http://www.w3.org/2000/svg'
+			width='24'
+			height='24'
+			viewBox='0 0 24 24'
+			fill='none'
+			stroke='currentColor'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
 		>
-			<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+			<path d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20' />
 		</svg>
 	)
 }
-
 
 function ShieldIcon(props) {
 	return (
 		<svg
 			{...props}
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round"
+			xmlns='http://www.w3.org/2000/svg'
+			width='24'
+			height='24'
+			viewBox='0 0 24 24'
+			fill='none'
+			stroke='currentColor'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
 		>
-			<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+			<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10' />
 		</svg>
 	)
 }
-
 
 function UserIcon(props) {
 	return (
 		<svg
 			{...props}
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			strokeWidth="2"
-			strokeLinecap="round"
-			strokeLinejoin="round"
+			xmlns='http://www.w3.org/2000/svg'
+			width='24'
+			height='24'
+			viewBox='0 0 24 24'
+			fill='none'
+			stroke='currentColor'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
 		>
-			<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-			<circle cx="12" cy="7" r="4" />
+			<path d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2' />
+			<circle cx='12' cy='7' r='4' />
 		</svg>
 	)
 }
