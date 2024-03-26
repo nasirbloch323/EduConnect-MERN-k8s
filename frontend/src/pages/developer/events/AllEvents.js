@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
-import { deletAnn, updateAnn } from "@/redux/announcements/annHandle"
+import { deletEvent, updateEvent } from "@/redux/event/eventHandle"
 import { Loader2 } from "lucide-react"
 import { CardFooter } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
@@ -17,37 +17,37 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import moment from "moment";
-export default function AllAnn() {
+export default function AllEvents() {
 	const dispatch = useDispatch()
-	const { annList } = useSelector((state) => state.ann);
-	const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
+	const { eventList } = useSelector((state) => state.event);
+	const [selectedEvent, setSelectedEvent] = useState(null);
 
-	const handleReadMore = (ann) => {
-		setSelectedAnnouncement(ann);
+	const handleReadMore = (event) => {
+		setSelectedEvent(event);
 	};
 
 	return (
 		<>
 			<div className='grid items-start max-w-sm gap-8  mx-auto sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3'>
-				{annList && annList.length > 0 ? (
-					annList.map((ann, i) => {
+				{eventList && eventList.length > 0 ? (
+					eventList.map((event, i) => {
 						const truncatedDescription =
-							ann.description.split(" ").slice(0, 20).join(" ") + "...";
+							event.description.split(" ").slice(0, 20).join(" ") + "...";
 						return (
 							<Card key={i} className={"min-h-52 pb-2"}>
 								<CardHeader>
-									<CardTitle>{ann.title}</CardTitle>
+									<CardTitle>{event.title}</CardTitle>
 								</CardHeader>
-								<CardContent className='m-0 pt-0 text-[#1976D2] text-xs'>{moment(ann.date).format("MM/DD/YYYY")}</CardContent>
+								<CardContent className='m-0 pt-0 text-[#1976D2] text-xs'>{moment(event.date).format("MM/DD/YYYY")}</CardContent>
 
 								<CardContent className='m-0 pt-0  text-sm'>{truncatedDescription}</CardContent>
 
 								<CardFooter className='px-2'>
 									<div className='flex justify-end gap-2'>
-										<EditAnn ann={ann} />
+										<EditEvent event={event} />
 										<Button
 											onClick={() => {
-												dispatch(deletAnn(ann._id))
+												dispatch(deletEvent(event._id))
 											}}
 											size='sm'
 											variant='outline'
@@ -66,15 +66,16 @@ export default function AllAnn() {
 					</div>
 				)}
 			</div>
+			
 		</>
 	)
 }
 
-const EditAnn = ({ ann }) => {
+const EditEvent = ({ event }) => {
 	const dispatch = useDispatch()
 	const [fields, setFields] = useState({
-		title: ann.title,
-		description: ann.description,
+		title: event.title,
+		description: event.description,
 	})
 	const handleChange = (e) => {
 		setFields((pre) => ({
@@ -85,7 +86,7 @@ const EditAnn = ({ ann }) => {
 	}
 	const handleSubmit = (e, id) => {
 		e.preventDefault()
-		dispatch(updateAnn(fields, ann._id))
+		dispatch(updateEvent(fields, event._id))
 	}
 	return (
 		<Dialog>

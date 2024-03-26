@@ -60,7 +60,7 @@ const SideBar = () => {
 					</ListItemIcon>
 					<ListItemText primary='All Anoucment' />
 				</ListItemButton>
-				<ListItemButton component={Link} to='/Developer/announcement'>
+				<ListItemButton component={Link} to='/Developer/events'>
 					<ListItemIcon>
 						<SupervisorAccountOutlinedIcon
 							color={

@@ -30,4 +30,4 @@ const AnnouncementSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("annocments", AnnouncementSchema);
+module.exports = mongoose.model("event", AnnouncementSchema);

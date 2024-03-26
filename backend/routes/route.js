@@ -12,14 +12,26 @@ const {
 const createAssignment = require("../controllers/assignment-controller.js")
 
 const {
-	developerRegister,
-	developerLogIn,
-	getdeveloperDetail,
-	updatedeveloper,
 	getAnn,
 	createAnn,
 	deleteAnn,
 	updateAnn,
+} = require("../controllers/ann-controller.js")
+
+
+
+const {
+	createEvent,
+	getEvent,
+	deleteEvent,
+	updateEvent
+} = require("../controllers/event-controller.js")
+
+const {
+	developerRegister,
+	developerLogIn,
+	getdeveloperDetail,
+	updatedeveloper
 } = require("../controllers/developer-controller.js")
 
 const {
@@ -94,6 +106,14 @@ router.get("/announcements", getAnn)
 // router.get("/announcement/:id", getAnn)
 router.delete("/announcements/:id", deleteAnn)
 router.put("/announcements/:id", updateAnn)
+// Dev events
+router.post("/events", createEvent)
+router.get("/events", getEvent)
+// router.get("/events/:id", getEvent)
+router.delete("/events/:id", deleteEvent)
+router.put("/events/:id", updateEvent)
+
+
 // Admin
 router.post("/AdminReg", adminRegister)
 router.post("/AdminLogin", adminLogIn)

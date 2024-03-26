@@ -12,6 +12,7 @@ import { getAllSclasses } from "../../redux/sclassRelated/sclassHandle"
 import { getAllStudents } from "../../redux/studentRelated/studentHandle"
 import { getAllTeachers } from "../../redux/teacherRelated/teacherHandle"
 import { getAllAnn } from "@/redux/announcements/annHandle"
+import { getAllEvent } from "@/redux/event/eventHandle"
 
 const DevHomePage = () => {
 	const dispatch = useDispatch()
@@ -19,6 +20,7 @@ const DevHomePage = () => {
 	const { sclassesList } = useSelector((state) => state.sclass)
 	const { teachersList } = useSelector((state) => state.teacher)
 	const { annList } = useSelector((state) => state.ann)
+	const { eventList } = useSelector((state) => state.event)
 
 	const { currentUser } = useSelector((state) => state.user)
 
@@ -29,13 +31,15 @@ const DevHomePage = () => {
 		dispatch(getAllSclasses(adminID, "Sclass"))
 		dispatch(getAllTeachers(adminID))
 		dispatch(getAllAnn())
+		dispatch(getAllEvent())
 	}, [adminID, dispatch])
 	console.log(annList)
 	const numberOfStudents = studentsList && studentsList.length
 	const numberOfClasses = sclassesList && sclassesList.length
 	const numberOfTeachers = teachersList && teachersList.length
-	const numberOfAnn = annList && annList.length
+	const numberOfAnn = eventList && eventList.length
 
+	const numberOfEvent = eventList && eventList.length
 	return (
 		<>
 			<Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
@@ -58,7 +62,7 @@ const DevHomePage = () => {
 						<StyledPaper>
 							<img src={Students} alt='Students' />
 							<Title>Total Event</Title>
-							<Data start={0} end={numberOfStudents} duration={2.5} />
+							<Data start={0} end={numberOfEvent} duration={2.5} />
 						</StyledPaper>
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>

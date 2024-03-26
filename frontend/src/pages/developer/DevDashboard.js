@@ -47,6 +47,7 @@ import AllAdmin from "./admin/AllAdmin"
 import UpdateAdmin from "./admin/UpdateAdmin"
 import AddAdmin from "./admin/AddAdmin"
 import AnnPage from "./announcements/AnnPage"
+import EventPage from "./events/EventPage"
 
 const DevDashboard = () => {
 	const [open, setOpen] = useState(false)
@@ -114,6 +115,7 @@ const DevDashboard = () => {
 						<Route path='/Developer/complains' element={<SeeComplains />} />
 
 						<Route path='/Developer/announcement' element={<AnnPage />} />
+						<Route path='/Developer/events' element={<EventPage />} />
 
 						{/* Notice */}
 						{/* <Route path="/Admin/addnotice" element={<AddNotice />} />

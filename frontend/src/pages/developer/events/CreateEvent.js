@@ -2,11 +2,11 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import { createAnn } from "@/redux/announcements/annHandle"
+import { createEvent } from "@/redux/event/eventHandle"
 import { useDispatch } from "react-redux"
 import { Label } from "@/components/ui/label"
 
-export default function CreateAnn() {
+export default function CreateEvent() {
 	const dispatch = useDispatch()
 	const [fields, setFields] = useState({})
 	const handleChange = (e) => {
@@ -18,12 +18,12 @@ export default function CreateAnn() {
 	}
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		dispatch(createAnn(fields))
+		dispatch(createEvent(fields))
 	}
 	return (
 		<>
 			<div className='space-y-2'>
-				<h1 className='text-3xl font-bold'>Manage Posts</h1>
+				<h1 className='text-3xl font-bold'>Manage Events</h1>
 				<p className='max-w-[600px] text-gray-500 md:text-base/relaxed dark:text-gray-400'>
 					Add a new post or edit an existing one.
 				</p>
@@ -94,9 +94,9 @@ export default function CreateAnn() {
               />
             </div> */}
 					<div className='flex justify-end gap-2 p-6'>
-						{/* <Button size='sm' variant='outline'>
+						<Button size='sm' variant='outline'>
 							Cancel
-						</Button> */}
+						</Button>
 						<Button type='submit' size='sm'>
 							Save
 						</Button>
