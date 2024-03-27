@@ -7,6 +7,7 @@ const {
 	getAdminDetail,
 	getAdmins,
 	updateAdmin,
+	getAllAdmins,
 } = require("../controllers/admin-controller.js")
 
 const createAssignment = require("../controllers/assignment-controller.js")
@@ -18,20 +19,18 @@ const {
 	updateAnn,
 } = require("../controllers/ann-controller.js")
 
-
-
 const {
 	createEvent,
 	getEvent,
 	deleteEvent,
-	updateEvent
+	updateEvent,
 } = require("../controllers/event-controller.js")
 
 const {
 	developerRegister,
 	developerLogIn,
 	getdeveloperDetail,
-	updatedeveloper
+	updatedeveloper,
 } = require("../controllers/developer-controller.js")
 
 const {
@@ -95,6 +94,12 @@ const {
 	teacherAttendance,
 } = require("../controllers/teacher-controller.js")
 const upload = require("../helper/multerConfig.js")
+const {
+	contactUs,
+	getContactById,
+	getAllContacts,
+	deleteContactById,
+} = require("../controllers/contact-controller.js")
 
 router.post("/DeveloperReg", developerRegister)
 router.post("/DeveloperLogin", developerLogIn)
@@ -113,15 +118,15 @@ router.get("/events", getEvent)
 router.delete("/events/:id", deleteEvent)
 router.put("/events/:id", updateEvent)
 
-
 // Admin
 router.post("/AdminReg", adminRegister)
 router.post("/AdminLogin", adminLogIn)
 router.get("/Admin/:id", getAdmins)
 router.get("/Admin/:id", getAdminDetail)
 router.delete("/Admin/:id", deleteAdmin)
-
 router.put("/Admin/:id", updateAdmin)
+// All Admins List
+router.get("/admins", getAllAdmins)
 
 // Student
 
@@ -213,4 +218,11 @@ router.post("/upload-files", upload.single("file"), upload_files)
 router.get("/get-files", get_files)
 //  Assignment
 router.post("/createAssignment", createAssignment)
+
+// contact
+router.post("/contact", contactUs)
+router.get("/allcontact", getAllContacts)
+router.get("/contact/:id", getContactById)
+router.delete("/contact/:id", deleteContactById)
+
 module.exports = router

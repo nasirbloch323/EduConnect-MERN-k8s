@@ -20,17 +20,16 @@ const adminRegister = async (req, res) => {
 			password: hashedPass,
 		})
 		const existingAdminByEmail = await Admin.findOne({ email: req.body.email })
-		
+
 		const existingNo = await Admin.findOne({
-			phoneNo: req.body.phoneNo
+			phoneNo: req.body.phoneNo,
 		})
 		console.log({ existingSchool })
 		if (existingAdminByEmail) {
 			res.send({ message: "Email already exists" })
 		} else if (existingNo) {
 			res.send({ message: "Phone No already exists" })
-		}
-		else {
+		} else {
 			let result = await admin.save()
 			console.log(result)
 			result.password = undefined
@@ -43,22 +42,22 @@ const adminRegister = async (req, res) => {
 
 const adminLogIn = async (req, res) => {
 	if (req.body.email && req.body.password) {
-		let admin = await Admin.findOne({ email: req.body.email });
+		let admin = await Admin.findOne({ email: req.body.email })
 		if (admin) {
-			const validated = await bcrypt.compare(req.body.password, admin.password);
+			const validated = await bcrypt.compare(req.body.password, admin.password)
 			if (validated) {
-				admin.password = undefined;
-				res.send(admin);
+				admin.password = undefined
+				res.send(admin)
 			} else {
-				res.send({ message: "Invalid password" });
+				res.send({ message: "Invalid password" })
 			}
 		} else {
-			res.send({ message: "User not found" });
+			res.send({ message: "User not found" })
 		}
 	} else {
-		res.send({ message: "Email and password are required" });
+		res.send({ message: "Email and password are required" })
 	}
-};
+}
 
 // const adminRegister = async (req, res) => {
 //     try {
@@ -85,7 +84,6 @@ const adminLogIn = async (req, res) => {
 //     }
 // };
 
-
 // const adminLogIn = async (req, res) => {
 // 	if (req.body.email && req.body.password) {
 // 		let admin = await Admin.findOne({ email: req.body.email })
@@ -106,20 +104,22 @@ const adminLogIn = async (req, res) => {
 
 const getAdmins = async (req, res) => {
 	try {
-		let admins = await Admin.find({ email: req.body.email })
-			.populate("email", "email")
+		let admins = await Admin.find({ email: req.body.email }).populate(
+			"email",
+			"email"
+		)
 		if (admins.length > 0) {
 			let modifiedAdmins = admins.map((admin) => {
-				return { ...admin._doc, password: undefined };
-			});
-			res.send(modifiedAdmins);
+				return { ...admin._doc, password: undefined }
+			})
+			res.send(modifiedAdmins)
 		} else {
-			res.send({ message: "No admins found" });
+			res.send({ message: "No admins found" })
 		}
 	} catch (err) {
-		res.status(500).json(err);
+		res.status(500).json(err)
 	}
-};
+}
 
 const getAdminDetail = async (req, res) => {
 	try {
@@ -129,6 +129,21 @@ const getAdminDetail = async (req, res) => {
 			res.send(admin)
 		} else {
 			res.send({ message: "No admin found" })
+		}
+	} catch (err) {
+		res.status(500).json(err)
+	}
+}
+
+// Get all admins list
+
+const getAllAdmins = async (req, res) => {
+	try {
+		let admin = await Admin.find()
+		if (admin) {
+			return res.status(200).send(admin)
+		} else {
+			return res.send({ message: "No admins found" })
 		}
 	} catch (err) {
 		res.status(500).json(err)
@@ -177,6 +192,7 @@ module.exports = {
 	getAdminDetail,
 	deleteAdmin,
 	updateAdmin,
+	getAllAdmins,
 }
 
 // module.exports = { adminRegister, adminLogIn, getAdminDetail };

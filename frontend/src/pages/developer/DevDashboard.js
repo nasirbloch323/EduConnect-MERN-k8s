@@ -48,6 +48,7 @@ import UpdateAdmin from "./admin/UpdateAdmin"
 import AddAdmin from "./admin/AddAdmin"
 import AnnPage from "./announcements/AnnPage"
 import EventPage from "./events/EventPage"
+import ContactPage from "./recived_contact_forms/ContactPage"
 
 const DevDashboard = () => {
 	const [open, setOpen] = useState(false)
@@ -116,6 +117,7 @@ const DevDashboard = () => {
 
 						<Route path='/Developer/announcement' element={<AnnPage />} />
 						<Route path='/Developer/events' element={<EventPage />} />
+						<Route path='/Developer/contact' element={<ContactPage />} />
 
 						{/* Notice */}
 						{/* <Route path="/Admin/addnotice" element={<AddNotice />} />

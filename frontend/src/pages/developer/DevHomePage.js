@@ -13,6 +13,8 @@ import { getAllStudents } from "../../redux/studentRelated/studentHandle"
 import { getAllTeachers } from "../../redux/teacherRelated/teacherHandle"
 import { getAllAnn } from "@/redux/announcements/annHandle"
 import { getAllEvent } from "@/redux/event/eventHandle"
+import { getAllAdmins } from "@/redux/adminRelated/adminHandler"
+import { getAllContacts } from "@/redux/contactUsRelated/contactHandler"
 
 const DevHomePage = () => {
 	const dispatch = useDispatch()
@@ -21,7 +23,8 @@ const DevHomePage = () => {
 	const { teachersList } = useSelector((state) => state.teacher)
 	const { annList } = useSelector((state) => state.ann)
 	const { eventList } = useSelector((state) => state.event)
-
+	const { adminDetails } = useSelector((state) => state.admin)
+	const { contactList } = useSelector((state) => state.contact)
 	const { currentUser } = useSelector((state) => state.user)
 
 	const adminID = currentUser._id
@@ -32,14 +35,17 @@ const DevHomePage = () => {
 		dispatch(getAllTeachers(adminID))
 		dispatch(getAllAnn())
 		dispatch(getAllEvent())
+		dispatch(getAllAdmins())
+		dispatch(getAllContacts())
 	}, [adminID, dispatch])
 	console.log(annList)
 	const numberOfStudents = studentsList && studentsList.length
 	const numberOfClasses = sclassesList && sclassesList.length
 	const numberOfTeachers = teachersList && teachersList.length
 	const numberOfAnn = eventList && eventList.length
-
 	const numberOfEvent = eventList && eventList.length
+	const numberOfAdmins = adminDetails && adminDetails.length
+	const numberOfContact = contactList && contactList.length
 	return (
 		<>
 			<Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
@@ -48,7 +54,7 @@ const DevHomePage = () => {
 						<StyledPaper>
 							<img src={Students} alt='Students' />
 							<Title>Total Admin</Title>
-							<Data start={0} end={numberOfStudents} duration={2.5} />
+							<Data start={0} end={numberOfAdmins} duration={2.5} />
 						</StyledPaper>
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>
@@ -90,7 +96,12 @@ const DevHomePage = () => {
 						<StyledPaper>
 							<img src={Fees} alt='Fees' />
 							<Title>All Contacts</Title>
-							<Data start={0} end={2} duration={2.5} prefix='' />{" "}
+							<Data
+								start={0}
+								end={numberOfContact}
+								duration={2.5}
+								prefix=''
+							/>{" "}
 						</StyledPaper>
 					</Grid>
 					<Grid item xs={12} md={12} lg={12}>

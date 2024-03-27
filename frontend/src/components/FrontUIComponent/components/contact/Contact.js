@@ -1,13 +1,46 @@
-import React from "react"
+import React, { useState } from "react"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import "./contact.css"
+import { useDispatch } from "react-redux"
+import { createContact } from "@/redux/contactUsRelated/contactHandler"
+// import { getStatus } from "@/redux/contactUsRelated/contactSlice"
 
 function Contact() {
+	// const navigate = useNavigate()
+	const dispatch = useDispatch()
+	// const { status } = useSelector((state) => state.contact)
+	const [validated, setValidated] = useState(false)
+	const [fields, setFields] = useState({})
+	const handleChange = (e) => {
+		setFields((pre) => ({
+			...pre,
+			[e.target.name]: e.target.value,
+		}))
+		// console.log(fields)
+	}
+	const handleSubmit = (e) => {
+		const form = e.currentTarget
+		e.preventDefault()
+		if (form.checkValidity() === false) {
+			e.preventDefault()
+			e.stopPropagation()
+		}
+		// console.log(fields)
+		dispatch(createContact(fields))
+		setValidated(true)
+		setFields(null)
+	}
+	// useEffect(() => {
+	// 	if (status) {
+	// 		navigate("/")
+	// 		getStatus(false)
+	// 	}
+	// }, [navigate, status])
 	return (
 		<section>
 			<Container
 				style={{ backgroundColor: "#552285", color: "#fff" }}
-				className='text-center py-5'
+				className='py-5 text-center'
 				fluid
 			>
 				<Row>
@@ -34,61 +67,109 @@ function Contact() {
 							form below or visit our office personally. We would be happy to
 							answer your questions.
 						</p>
-						<Form>
+						<Form
+							noValidate
+							validated={validated}
+							onSubmit={handleSubmit}
+							className='p-10 space-y-4'
+						>
 							<Row>
-								<Form.Group as={Col} controlId='formGridFirstName'>
-									<Form.Label>First Name</Form.Label>
-									<Form.Control type='text' placeholder='Enter First Name' />
-								</Form.Group>
+								<Form.Group
+									hasValidation
+									as={Col}
+									controlId='formGridFirstName'
+								>
+									<Form.Label>Name</Form.Label>
 
-								<Form.Group as={Col} controlId='formGridLastName'>
-									<Form.Label>Last Name</Form.Label>
-									<Form.Control type='text' placeholder='Enter Last Name' />
+									<Form.Control
+										name='name'
+										onChange={handleChange}
+										type='text'
+										placeholder='Enter Name'
+										aria-describedby='inputGroupPrepend'
+										required
+									/>
+									<Form.Control.Feedback type='invalid'>
+										Please Enter Name.
+									</Form.Control.Feedback>
 								</Form.Group>
 							</Row>
 							<Row>
-								<Form.Group as={Col} controlId='formGridEmail'>
-									<Form.Label>Email</Form.Label>
-									<Form.Control type='email' placeholder='Enter email' />
-								</Form.Group>
+								<Form.Group hasValidation as={Col} controlId='formGridEmail'>
+									<Form.Label>
+										Email <sup>*</sup>
+									</Form.Label>
 
-								<Form.Group as={Col} controlId='formGridPassword'>
-									<Form.Label>Password</Form.Label>
-									<Form.Control type='password' placeholder='Password' />
+									<Form.Control
+										onChange={handleChange}
+										type='email'
+										name='email'
+										placeholder='Enter email'
+										aria-describedby='inputGroupPrepend'
+										required
+									/>
+									<Form.Control.Feedback type='invalid'>
+										Please Enter Email.
+									</Form.Control.Feedback>
 								</Form.Group>
 							</Row>
 
 							<Form.Group controlId='formGridAddress1'>
 								<Form.Label>Address</Form.Label>
-								<Form.Control placeholder='1234 Main St' />
+								<Form.Control
+									name='address'
+									onChange={handleChange}
+									type='text'
+									placeholder='1234 Main St'
+								/>
 							</Form.Group>
 
-							<Form.Group controlId='formGridAddress2'>
-								<Form.Label>Address 2</Form.Label>
-								<Form.Control placeholder='Apartment, studio, or floor' />
-							</Form.Group>
+							<Row>
+								<Form.Group hasValidation as={Col} controlId='formGridPhone'>
+									<Form.Label>
+										Phone <sup>*</sup>
+									</Form.Label>
+									<Form.Control
+										onChange={handleChange}
+										name='phoneNo'
+										type='tel'
+										placeholder='Enter Phone'
+										aria-describedby='inputGroupPrepend'
+										required
+									/>
+									<Form.Control.Feedback type='invalid'>
+										Please Enter Phone.
+									</Form.Control.Feedback>
+								</Form.Group>{" "}
+							</Row>
+							<Row>
+								<Form.Group
+									hasValidation
+									as={Col}
+									controlId='formGridDescription'
+								>
+									<Form.Label>
+										Message <sup>*</sup>
+									</Form.Label>
+									<Form.Control
+										onChange={handleChange}
+										name='description'
+										as={"textarea"}
+										rows={"6"}
+										placeholder='Enter Your Message'
+										aria-describedby='inputGroupPrepend'
+										required
+									/>
+									<Form.Control.Feedback type='invalid'>
+										Please Enter Message.
+									</Form.Control.Feedback>
+								</Form.Group>{" "}
+							</Row>
 
-							{/* <Form.Row>
-								<Form.Group as={Col} controlId='formGridCity'>
-									<Form.Label>City</Form.Label>
-									<Form.Control />
-								</Form.Group>
-
-								<Form.Group as={Col} controlId='formGridState'>
-									<Form.Label>State</Form.Label>
-									<Form.Control as='select' defaultValue='Choose...'>
-										<option>Choose...</option>
-										<option>...</option>
-									</Form.Control>
-								</Form.Group>
-
-								<Form.Group as={Col} controlId='formGridZip'>
-									<Form.Label>Zip</Form.Label>
-									<Form.Control />
-								</Form.Group>
-							</Form.Row> */}
-
-							<Button className='btn btn-primary mt-4 bg-[#552285] text-[#fff] border-0' type='submit'>
+							<Button
+								className='btn btn-primary mt-4 bg-[#552285] text-[#fff] border-0'
+								type='submit'
+							>
 								Send Message
 							</Button>
 						</Form>
@@ -97,7 +178,7 @@ function Contact() {
 						<h3>Social</h3>
 						<hr />
 						<div>
-							<ul className='social-icons  mt-1'>
+							<ul className='mt-1 social-icons'>
 								<li>
 									<a className='facebook' href='#fb'>
 										<i className='fab fa-facebook-f'></i>

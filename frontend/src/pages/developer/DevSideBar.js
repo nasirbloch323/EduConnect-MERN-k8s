@@ -108,11 +108,11 @@ const SideBar = () => {
 					</ListItemIcon>
 					<ListItemText primary='All Blogs' />
 				</ListItemButton>
-				<ListItemButton component={Link} to='/Developer/profile'>
+				<ListItemButton component={Link} to='/Developer/contact'>
 					<ListItemIcon>
 						<AccountCircleOutlinedIcon
 							color={
-								location.pathname.startsWith("/Developer/profile")
+								location.pathname.startsWith("/Developer/contact")
 									? "primary"
 									: "inherit"
 							}

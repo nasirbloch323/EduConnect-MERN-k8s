@@ -19,8 +19,17 @@ import {
 import { Button } from "@/components/ui/button"
 import { Container } from "@mui/material"
 import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { getAllAdmins } from "@/redux/adminRelated/adminHandler"
+import LoaderCom from "@/components/component/LoaderCom"
 
 export default function AllAdmin() {
+	const dispatch = useDispatch()
+	const { adminDetails } = useSelector((state) => state.admin)
+	useEffect(() => {
+		dispatch(getAllAdmins())
+	}, [dispatch])
 	return (
 		<>
 			<Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
@@ -47,7 +56,42 @@ export default function AllAdmin() {
 									</TableRow>
 								</TableHeader>
 								<TableBody>
-									<TableRow>
+									{adminDetails ? (
+										adminDetails.map((admin, i) => {
+											return (
+												<TableRow key={i}>
+													<TableCell className='font-medium'>
+														{admin.name}
+													</TableCell>
+													<TableCell>{admin.email}</TableCell>
+													<TableCell>{admin.role}</TableCell>
+													<TableCell className='flex gap-2'>
+														<Link to='/Developer/update-admin'>
+															<Button
+																className='w-6 h-6'
+																size='icon'
+																variant='ghost'
+															>
+																<FileEditIcon className='w-4 h-4' />
+																<span className='sr-only'>Edit</span>
+															</Button>
+														</Link>
+														<Button
+															className='w-6 h-6'
+															size='icon'
+															variant='ghost'
+														>
+															<TrashIcon className='w-4 h-4' />
+															<span className='sr-only'>Delete</span>
+														</Button>
+													</TableCell>
+												</TableRow>
+											)
+										})
+									) : (
+										<LoaderCom />
+									)}
+									{/* <TableRow>
 										<TableCell className='font-medium'>
 											Dr. Ghulam Ali
 										</TableCell>
@@ -103,7 +147,7 @@ export default function AllAdmin() {
 												<span className='sr-only'>Delete</span>
 											</Button>
 										</TableCell>
-									</TableRow>
+									</TableRow> */}
 								</TableBody>
 							</Table>
 						</div>
