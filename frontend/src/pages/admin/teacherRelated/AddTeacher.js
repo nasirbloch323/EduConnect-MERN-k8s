@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getSubjectDetails } from '../../../redux/sclassRelated/sclassHandle';
+import { getSubjectDetails, getClassDetails, getClassStudents, getSubjectList } from '../../../redux/sclassRelated/sclassHandle';
 import Popup from '../../../components/Popup';
 import { registerUser } from '../../../redux/userRelated/userHandle';
 import { underControl } from '../../../redux/userRelated/userSlice';
@@ -15,7 +15,7 @@ const AddTeacher = () => {
   const subjectID = params.id
 
   const { status, response, error } = useSelector(state => state.user);
-  const { subjectDetails } = useSelector((state) => state.sclass);
+  const { subjectDetails, sclassDetails } = useSelector((state) => state.sclass);
 
   useEffect(() => {
     dispatch(getSubjectDetails(subjectID, "Subject"));
@@ -35,6 +35,14 @@ const AddTeacher = () => {
   const teachSclass = subjectDetails && subjectDetails.sclassName && subjectDetails.sclassName._id
 
   const fields = { name, email, password, role, school, teachSubject, teachSclass }
+
+  const classID = params.id
+
+  useEffect(() => {
+    dispatch(getClassDetails(classID, "Sclass"));
+    dispatch(getSubjectList(classID, "ClassSubjects"))
+    dispatch(getClassStudents(classID));
+  }, [dispatch, classID])
 
   const submitHandler = (event) => {
     event.preventDefault()
@@ -69,7 +77,8 @@ const AddTeacher = () => {
             Subject : {subjectDetails && subjectDetails.subName}
           </label>
           <label>
-            Class : {subjectDetails && subjectDetails.sclassName && subjectDetails.sclassName.sclassName}
+            Class : {sclassDetails && sclassDetails.sclassName}
+            {subjectDetails && subjectDetails.sclassName && subjectDetails.sclassName.sclassName}
           </label>
           <label>Name</label>
           <input className="registerInput" type="text" placeholder="Enter teacher's name..."

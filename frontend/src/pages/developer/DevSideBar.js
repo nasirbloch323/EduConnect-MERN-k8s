@@ -118,14 +118,27 @@ const SideBar = () => {
 							}
 						/>
 					</ListItemIcon>
+					<ListItemText primary='All Jobs ' />
+				</ListItemButton>
+				<ListItemButton component={Link} to='/Developer/contact'>
+					<ListItemIcon>
+						<AccountCircleOutlinedIcon
+							color={
+								location.pathname.startsWith("/Developer/contact")
+									? "primary"
+									: "inherit"
+							}
+						/>
+					</ListItemIcon>
 					<ListItemText primary='All Contact ' />
 				</ListItemButton>
+				
 			</React.Fragment>
 			<Divider sx={{ my: 1 }} />
 			<React.Fragment>
-				<ListSubheader component='div' inset>
+				{/* <ListSubheader component='div' inset>
 					User
-				</ListSubheader>
+				</ListSubheader> */}
 				<ListItemButton component={Link} to='/Developer/profile'>
 					<ListItemIcon>
 						<AccountCircleOutlinedIcon

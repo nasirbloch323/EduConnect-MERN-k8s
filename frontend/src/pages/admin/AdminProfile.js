@@ -50,7 +50,7 @@ const AdminProfile = () => {
             <br />
             Department HOD: {currentUser.schoolName}
             <br />
-            <Button variant="contained" color="error" onClick={deleteHandler} className='mt-2'>Delete</Button> 
+            {/* <Button variant="contained" color="error" onClick={deleteHandler} className='mt-2'>Delete</Button>  */}
              <Button variant="contained" sx={styles.showButton}
                 onClick={() => setShowTab(!showTab)} className='ml-2 mt-2 bg-[#552285]'>
                 {showTab ? <KeyboardArrowUp /> : <KeyboardArrowDown />}{buttonText}

@@ -11,7 +11,7 @@ const ContactPage = () => {
 	}, [dispatch])
 	return (
 		<div>
-			All the Contact Forms Data will goes CardHeader
+			<h2 className="font-semibold text-xl  pt-4 pl-3  ">All Contact Information</h2>
 			<div className='p-3'>
 				<AllContact />
 			</div>

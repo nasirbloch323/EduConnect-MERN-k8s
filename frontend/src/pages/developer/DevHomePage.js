@@ -15,6 +15,7 @@ import { getAllAnn } from "@/redux/announcements/annHandle"
 import { getAllEvent } from "@/redux/event/eventHandle"
 import { getAllAdmins } from "@/redux/adminRelated/adminHandler"
 import { getAllContacts } from "@/redux/contactUsRelated/contactHandler"
+import { Link } from "react-router-dom"
 
 const DevHomePage = () => {
 	const dispatch = useDispatch()
@@ -50,30 +51,37 @@ const DevHomePage = () => {
 		<>
 			<Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
 				<Grid container spacing={3}>
+
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
-							<img src={Students} alt='Students' />
+							<Link to='Developer/all-admin'>
+								<img src={Students} alt='Students' className="center" />
+							</Link>
 							<Title>Total Admin</Title>
 							<Data start={0} end={numberOfAdmins} duration={2.5} />
+
 						</StyledPaper>
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
-							<img src={Students} alt='Students' />
+							<Link to='Developer/announcement'>
+								<img src={Students} alt='Students' /></Link>
 							<Title>Total Anoucment</Title>
 							<Data start={0} end={numberOfAnn} duration={2.5} />
 						</StyledPaper>
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
-							<img src={Students} alt='Students' />
+							<Link to='Developer/events'>
+								<img src={Students} alt='Students' /></Link>
 							<Title>Total Event</Title>
 							<Data start={0} end={numberOfEvent} duration={2.5} />
 						</StyledPaper>
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
-							<img src={Students} alt='Students' />
+							<Link to='Developer/all-admin'>
+								<img src={Students} alt='Students' /></Link>
 							<Title>Total Notification</Title>
 							<Data start={0} end={numberOfStudents} duration={2.5} />
 						</StyledPaper>
@@ -94,7 +102,9 @@ const DevHomePage = () => {
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
+						<Link to='Developer/contact'>
 							<img src={Fees} alt='Fees' />
+							</Link>
 							<Title>All Contacts</Title>
 							<Data
 								start={0}

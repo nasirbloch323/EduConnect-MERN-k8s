@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
-import { getClassDetails, getClassStudents, getSubjectList } from "../../../redux/sclassRelated/sclassHandle";
+import { getClassDetails, getClassStudents, getSubjectList,getTeacherFreeClassSubjects } from "../../../redux/sclassRelated/sclassHandle";
 import { deleteUser } from '../../../redux/userRelated/userHandle';
 import {
     Box, Container, Typography, Tab, IconButton
@@ -23,7 +23,7 @@ const ClassDetails = () => {
     const params = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch();
-    const { subjectsList, sclassStudents, sclassDetails, loading, error, response, getresponse } = useSelector((state) => state.sclass);
+    const { subjectsList,getTeacherFreeClassSubjects, sclassStudents, sclassDetails, loading, error, response, getresponse } = useSelector((state) => state.sclass);
 
     const classID = params.id
 
@@ -51,12 +51,12 @@ const ClassDetails = () => {
         console.log(address);
         setMessage("Sorry the delete function has been disabled for now.")
         setShowPopup(true)
-        // dispatch(deleteUser(deleteID, address))
-        //     .then(() => {
-        //         dispatch(getClassStudents(classID));
-        //         dispatch(resetSubjects())
-        //         dispatch(getSubjectList(classID, "ClassSubjects"))
-        //     })
+        dispatch(deleteUser(deleteID, address))
+            .then(() => {
+                dispatch(getClassStudents(classID));
+                dispatch(resetSubjects())
+                dispatch(getSubjectList(classID, "ClassSubjects"))
+            })
     }
 
     const subjectColumns = [
@@ -68,6 +68,19 @@ const ClassDetails = () => {
         return {
             name: subject.subName,
             code: subject.subCode,
+            id: subject._id,
+        };
+    })
+
+    const TeacherColumns = [
+        { id: 'name', label: 'Teacher Subject Name', minWidth: 170 },
+        // { id: 'name', label: 'Subjects', minWidth: 100 },
+    ]
+
+    const teacherRows = getTeacherFreeClassSubjects && getTeacherFreeClassSubjects.length > 0 && getTeacherFreeClassSubjects.map((subject) => {
+        return {
+            name: subject.subName,
+            // code: subject.subCode,
             id: subject._id,
         };
     })
@@ -206,7 +219,25 @@ const ClassDetails = () => {
     const ClassTeachersSection = () => {
         return (
             <>
-                Teachers
+                {response ?
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
+                        <GreenButton
+                            variant="contained"
+                            onClick={() => navigate("/Admin/teachers/addteacher/" + classID)}
+                        >
+                            Add Teacher
+                        </GreenButton>
+                    </Box>
+                    :
+                    <>
+                        <Typography variant="h5" gutterBottom>
+                            Teacher Subject List:
+                        </Typography>
+
+                        <TableTemplate buttonHaver={SubjectsButtonHaver} columns={TeacherColumns} rows={subjectRows} />
+                        <SpeedDialTemplate actions={subjectActions} />
+                    </>
+                }
             </>
         )
     }
