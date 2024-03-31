@@ -38,6 +38,7 @@
     "recharts": "^2.6.2",
     "redux": "^4.2.1",
     "styled-components": "^5.3.10",
+    "sweetalert2": "^11.10.7",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7"
   },

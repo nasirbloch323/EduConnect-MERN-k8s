@@ -23,7 +23,11 @@ function Topnavbar() {
                         </Link>
                         <Link to="/" className="top-item"  >
                             Conference
-                        </Link>  <Link to="/blogs" className="top-item" >
+                        </Link> 
+                        <Link to="/cgpa" className="top-item"  >
+                            CGPA CALCULATOR
+                        </Link> 
+                         <Link to="/blogs" className="top-item" >
                             Blogs
                         </Link>
 

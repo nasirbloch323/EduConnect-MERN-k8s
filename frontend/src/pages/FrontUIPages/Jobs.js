@@ -49,7 +49,7 @@ export default function Jobs() {
 
                                     <select id="department">
                                         <option value="All Department">All Department</option>
-                                        <option value="Mathematics" selected>Mathematics</option>
+                                        <option value="Mathematics" >Mathematics</option>
                                         <option value="Computer Scinence">Computer Scinence</option>
                                         <option value="Urdu" >Urdu</option>
                                         <option value="Bio Tech" >Bio Tech</option>
@@ -81,7 +81,7 @@ export default function Jobs() {
                                         <option value="Full-time">Full-time</option>
                                         <option value="Part-time">Part-time</option>
                                         <option value="Internship" >Internship</option>
-                                        <option value="Contract" selected>Contract</option>
+                                        <option value="Contract" >Contract</option>
                                     </select>
                                     <div className="min-w-[100%] mt-1 rounded-b-md">
 
@@ -110,7 +110,7 @@ export default function Jobs() {
                                         <option value="Full-time">Full-time</option>
                                         <option value="Part-time">Part-time</option>
                                         <option value="Internship" >Internship</option>
-                                        <option value="Contract" selected>Contract</option>
+                                        <option value="Contract" >Contract</option>
                                     </select>
                                     <div className="min-w-[100%] mt-1 rounded-b-md">
 
