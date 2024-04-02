@@ -30,11 +30,11 @@ const CgpaCal = () => {
   const handleContinue = () => {
     if (numSem >= 1 && numSem <= 8) {
       setNull();
-      if (uni === "PUCIT" || uni === "PU") {
+      if (uni === "PUCIT" || uni === "UO") {
 
         navigate(`/cgpa/my-page/${numSem}`);
       }
-      else if (uni === "UAF" || uni === "UVAS") {
+      else if (uni === "PU" || uni === "VU") {
         navigate(`/cgpa/uaf-cgpa/${numSem}`);
 
       }
@@ -74,7 +74,6 @@ const CgpaCal = () => {
           onChange={(e) => handleInputChange(parseInt(e.target.value))}
         />
         <button className="border bg-[#552285] text-[#fff]" onClick={handleContinue}>Continue</button>
-
 
       </div>
       <Footer />

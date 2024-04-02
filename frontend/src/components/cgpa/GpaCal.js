@@ -35,12 +35,12 @@ const GpaCal = () => {
 
   const handleContinue = () => {
     if (numRows>=1 && numRows<=8) {
-      if(uni==="PUCIT" || uni==="PU")
+      if(uni==="PUCIT" || uni==="UO")
       {
 
         navigate(`/cgpa/second-page/${numRows}/${flag}/${index}`);
       }
-      else if(uni==="UAF" || uni==="UVAS")
+      else if(uni==="PU" || uni==="VU")
       {
         navigate(`/cgpa/uaf-gpa/${numRows}/${flag}/${index}`);
 

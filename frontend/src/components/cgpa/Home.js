@@ -28,10 +28,10 @@ const Home = () => {
         <h1>Hey, Dude! Welcome Here!</h1>
         <h5>Select Your University/Department:</h5>
         <select id="uni-selector" value={uni} onChange={handleUniChange}>
-          <option value="PU">PU</option>
+          <option value="UO">UO</option>
           <option value="PUCIT">PUCIT</option>
-          <option value="UAF">UAF</option>
-          <option value="UVAS">UVAS</option>
+          <option value="PU">PU</option>
+          <option value="VU">VU</option>
           {/* <option value="UET">UET</option> */}
         </select>
 
