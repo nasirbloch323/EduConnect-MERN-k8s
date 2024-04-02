@@ -5,11 +5,13 @@ const dotenv = require("dotenv")
 const bodyParser = require("body-parser")
 const app = express()
 const Routes = require("./routes/route.js")
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
+
+// Ann
+const annRoute = require("./routes/products.js");
 
 
 dotenv.config()
-
 app.use(bodyParser.json({ limit: "10mb", extended: true }))
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }))
 
@@ -18,12 +20,8 @@ app.use(cors())
 
 app.use("/files", express.static("files"))
 
-
-// cloudinary.config({
-//   cloud_name: process.env.CLOUDINARY_NAME,
-//   api_key: process.env.CLOUDINARY_API_KEY,
-//   api_secret: process.env.CLOUDINARY_API_SECRET,
-// });
+// Ann
+app.use("/products", annRoute);
 
 
 app.use(
@@ -39,12 +37,15 @@ const uri =
 	"mongodb://educonnect:educonnect123@ac-rd6itgi-shard-00-00.b8ejcje.mongodb.net:27017,ac-rd6itgi-shard-00-01.b8ejcje.mongodb.net:27017,ac-rd6itgi-shard-00-02.b8ejcje.mongodb.net:27017/educonnect?ssl=true&replicaSet=atlas-tnocmg-shard-0&authSource=admin&retryWrites=true&w=majority"
 
 mongoose
-	.connect(process.env.MONGODB || uri, {
+	.connect(process.env.MONGODB_URL || uri, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
 	.then(console.log("Connected to MongoDB"))
 	.catch((err) => console.log("NOT CONNECTED TO NETWORK", err))
+
+
+
 
 app.use("/", Routes)
 app.get("/", async (req, res) => {

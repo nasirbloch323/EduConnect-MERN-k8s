@@ -19,24 +19,29 @@ import { Label } from "@/components/ui/label"
 import moment from "moment";
 export default function AllAnn() {
 	const dispatch = useDispatch()
-	const { annList } = useSelector((state) => state.ann);
+
 	const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
 
 	const handleReadMore = (ann) => {
 		setSelectedAnnouncement(ann);
 	};
 
+	const { items: data } = useSelector((state) => state.products);
 	return (
 		<>
 			<div className='grid items-start max-w-sm gap-8  mx-auto sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3'>
-				{annList && annList.length > 0 ? (
-					annList.map((ann, i) => {
+				{data && data.length > 0 ? (
+					data.map((ann, i) => {
 						const truncatedDescription =
-							ann.description.split(" ").slice(0, 20).join(" ") + "...";
+							ann.desc.split(" ").slice(0, 20).join(" ") + "...";
 						return (
 							<Card key={i} className={"min-h-52 pb-2"}>
+								<CardContent className='m-0 p-0 text-[#1976D2] h-48 text-xs'>
+									<img src={ann.image?.url} alt={ann.name} className="w-full h-full" />
+
+								</CardContent>
 								<CardHeader>
-									<CardTitle>{ann.title}</CardTitle>
+									<CardTitle>{ann.name}</CardTitle>
 								</CardHeader>
 								<CardContent className='m-0 pt-0 text-[#1976D2] text-xs'>{moment(ann.date).format("MM/DD/YYYY")}</CardContent>
 
@@ -66,6 +71,8 @@ export default function AllAnn() {
 					</div>
 				)}
 			</div>
+
+
 		</>
 	)
 }
@@ -73,13 +80,15 @@ export default function AllAnn() {
 const EditAnn = ({ ann }) => {
 	const dispatch = useDispatch()
 	const [fields, setFields] = useState({
-		title: ann.title,
-		description: ann.description,
+		name: ann.name,
+		desc: ann.desc,
+		image: ann.image,
 	})
 	const handleChange = (e) => {
 		setFields((pre) => ({
 			...pre,
 			[e.target.name]: e.target.value,
+
 		}))
 		// console.log(fields)
 	}
@@ -105,7 +114,7 @@ const EditAnn = ({ ann }) => {
 					<div className='space-y-2'>
 						<Label htmlFor='new-title'>New Title</Label>
 						<Input
-							value={fields.title}
+							value={fields.name}
 							name='title'
 							placeholder='Enter the title'
 							type='text'
@@ -116,13 +125,20 @@ const EditAnn = ({ ann }) => {
 					<div className='space-y-2'>
 						<Label htmlFor='new-description'>New Description</Label>
 						<Textarea
-							value={fields.description}
+							value={fields.desc}
 							className='min-h-[100px]'
 							id='new-description'
 							name='description'
 							placeholder='Enter the description'
 							onChange={handleChange}
 						/>
+					</div>
+					<div className='space-y-2'>
+						<Label htmlFor='new-description'>New Description</Label>
+
+						<img src={fields.image?.url} alt={ann.name} onChange={handleChange} className="w-full h-48" />
+
+
 					</div>
 					<div className='space-y-2'>
 						<Button type='submit'>Save Changes</Button>

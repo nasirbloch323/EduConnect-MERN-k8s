@@ -7,11 +7,15 @@ import { Loader2 } from "lucide-react";
 import moment from "moment";
 
 function Anoucment() {
-	const { annList } = useSelector((state) => state.ann);
-	const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
+	const { items: data } = useSelector((state) => state.products);
+	const [startIndex, setStartIndex] = useState(0);
 
-	const handleReadMore = (ann) => {
-		setSelectedAnnouncement(ann);
+	const handleNext = () => {
+		setStartIndex(startIndex + 4);
+	};
+
+	const handlePrevious = () => {
+		setStartIndex(Math.max(startIndex - 4, 0));
 	};
 
 	return (
@@ -20,30 +24,45 @@ function Anoucment() {
 				<h1 className="a-title">
 					Latest <strong className="a-titles">Announcement</strong>
 				</h1>
-				<div className="space-x-2 row">
-					{annList && annList.length > 0 ? (
-						annList.map((ann, i) => {
-							const truncatedDescription =
-								ann.description.split(" ").slice(0, 20).join(" ") + "...";
+				<div className="flex justify-between mt-3 mb-2">
+					<button className="bg-[#552285] text-white px-2 py-1 rounded-md" onClick={handlePrevious}>
+
+						<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+							<path fillRule="evenodd" d="M12.293 4.293a1 1 0 0 1 1.414 1.414l-6 6a1 1 0 0 1 0 1.414l6 6a1 1 0 1 1-1.414 1.414l-7-7a1 1 0 0 1 0-1.414l7-7z" clipRule="evenodd" />
+						</svg>
+					</button>
+					<button className="bg-[#552285] text-white px-2 py-1 rounded-md" onClick={handleNext}>
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+							<path fill-rule="evenodd" d="M7.707 15.707a1 1 0 0 1-1.414-1.414l6-6a1 1 0 0 1 0-1.414l-6-6a1 1 0 1 1 1.414-1.414l7 7a1 1 0 0 1 0 1.414l-7 7z" clip-rule="evenodd" />
+						</svg>
+					</button>
+				</div>
+				<div className="space-x-2 flex m-0 row">
+					{data && data.length > 0 ? (
+						data.slice(startIndex, startIndex + 4).map((ann, i) => {
+							const truncatedDescription = ann.desc.split(" ").slice(0, 20).join(" ") + "...";
 							return (
 								<div
 									key={i}
-									className="p-1 a-card col-md-3"
-									data-aos="zoom-in-up"
+									className="p-1 m-0 a-card col-md-3"
+								// data-aos="zoom-in-up"
 								>
 									<div className="card1">
-										<img src={img} className="card-img-top" alt="..." />
+										<img src={ann.image?.url} className="card-img-top" alt="..." />
 										<div className="p-2 card-body">
-											<h5 className="card-title">{ann.title}</h5>
-
-											{/* <p className="card-text1 mb-0 pt-1  text-[#7A1CCB]">											{moment(ann.date).format("MM/DD/YYYY")}</p> */}
+											<h5 className="card-title">{ann.name}</h5>
 											<p className="card-text1">{truncatedDescription}</p>
-											<button
-												className="news-header-btn"
-												onClick={() => handleReadMore(ann)}
-											>
-												Read More
-											</button>
+											<p className="card-text1 flex mb-0  text-[#7A1CCB]">
+												<button
+													className="news-header-btn"
+
+												>
+													Read More
+												</button>
+												<p className="fixed pr-3  right-0 pt-3 m-0">
+													{moment(ann.date).format("MM/DD/YYYY")}
+												</p>
+											</p>
 										</div>
 									</div>
 								</div>
@@ -56,11 +75,12 @@ function Anoucment() {
 						</div>
 					)}
 				</div>
-			</div>
 
+			</div>
 		</>
 	);
 }
 
-
 export default Anoucment;
+
+

@@ -26,6 +26,7 @@ import AnnPage from "./announcements/AnnPage"
 import EventPage from "./events/EventPage"
 import ContactPage from "./recived_contact_forms/ContactPage"
 
+
 const DevDashboard = () => {
 	const [open, setOpen] = useState(false)
 	const toggleDrawer = () => {
@@ -91,6 +92,8 @@ const DevDashboard = () => {
 						<Route path='/Developer/profile' element={<DeveloperProfile />} />
 						<Route path='/Developer/complains' element={<SeeComplains />} />
 
+						
+						
 						<Route path='/Developer/announcement' element={<AnnPage />} />
 						<Route path='/Developer/events' element={<EventPage />} />
 						<Route path='/Developer/contact' element={<ContactPage />} />

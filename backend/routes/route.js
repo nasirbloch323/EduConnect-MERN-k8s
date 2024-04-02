@@ -12,12 +12,6 @@ const {
 
 const createAssignment = require("../controllers/assignment-controller.js")
 
-const {
-	getAnn,
-	createAnn,
-	deleteAnn,
-	updateAnn,
-} = require("../controllers/ann-controller.js")
 
 const {
 	createEvent,
@@ -105,12 +99,8 @@ router.post("/DeveloperReg", developerRegister)
 router.post("/DeveloperLogin", developerLogIn)
 router.get("/Developer/:id", getdeveloperDetail)
 router.put("/Developer/:id", updatedeveloper)
-// Dev Announcements
-router.post("/announcements", createAnn)
-router.get("/announcements", getAnn)
-// router.get("/announcement/:id", getAnn)
-router.delete("/announcements/:id", deleteAnn)
-router.put("/announcements/:id", updateAnn)
+
+
 // Dev events
 router.post("/events", createEvent)
 router.get("/events", getEvent)

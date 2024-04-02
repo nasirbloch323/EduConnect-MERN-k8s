@@ -10,6 +10,10 @@ import { eventReducer } from "./event/eventSlice"
 import { adminReducer } from "./adminRelated/adminSlice"
 import { contactReducer } from "./contactUsRelated/contactSlice"
 
+// Ann
+import productsReducer, { productsFetch } from "./announcements/annHandle";
+
+
 const store = configureStore({
 	reducer: {
 		user: userReducer,
@@ -18,11 +22,14 @@ const store = configureStore({
 		notice: noticeReducer,
 		complain: complainReducer,
 		sclass: sclassReducer,
-		ann: annReducer,
+		products: productsReducer, 	// Ann
 		event: eventReducer,
 		admin: adminReducer,
 		contact: contactReducer,
+		ann: annReducer,
 	},
 })
+store.dispatch(productsFetch());
+
 
 export default store

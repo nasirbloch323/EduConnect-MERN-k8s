@@ -2,24 +2,51 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import { createAnn } from "@/redux/announcements/annHandle"
-import { useDispatch } from "react-redux"
 import { Label } from "@/components/ui/label"
+import { useDispatch, useSelector } from "react-redux";
+import { productsCreate } from "../../../redux/announcements/annHandle";
 
 export default function CreateAnn() {
-	const dispatch = useDispatch()
-	const [fields, setFields] = useState({})
-	const handleChange = (e) => {
-		setFields((pre) => ({
-			...pre,
-			[e.target.name]: e.target.value,
-		}))
-		// console.log(fields)
-	}
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		dispatch(createAnn(fields))
-	}
+	const dispatch = useDispatch();
+	const { createStatus } = useSelector((state) => state.products);
+
+	const [productImg, setProductImg] = useState("");
+	const [name, setName] = useState("");
+	const [date, setDate] = useState("");
+	const [desc, setDesc] = useState("");
+
+	const handleProductImageUpload = (e) => {
+		const file = e.target.files[0];
+
+		TransformFileData(file);
+	};
+
+	const TransformFileData = (file) => {
+		const reader = new FileReader();
+
+		if (file) {
+			reader.readAsDataURL(file);
+			reader.onloadend = () => {
+				setProductImg(reader.result);
+			};
+		} else {
+			setProductImg("");
+		}
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+
+		dispatch(
+			productsCreate({
+				name,
+				date,
+				desc,
+				image: productImg,
+			})
+		);
+	};
+
 	return (
 		<>
 			<div className='space-y-2'>
@@ -43,10 +70,10 @@ export default function CreateAnn() {
 							</Label>
 							<Input
 								className='flex-1 w-full text-base'
-								name='title'
-								placeholder='Enter the title'
-								type='text'
-								onChange={handleChange}
+								type="text"
+								placeholder="Name"
+								onChange={(e) => setName(e.target.value)}
+								required
 							/>
 						</div>
 						<div className='flex flex-col p-6 space-y-4 md:space-y-2'>
@@ -58,48 +85,63 @@ export default function CreateAnn() {
 							</Label>
 							<Textarea
 								className='flex-1 w-full text-base'
-								name='description'
-								placeholder='Enter the description'
-								onChange={handleChange}
+								type="text"
+								placeholder="Short Description"
+								onChange={(e) => setDesc(e.target.value)}
+								required
 							/>
 						</div>
 					</div>
 					<div className="flex flex-col p-6 space-y-4 md:space-y-2">
-              <Label
-                className="inline-block text-sm font-semibold"
-                htmlFor="date"
-              >
-                Date
-              </Label>
-              <Input
-                className="flex-1 w-full text-base"
-                name="date"
-                type="date" // Set type as date for date input
-				onChange={handleChange}
-              />
-            </div>
-            {/* <div className="flex flex-col p-6 space-y-4 md:space-y-2">
-              <Label
-                className="inline-block text-sm font-semibold"
-                htmlFor="image"
-              >
-                Image
-              </Label>
-              <Input
-                className="flex-1 w-full text-base"
-                name="image"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-              />
-            </div> */}
+						<Label
+							className="inline-block text-sm font-semibold"
+							htmlFor="date"
+						>
+							Date
+						</Label>
+						<Input
+							className="flex-1 w-full text-base"
+							type="date"
+							placeholder="date"
+							onChange={(e) => setDate(e.target.value)}
+							required
+						/>
+					</div>
+
+					<div className="flex flex-col p-6 space-y-4 md:space-y-2">
+						<Label
+							className="inline-block text-sm font-semibold"
+							htmlFor="image"
+						>
+							Image
+						</Label>
+						<Input
+							className="flex-1 w-full text-base"
+							id="imgUpload"
+							accept="image/*"
+							type="file"
+							onChange={handleProductImageUpload}
+							required
+						/>
+					</div>
+					{/* <div className=" ">
+						{productImg ? (
+							<>
+								<img src={productImg} alt="error!" className="h-28" />
+							</>
+						) : (
+							<p>Product image upload preview will appear here!</p>
+						)}
+					</div> */}
+
 					<div className='flex justify-end gap-2 p-6'>
-						{/* <Button size='sm' variant='outline'>
+						<Button size='sm' variant='outline'>
 							Cancel
-						</Button> */}
-						<Button type='submit' size='sm'>
-							Save
 						</Button>
+						<Button type="submit" size='sm'>
+							{createStatus === "pending" ? "Submitting" : "Submit"}
+						</Button>
+
 					</div>
 				</form>
 			</div>
