@@ -3,7 +3,8 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import "./contact.css"
 import { useDispatch } from "react-redux"
 import { createContact } from "@/redux/contactUsRelated/contactHandler"
-// import { getStatus } from "@/redux/contactUsRelated/contactSlice"
+import { Link } from "react-router-dom";
+import MapContainer from "../../container/footer/MapContainer"
 
 function Contact() {
 	// const navigate = useNavigate()
@@ -39,15 +40,13 @@ function Contact() {
 	return (
 		<section>
 			<Container
-				style={{ backgroundColor: "#552285", color: "#fff" }}
-				className='py-5 text-center'
+				className=' bg-[#7A1CCB] text-[#fff] py-2 px-4 '
 				fluid
 			>
 				<Row>
 					<Col>
-						<h1>Contacts</h1>
-						<p>
-							Home / <span style={{ color: "grey" }}>Contact</span>
+						<p className="pl-2">
+							<Link to='/'>Home</Link>   / <span>Contact</span>
 						</p>
 					</Col>
 				</Row>
@@ -58,7 +57,7 @@ function Contact() {
 				style={{ backgroundColor: "#fff" }}
 			>
 				<Row>
-					<Col lg={8} md={6} className='mx-3'>
+					<Col lg={8} md={6} className='mx-4'>
 						<h1>Get in Touch</h1>
 						<hr />
 						<p className='mt-5'>
@@ -71,7 +70,7 @@ function Contact() {
 							noValidate
 							validated={validated}
 							onSubmit={handleSubmit}
-							className='p-10 space-y-4'
+							className='p-4 space-y-4'
 						>
 							<Row>
 								<Form.Group
@@ -167,7 +166,7 @@ function Contact() {
 							</Row>
 
 							<Button
-								className='btn btn-primary mt-4 bg-[#552285] text-[#fff] border-0'
+								className='btn btn-primary mt-4 bg-[#7A1CCB] text-[#fff] border-0'
 								type='submit'
 							>
 								Send Message
@@ -250,6 +249,9 @@ function Contact() {
 							</p>
 						</div>
 					</Col>
+				</Row>
+				<Row className='overflow-x-hidden'>
+					<MapContainer />
 				</Row>
 			</Container>
 		</section>

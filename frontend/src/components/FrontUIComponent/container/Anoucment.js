@@ -53,12 +53,9 @@ function Anoucment() {
 											<h5 className="card-title">{ann.name}</h5>
 											<p className="card-text1">{truncatedDescription}</p>
 											<p className="card-text1 flex mb-0  text-[#7A1CCB]">
-												<button
-													className="news-header-btn"
-
-												>
-													Read More
-												</button>
+											<Link to={`/announcement/${ann._id}`} className="news-header-btn">
+                                                    Read More
+                                                </Link>
 												<p className="fixed pr-3  right-0 pt-3 m-0">
 													{moment(ann.date).format("MM/DD/YYYY")}
 												</p>

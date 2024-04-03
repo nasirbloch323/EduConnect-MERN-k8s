@@ -114,10 +114,11 @@ const EditAnn = ({ ann }) => {
 					<div className='space-y-2'>
 						<Label htmlFor='new-title'>New Title</Label>
 						<Input
+							type='text'
 							value={fields.name}
 							name='title'
 							placeholder='Enter the title'
-							type='text'
+
 							onChange={handleChange}
 							id='new-title'
 						/>
@@ -125,6 +126,7 @@ const EditAnn = ({ ann }) => {
 					<div className='space-y-2'>
 						<Label htmlFor='new-description'>New Description</Label>
 						<Textarea
+							typq="textarea"
 							value={fields.desc}
 							className='min-h-[100px]'
 							id='new-description'

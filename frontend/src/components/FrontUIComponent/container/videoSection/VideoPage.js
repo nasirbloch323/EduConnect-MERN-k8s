@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 function VideoPage() {
  
     return (
-      <section className='video-sion'>
-        <Container fluid className="video-container">
+      <section className='video-sion w-full object-fill '>
+        <Container fluid className="p-0 m-0 w-full">
           <Row className="video-row">
             <Col xs={10} className="mx-auto w-100 video-col">
               <video autoPlay loop muted>

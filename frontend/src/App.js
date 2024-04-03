@@ -42,6 +42,7 @@ import CgpaCal from "./components/cgpa/CgpaCal";
 import MyPage from "./components/cgpa/MyPage";
 import UafGpa from "./components/cgpa/UafGpa";
 import UafCgpa from "./components/cgpa/UafCgpa";
+import SinglePageDetails from "./components/FrontUIComponent/container/SinglePageDetails"
 
 
 
@@ -83,15 +84,16 @@ const App = () => {
 						<Route path='/admission' element={<AdminHomePage />} />
 						<Route path='*' element={<PageNotFound />} />
 
-					
+
 						<Route path="/cgpa" exact element={<Home />} />
 						<Route path="/cgpa/gpa-cal/:flag/:index" element={<GpaCal />} />
 						<Route path="/cgpa/second-page/:numRows/:flag/:index" element={<SecondPage />} />
 						<Route path="/cgpa/uaf-gpa/:numRows/:flag/:index" element={<UafGpa />} />
-
 						<Route path="/cgpa/cgpa-cal" element={<CgpaCal />} />
 						<Route path="/cgpa/my-page/:numSem" element={<MyPage />} />
 						<Route path="/cgpa/uaf-cgpa/:numSem" element={<UafCgpa />} />
+
+						{/* <Route path="/announcement" element={<SinglePageDetails />} /> */}
 
 						{/* developer all */}
 
