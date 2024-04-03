@@ -4,42 +4,11 @@ import course from "../../images/course01.jpeg"
 import "./message.css"
 // import LatestEvents from "./LatestEvents"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { Loader2 } from "lucide-react"
 
 function Message({ props }) {
-	const displayMessageCard = [
-		"card01",
-		"card02",
-		"card03",
-		"card04",
-		"card05",
-		"card06",
-	].map((cards, index) => (
-		<Col className='mx-auto my-1' lg={4} sm={6} data-aos='zoom-in-up'>
-			<Card className='message-card rounded-0'>
-				<Row className='no-gutters'>
-					<Col className='col-sm-5'>
-						<Image
-							src={course}
-							fluid
-							style={{ width: "100%", height: "100%" }}
-						/>
-					</Col>
-					<Col className='col-sm-7 rounded-0'>
-						<Card.Body className='car-body'>
-							<Card.Title>Learn Js in ease</Card.Title>
-							<Card.Text>Lorem ipsum dolet lorem ipsum dolet lorem</Card.Text>
-
-							<Button className='news-header-btn rounded-0'>
-								<Link to='/notification' className='links'>
-									LEARN MORE
-								</Link>
-							</Button>
-						</Card.Body>
-					</Col>
-				</Row>
-			</Card>
-		</Col>
-	))
+	const { events } = useSelector((state) => state.events)
 
 	return (
 		<section id='messages'>
@@ -85,7 +54,16 @@ function Message({ props }) {
 						</div>
 					</Col>
 				</Row>
-				<Row className='mx-3 main-row'>{displayMessageCard}</Row>
+				<Row className='mx-3 main-row'>
+					{events && events.length > 0 ? (
+						events.map((event, i) => <CardStyle key={i} event={event} />)
+					) : (
+						<div className='flex items-center justify-center py-2 gap-x-2'>
+							<Loader2 className='w-6 h-6 animate-spin a-titles' />
+							<h2 className='animate-pulse'>Loading...</h2>
+						</div>
+					)}
+				</Row>
 				<Row>
 					<Col className='mx-auto text-center'>
 						<Button className='view-header-btn rounded-0'>
@@ -102,3 +80,32 @@ function Message({ props }) {
 }
 
 export default Message
+const CardStyle = ({ event }) => {
+	return (
+		<Col className='mx-auto my-1' lg={4} sm={6} data-aos='zoom-in-up'>
+			<Card className='message-card rounded-0'>
+				<Row className='no-gutters'>
+					<Col className='col-sm-5'>
+						<Image
+							src={event.image.url}
+							fluid
+							style={{ width: "100%", height: "100%" }}
+						/>
+					</Col>
+					<Col className='col-sm-7 rounded-0'>
+						<Card.Body className='car-body'>
+							<Card.Title>{event.name}</Card.Title>
+							<Card.Text>{event.desc}</Card.Text>
+
+							<Button className='news-header-btn rounded-0'>
+								<Link to='/notification' className='links'>
+									LEARN MORE
+								</Link>
+							</Button>
+						</Card.Body>
+					</Col>
+				</Row>
+			</Card>
+		</Col>
+	)
+}

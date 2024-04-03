@@ -8,7 +8,7 @@ const initialState = {
 }
 
 const eventSlice = createSlice({
-	name: "notice",
+	name: "event",
 	initialState,
 	reducers: {
 		getRequest: (state) => {
@@ -32,6 +32,7 @@ const eventSlice = createSlice({
 	},
 })
 
-export const { getRequest, getSuccess, getFailed, getError } = eventSlice.actions
+export const { getRequest, getSuccess, getFailed, getError } =
+	eventSlice.actions
 
 export const eventReducer = eventSlice.reducer

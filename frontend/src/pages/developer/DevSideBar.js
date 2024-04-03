@@ -84,11 +84,11 @@ const SideBar = () => {
 					</ListItemIcon>
 					<ListItemText primary='All Notifications' />
 				</ListItemButton>
-				<ListItemButton component={Link} to='/Developer/admin'>
+				<ListItemButton component={Link} to='/Developer/researchs'>
 					<ListItemIcon>
 						<AnnouncementOutlinedIcon
 							color={
-								location.pathname.startsWith("/Developer/admin")
+								location.pathname.startsWith("/Developer/researchs")
 									? "primary"
 									: "inherit"
 							}
@@ -132,7 +132,6 @@ const SideBar = () => {
 					</ListItemIcon>
 					<ListItemText primary='All Contact ' />
 				</ListItemButton>
-				
 			</React.Fragment>
 			<Divider sx={{ my: 1 }} />
 			<React.Fragment>

@@ -39,11 +39,11 @@ const DevHomePage = () => {
 		dispatch(getAllAdmins())
 		dispatch(getAllContacts())
 	}, [adminID, dispatch])
-	console.log(annList)
+	// console.log(annList)
 	const numberOfStudents = studentsList && studentsList.length
 	const numberOfClasses = sclassesList && sclassesList.length
 	const numberOfTeachers = teachersList && teachersList.length
-	const numberOfAnn = eventList && eventList.length
+	const numberOfAnn = annList && annList.length
 	const numberOfEvent = eventList && eventList.length
 	const numberOfAdmins = adminDetails && adminDetails.length
 	const numberOfContact = contactList && contactList.length
@@ -51,21 +51,20 @@ const DevHomePage = () => {
 		<>
 			<Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
 				<Grid container spacing={3}>
-
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
 							<Link to='Developer/all-admin'>
-								<img src={Students} alt='Students' className="center" />
+								<img src={Students} alt='Students' className='center' />
 							</Link>
 							<Title>Total Admin</Title>
 							<Data start={0} end={numberOfAdmins} duration={2.5} />
-
 						</StyledPaper>
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
 							<Link to='Developer/announcement'>
-								<img src={Students} alt='Students' /></Link>
+								<img src={Students} alt='Students' />
+							</Link>
 							<Title>Total Anoucment</Title>
 							<Data start={0} end={numberOfAnn} duration={2.5} />
 						</StyledPaper>
@@ -73,7 +72,8 @@ const DevHomePage = () => {
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
 							<Link to='Developer/events'>
-								<img src={Students} alt='Students' /></Link>
+								<img src={Students} alt='Students' />
+							</Link>
 							<Title>Total Event</Title>
 							<Data start={0} end={numberOfEvent} duration={2.5} />
 						</StyledPaper>
@@ -81,7 +81,8 @@ const DevHomePage = () => {
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
 							<Link to='Developer/all-admin'>
-								<img src={Students} alt='Students' /></Link>
+								<img src={Students} alt='Students' />
+							</Link>
 							<Title>Total Notification</Title>
 							<Data start={0} end={numberOfStudents} duration={2.5} />
 						</StyledPaper>
@@ -102,8 +103,8 @@ const DevHomePage = () => {
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
-						<Link to='Developer/contact'>
-							<img src={Fees} alt='Fees' />
+							<Link to='Developer/contact'>
+								<img src={Fees} alt='Fees' />
 							</Link>
 							<Title>All Contacts</Title>
 							<Data

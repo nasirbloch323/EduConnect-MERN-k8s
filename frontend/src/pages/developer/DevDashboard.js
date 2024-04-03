@@ -26,7 +26,7 @@ import AnnPage from "./announcements/AnnPage"
 import EventPage from "./events/EventPage"
 import ContactPage from "./recived_contact_forms/ContactPage"
 import SinglePageDetails from "@/components/FrontUIComponent/container/SinglePageDetails"
-
+import ResearchPage from "./research/ResearchPage"
 
 const DevDashboard = () => {
 	const [open, setOpen] = useState(false)
@@ -95,8 +95,7 @@ const DevDashboard = () => {
 
 						<Route path='/Developer/announcement' element={<AnnPage />} />
 						<Route path='/Developer/events' element={<EventPage />} />
-						<Route path='/Developer/contact' element={<ContactPage />} />
-
+						<Route path='/Developer/researchs' element={<ResearchPage />} />
 
 						<Route path='/logout' element={<Logout />} />
 					</Routes>

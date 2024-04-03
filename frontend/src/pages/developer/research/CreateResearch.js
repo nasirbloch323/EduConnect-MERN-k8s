@@ -4,17 +4,16 @@ import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import { Label } from "@/components/ui/label"
 import { useDispatch, useSelector } from "react-redux"
+import { researchsCreate } from "@/redux/researchs/researchHandle"
 // import { productsCreate } from "../../../redux/announcements/annHandle";
-import { eventsCreate } from "@/redux/event/eventHandle"
 
-export default function CreateAnn() {
+export default function CreateResearch() {
 	const dispatch = useDispatch()
-	const { createStatus } = useSelector((state) => state.events)
+	const { researchStatus } = useSelector((state) => state.researchs)
 
 	const [productImg, setProductImg] = useState("")
-	const [name, setName] = useState("")
-	const [startDate, setStartDate] = useState("")
-	const [endDate, setEndDate] = useState("")
+	const [title, setTitle] = useState("")
+	const [autherName, setAutherName] = useState("")
 	const [desc, setDesc] = useState("")
 	const handleProductImageUpload = (e) => {
 		const file = e.target.files[0]
@@ -39,10 +38,9 @@ export default function CreateAnn() {
 		e.preventDefault()
 
 		dispatch(
-			eventsCreate({
-				name,
-				startDate,
-				endDate,
+			researchsCreate({
+				title,
+				autherName,
 				desc,
 				image: productImg,
 			})
@@ -52,9 +50,9 @@ export default function CreateAnn() {
 	return (
 		<>
 			<div className='space-y-2'>
-				<h1 className='text-3xl font-bold'>Manage Events</h1>
+				<h1 className='text-3xl font-bold'>Manage Researches</h1>
 				<p className='max-w-[600px] text-gray-500 md:text-base/relaxed dark:text-gray-400'>
-					Add a new Event or edit an existing one.
+					Add a new Research or edit an existing one.
 				</p>
 			</div>
 			<div className='w-full mt-6'>
@@ -62,8 +60,8 @@ export default function CreateAnn() {
 					onSubmit={handleSubmit}
 					className='border border-gray-200 divide-y rounded-lg bg-gray-50 dark:border-gray-800 dark:bg-gray-950'
 				>
-					<div className='grid grid-cols-1 '>
-						<div className='flex flex-col p-6 space-y-4 md:space-y-2'>
+					<div className='grid grid-cols-1 gap-1'>
+						<div className='flex flex-col p-4 space-y-2 md:space-y-2'>
 							<Label
 								className='inline-block text-sm font-semibold'
 								htmlFor='title'
@@ -74,11 +72,11 @@ export default function CreateAnn() {
 								className='flex-1 w-full text-base'
 								type='text'
 								placeholder='Name'
-								onChange={(e) => setName(e.target.value)}
+								onChange={(e) => setTitle(e.target.value)}
 								required
 							/>
 						</div>
-						<div className='flex flex-col p-6 space-y-4 md:space-y-2'>
+						<div className='flex flex-col p-4 space-y-2 md:space-y-2'>
 							<Label
 								className='inline-block text-sm font-semibold'
 								htmlFor='description'
@@ -93,54 +91,40 @@ export default function CreateAnn() {
 								required
 							/>
 						</div>
-					</div>
-					<div className='flex flex-col p-6 space-y-4 md:space-y-2'>
-						<Label
-							className='inline-block text-sm font-semibold'
-							htmlFor='date'
-						>
-							Start Date
-						</Label>
-						<Input
-							className='flex-1 w-full text-base'
-							type='date'
-							placeholder='date'
-							onChange={(e) => setStartDate(e.target.value)}
-							required
-						/>
-					</div>
-					<div className='flex flex-col p-6 space-y-4 md:space-y-2'>
-						<Label
-							className='inline-block text-sm font-semibold'
-							htmlFor='date'
-						>
-							End Date
-						</Label>
-						<Input
-							className='flex-1 w-full text-base'
-							type='date'
-							placeholder='date'
-							onChange={(e) => setEndDate(e.target.value)}
-							required
-						/>
+						<div className='flex flex-col p-4 space-y-2 md:space-y-2'>
+							<Label
+								className='inline-block text-sm font-semibold'
+								htmlFor='autherName'
+							>
+								Auther Name
+							</Label>
+							<Input
+								className='flex-1 w-full text-base'
+								type='text'
+								placeholder='autherName'
+								onChange={(e) => setAutherName(e.target.value)}
+								required
+							/>
+						</div>
+
+						<div className='flex flex-col p-4 space-y-2 md:space-y-2'>
+							<Label
+								className='inline-block text-sm font-semibold'
+								htmlFor='image'
+							>
+								Image
+							</Label>
+							<Input
+								className='flex-1 w-full text-base'
+								id='imgUpload'
+								accept='image/*'
+								type='file'
+								onChange={handleProductImageUpload}
+								required
+							/>
+						</div>
 					</div>
 
-					<div className='flex flex-col p-6 space-y-4 md:space-y-2'>
-						<Label
-							className='inline-block text-sm font-semibold'
-							htmlFor='image'
-						>
-							Image
-						</Label>
-						<Input
-							className='flex-1 w-full text-base'
-							id='imgUpload'
-							accept='image/*'
-							type='file'
-							onChange={handleProductImageUpload}
-							required
-						/>
-					</div>
 					{/* <div className="">
 						{productImg ? (
 							<>
@@ -156,7 +140,7 @@ export default function CreateAnn() {
 							Cancel
 						</Button>
 						<Button type='submit' size='sm'>
-							{createStatus === "pending" ? "Submitting" : "Submit"}
+							{researchStatus === "pending" ? "Submitting" : "Submit"}
 						</Button>
 					</div>
 				</form>

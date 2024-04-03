@@ -6,7 +6,7 @@ import {
 	Card,
 	CardDescription,
 } from "@/components/ui/card"
-import { deletEvent, updateEvent } from "@/redux/event/eventHandle"
+import { deletResearch, updateResearch } from "@/redux/researchs/researchHandle"
 import { Loader2 } from "lucide-react"
 import { CardFooter } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
@@ -22,9 +22,9 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import moment from "moment"
-export default function AllEvents() {
+export default function AllResearchs() {
 	const dispatch = useDispatch()
-	const { eventList } = useSelector((state) => state.event)
+	const { researchsList } = useSelector((state) => state.research)
 	const [selectedEvent, setSelectedEvent] = useState(null)
 
 	const handleReadMore = (event) => {
@@ -34,39 +34,36 @@ export default function AllEvents() {
 	return (
 		<>
 			<div className='grid items-start max-w-sm gap-8 mx-auto sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3'>
-				{eventList && eventList.length > 0 ? (
-					eventList.map((event, i) => {
+				{researchsList && researchsList.length > 0 ? (
+					researchsList.map((research, i) => {
 						// const truncatedDescription =
-						// 	event.description.split(" ").slice(0, 20).join(" ") + "...";
+						// 	research.description.split(" ").slice(0, 20).join(" ") + "...";
 						return (
 							<Card key={i} className={"min-h-52 pb-2"}>
 								<CardHeader>
 									<CardDescription>
 										<img
-											src={event.image?.url}
-											alt={event.name}
+											src={research.image?.url}
+											alt={research.name}
 											className='w-full h-full'
 										/>
 									</CardDescription>
-									<CardTitle>{event.name}</CardTitle>
+									<CardTitle className='flex items-center justify-between w-full'>
+										{research.title}
+										<p className='text-xs font-normal'>{research.autherName}</p>
+									</CardTitle>
 								</CardHeader>
-								<CardContent className='m-0 pt-0 text-[#1976D2] text-xs w-full'>
-									<div className='flex items-center justify-between w-full '>
-										<p>{moment(event.startDate).format("MM/DD/YYYY")}</p>
-										<p>{moment(event.endDate).format("MM/DD/YYYY")}</p>
-									</div>
-								</CardContent>
 
 								<CardContent className='pt-0 m-0 text-sm truncate'>
-									{event.desc}
+									{research.desc}
 								</CardContent>
 
 								<CardFooter className='px-2'>
 									<div className='flex justify-end gap-2'>
-										<EditEvent event={event} />
+										<EditResearch research={research} />
 										<Button
 											onClick={() => {
-												dispatch(deletEvent(event._id))
+												dispatch(deletResearch(research._id))
 											}}
 											size='sm'
 											variant='outline'
@@ -89,14 +86,13 @@ export default function AllEvents() {
 	)
 }
 
-const EditEvent = ({ event }) => {
+const EditResearch = ({ research }) => {
 	const dispatch = useDispatch()
 	const [fields, setFields] = useState({
-		name: event.name,
-		startDate: event.startDate,
-		endDate: event.endDate,
-		desc: event.desc,
-		image: event.image,
+		title: research.title,
+		autherName: research.autherName,
+		desc: research.desc,
+		image: research.image,
 	})
 	const handleChange = (e) => {
 		setFields((pre) => ({
@@ -107,7 +103,7 @@ const EditEvent = ({ event }) => {
 	}
 	const handleSubmit = (e, id) => {
 		e.preventDefault()
-		dispatch(updateEvent(fields, event._id))
+		dispatch(updateResearch(fields, research._id))
 	}
 	return (
 		<Dialog>
@@ -118,14 +114,14 @@ const EditEvent = ({ event }) => {
 			</DialogTrigger>
 			<DialogContent className='sm:max-w-[500px] z-50  overflow-y-scroll'>
 				<DialogHeader>
-					<DialogTitle>Edit Event</DialogTitle>
+					<DialogTitle>Edit Research</DialogTitle>
 				</DialogHeader>
 				<form onSubmit={handleSubmit} className='grid gap-1 py-4'>
 					<div className=''>
-						<Label htmlFor='new-title text-sm'>New Title</Label>
+						<Label htmlFor='title'>New Title</Label>
 						<Input
-							value={fields.name}
-							name='name'
+							value={fields.title}
+							name='title'
 							placeholder='Enter the title'
 							type='text'
 							onChange={handleChange}
@@ -133,35 +129,21 @@ const EditEvent = ({ event }) => {
 						/>
 					</div>
 					<div>
-						<Label className='text-sm new-title' htmlFor='startDate'>
-							Start Date
+						<Label className='text-sm new-title' htmlFor='autherName'>
+							Auther Name
 						</Label>
 						<Input
 							className='flex-1 w-full text-base'
-							type='date'
-							name='startDate'
-							value={fields.startDate}
-							placeholder='date'
+							type='text'
+							name='autherName'
+							value={fields.autherName}
+							placeholder='autherName'
 							onChange={handleChange}
 							required
 						/>
 					</div>
 					<div>
-						<Label className='text-sm new-title' htmlFor='endDate'>
-							End Date
-						</Label>
-						<Input
-							className='flex-1 w-full text-base'
-							type='date'
-							name='endDate'
-							value={fields.endDate}
-							placeholder='date'
-							onChange={handleChange}
-							required
-						/>
-					</div>
-					<div>
-						<Label htmlFor='new-description'>New Description</Label>
+						<Label htmlFor='desc'>New Description</Label>
 						<Textarea
 							value={fields.desc}
 							className='min-h-[100px]'

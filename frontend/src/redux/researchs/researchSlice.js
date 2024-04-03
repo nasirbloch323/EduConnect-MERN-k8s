@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-	annList: [],
+	researchsList: [],
 	loading: false,
 	error: null,
 	response: null,
 }
 
-const annSlice = createSlice({
-	name: "ann",
+const researchSlice = createSlice({
+	name: "researchs",
 	initialState,
 	reducers: {
 		getRequest: (state) => {
 			state.loading = true
 		},
 		getSuccess: (state, action) => {
-			state.annList = action.payload
+			state.researchsList = action.payload
 			state.loading = false
 			state.error = null
 			state.response = null
@@ -32,6 +32,7 @@ const annSlice = createSlice({
 	},
 })
 
-export const { getRequest, getSuccess, getFailed, getError } = annSlice.actions
+export const { getRequest, getSuccess, getFailed, getError } =
+	researchSlice.actions
 
-export const annReducer = annSlice.reducer
+export const researchReducer = researchSlice.reducer

@@ -1,31 +1,33 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
-import { getRequest, getSuccess, getFailed, getError } from "./annSlice"
+import { getRequest, getSuccess, getFailed, getError } from "./researchSlice"
 import { toast } from "react-toastify"
 
 const initialState = {
-	items: [],
+	researchs: [],
 	status: null,
-	createStatus: null,
+	researchStatus: null,
 }
 
-export const productsFetch = createAsyncThunk("/productsFetch", async () => {
+export const researchsFetch = createAsyncThunk("/researchsFetch", async () => {
 	try {
 		const response = await axios.get(
-			`${process.env.REACT_APP_BASE_URL}/products`
+			`${process.env.REACT_APP_BASE_URL}/researchs`
 		)
-		console.log(response.data)
+
 		return response.data
 	} catch (error) {
 		console.log(error)
 	}
 })
 
-export const getAllAnn = () => async (dispatch) => {
+export const getAllResearch = () => async (dispatch) => {
 	dispatch(getRequest())
 	try {
-		const result = await axios.get(`${process.env.REACT_APP_BASE_URL}/products`)
+		const result = await axios.get(
+			`${process.env.REACT_APP_BASE_URL}/researchs`
+		)
 		if (result.data.message) {
 			dispatch(getFailed(result.data.message))
 		} else {
@@ -35,12 +37,12 @@ export const getAllAnn = () => async (dispatch) => {
 		dispatch(getError(error))
 	}
 }
-export const productsCreate = createAsyncThunk(
-	"/productsCreate",
+export const researchsCreate = createAsyncThunk(
+	"researchs Create",
 	async (values) => {
 		try {
 			const response = await axios.post(
-				`${process.env.REACT_APP_BASE_URL}/products`,
+				`${process.env.REACT_APP_BASE_URL}/researchs`,
 				values
 			)
 
@@ -52,50 +54,50 @@ export const productsCreate = createAsyncThunk(
 	}
 )
 
-export const deletAnn = (id) => async (dispatch) => {
+export const deletResearch = (id) => async (dispatch) => {
 	dispatch(getRequest())
 	try {
 		const result = await axios.delete(
-			`${process.env.REACT_APP_BASE_URL}/products/${id}`
+			`${process.env.REACT_APP_BASE_URL}/researchs/${id}`
 		)
 		if (result.data.success === false) {
 			dispatch(getFailed(result.data.message))
 		} else {
 			toast.warning("Post Deleted")
-			dispatch(productsFetch())
+			dispatch(getAllResearch())
 		}
 	} catch (error) {
 		dispatch(getError(error))
 	}
 }
-export const updateAnn = (fields, id) => async (dispatch) => {
+export const updateResearch = (fields, id) => async (dispatch) => {
 	// console.log(id)
 	dispatch(getRequest())
 	try {
 		const result = await axios.put(
-			`${process.env.REACT_APP_BASE_URL}/products/${id}`,
+			`${process.env.REACT_APP_BASE_URL}/researchs/${id}`,
 			fields
 		)
 		if (result.data.status === false) {
 			dispatch(getFailed(result.data.message))
 		} else {
 			toast.success("Post Updated")
-			dispatch(productsFetch())
+			dispatch(getAllResearch())
 		}
 	} catch (error) {
 		dispatch(getError(error))
 	}
 }
 
-const productsSlice = createSlice({
-	name: "products",
+const researchsSlice = createSlice({
+	name: "researchs",
 	initialState,
 	reducers: {
 		getRequest: (state) => {
 			state.loading = true
 		},
 		getSuccess: (state, action) => {
-			state.annList = action.payload
+			state.researchs = action.payload
 			state.loading = false
 			state.error = null
 			state.response = null
@@ -111,28 +113,28 @@ const productsSlice = createSlice({
 		},
 	},
 	extraReducers: {
-		[productsFetch.pending]: (state) => {
+		[researchsFetch.pending]: (state) => {
 			state.status = "pending"
 		},
-		[productsFetch.fulfilled]: (state, action) => {
-			state.items = action.payload
+		[researchsFetch.fulfilled]: (state, action) => {
+			state.researchs = action.payload
 			state.status = "success"
 		},
-		[productsFetch.rejected]: (state, action) => {
+		[researchsFetch.rejected]: (state, action) => {
 			state.status = "rejected"
 		},
-		[productsCreate.pending]: (state, action) => {
+		[researchsCreate.pending]: (state, action) => {
 			state.createStatus = "pending"
 		},
-		[productsCreate.fulfilled]: (state, action) => {
-			state.items.push(action.payload)
+		[researchsCreate.fulfilled]: (state, action) => {
+			state.researchs.push(action.payload)
 			state.createStatus = "success"
 			toast.success("Product Created!")
 		},
-		[productsCreate.rejected]: (state, action) => {
+		[researchsCreate.rejected]: (state, action) => {
 			state.createStatus = "rejected"
 		},
 	},
 })
 
-export default productsSlice.reducer
+export default researchsSlice.reducer
