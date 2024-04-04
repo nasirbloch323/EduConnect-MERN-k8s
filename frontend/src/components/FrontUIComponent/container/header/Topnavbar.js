@@ -43,7 +43,7 @@ function Topnavbar() {
                         <Link to="/contact" className="top-item"  >
                             Offices
                         </Link>
-                        <Link to='/login' className='toplogin-header-btn'>Login</Link>
+                        <Link to='/login' className='toplogin-header-btn'>LMS</Link>
                     </Nav>
                 </div>
             </div>

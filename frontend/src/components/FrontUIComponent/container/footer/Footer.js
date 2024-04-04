@@ -12,7 +12,7 @@ function Footer() {
 			id='contact'
 
 		>
-			<Container fluid className="pb-4 px-4">
+			<Container fluid className="pb-10 px-4">
 				<Row className='overflow-x-hidden'>
 					{/* <MapContainer /> */}
 				</Row>
@@ -163,7 +163,7 @@ function Footer() {
 							<p>
 								<Link className='/contact'>Contact</Link>
 							</p>
-							
+
 						</div>
 					</Col>
 				</Row>
@@ -171,16 +171,16 @@ function Footer() {
 			</Container>
 			<hr />
 			<div className='bg-[#7A1CCB] p-0 m-0  text-white'>
-				<div className="flex p-2">
-					<Col md={6} sm={6} xs={12} >
+				<div className="foot p-2">
+					<div className="div1">
 						<p className='text-center '>
 							Copyright &copy; 2024 All Rights Reserved by
 							<span className="text-white font-semibold"> UO</span>
 						</p>
-					</Col>
-					<Col md={6} sm={6} xs={12} className="p-0 m-0 ">
+					</div>
+					<div className=" div1 ">
 						<p className='text-center w-full'>Developed by 3-Star⭐</p>
-					</Col>
+					</div>
 				</div>
 			</div>
 		</footer>

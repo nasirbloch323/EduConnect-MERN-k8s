@@ -20,7 +20,7 @@ function Anoucment() {
 
 	return (
 		<>
-			<div className="container anouncment">
+			<div className=" container1 mt-40">
 				<h1 className="a-title">
 					Latest <strong className="a-titles">Announcement</strong>
 				</h1>

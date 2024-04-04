@@ -13,6 +13,7 @@ import { getAllStudents } from "../../redux/studentRelated/studentHandle"
 import { getAllTeachers } from "../../redux/teacherRelated/teacherHandle"
 import { getAllAnn } from "@/redux/announcements/annHandle"
 import { getAllEvent } from "@/redux/event/eventHandle"
+import { getAllResearch } from "@/redux/researchs/researchHandle"
 import { getAllAdmins } from "@/redux/adminRelated/adminHandler"
 import { getAllContacts } from "@/redux/contactUsRelated/contactHandler"
 import { Link } from "react-router-dom"
@@ -24,6 +25,7 @@ const DevHomePage = () => {
 	const { teachersList } = useSelector((state) => state.teacher)
 	const { annList } = useSelector((state) => state.ann)
 	const { eventList } = useSelector((state) => state.event)
+	const { researchList } = useSelector((state) => state.researchs)
 	const { adminDetails } = useSelector((state) => state.admin)
 	const { contactList } = useSelector((state) => state.contact)
 	const { currentUser } = useSelector((state) => state.user)
@@ -36,6 +38,7 @@ const DevHomePage = () => {
 		dispatch(getAllTeachers(adminID))
 		dispatch(getAllAnn())
 		dispatch(getAllEvent())
+		dispatch(getAllResearch())
 		dispatch(getAllAdmins())
 		dispatch(getAllContacts())
 	}, [adminID, dispatch])
@@ -45,6 +48,7 @@ const DevHomePage = () => {
 	const numberOfTeachers = teachersList && teachersList.length
 	const numberOfAnn = annList && annList.length
 	const numberOfEvent = eventList && eventList.length
+	const numberOfResearch = researchList && researchList.length
 	const numberOfAdmins = adminDetails && adminDetails.length
 	const numberOfContact = contactList && contactList.length
 	return (
@@ -89,9 +93,13 @@ const DevHomePage = () => {
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>
 						<StyledPaper>
-							<img src={Classes} alt='Classes' />
+
+							<Link to='/Developer/researchs'>
+								<img src={Classes} alt='Classes' />
+
+							</Link>
 							<Title>Total Research</Title>
-							<Data start={0} end={numberOfClasses} duration={5} />
+							<Data start={0} end={numberOfResearch} duration={2.5} />
 						</StyledPaper>
 					</Grid>
 					<Grid item xs={12} md={3} lg={3}>

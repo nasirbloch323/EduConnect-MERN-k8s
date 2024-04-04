@@ -74,6 +74,16 @@
 .footer-logo {
   width: 20%;
 }
+.div1{
+  width: 50%;
+}
+.div2{
+  width: 50%;
+}
+
+.foot {
+  display: flex;
+}
 
 @media (max-width: 991px) {
   .site-footer [class^="col-"] {
@@ -86,7 +96,20 @@
     padding-bottom: 0;
   }
 
- 
+  .div1{
+    width: 100%;
+  }
+  .div2{
+    width: 100%;
+  }
+
+  .foot {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
 }
 
 .social-icons {
@@ -153,4 +176,3 @@
   background-color: #ea4c89;
   color: #fff;
 }
-

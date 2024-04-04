@@ -28,12 +28,6 @@ import { toast } from "react-toastify"
 
 import { TabsTrigger, TabsList, TabsContent, Tabs } from "@/components/ui/tabs"
 
-// import logo from "../assets/login-logo-1.png"
-// import vectorArt from "../assets/login-logo-1.png"
-// import axios from "axios"
-
-// import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-
 const defaultTheme = createTheme()
 
 const LoginPage = ({ role }) => {

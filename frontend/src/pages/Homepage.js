@@ -8,18 +8,18 @@ import Topbar from '../components/FrontUIComponent/container/header/Topbar'
 const Homepage = () => {
     return (
         <>
-            <Topbar/>
+            <Topbar />
             <StyledContainer>
                 <Grid container spacing={0}>
                     <Grid item xs={12} md={6}>
-                        <img src={Students} alt="students" style={{ width: '100%' }} />
+                        <img src={Students} alt="students" className='w-100 hidden-image' />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <StyledPaper elevation={3}>
-                            <StyledTitle>
+                            <StyledTitle >
                                 Welcome to
                                 <br />
-                                University Management
+                                <span className='text-[#550080] '>University management</span>
                                 <br />
                                 System
                             </StyledTitle>
@@ -34,18 +34,10 @@ const Homepage = () => {
                                         Login
                                     </LightPurpleButton>
                                 </StyledLink>
-                                
-                                {/* <StyledLink to="/chooseasguest">
-                                <Button variant="outlined" fullWidth
-                                    sx={{ mt: 2, mb: 3, color: "#7f56da", borderColor: "#7f56da" }}
-                                >
-                                    Login as Guest
-                                </Button>
-                            </StyledLink> */}
                                 <StyledText>
                                     Don't have an account?{' '}
-                                    <Link to="/contact" style={{ color: "#550080" }}>
-                                     Contact us
+                                    <Link to="/contact" className='text-[#550080]'>
+                                        Contact us
                                     </Link>
                                 </StyledText>
                             </StyledBox>
@@ -81,7 +73,7 @@ const StyledBox = styled(Box)`
 `;
 
 const StyledTitle = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #252525;
   /* font-family: "Manrope"; */
   font-weight: bold;
@@ -100,4 +92,5 @@ const StyledText = styled.p`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+ 
 `;
