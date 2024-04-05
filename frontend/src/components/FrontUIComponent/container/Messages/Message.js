@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Container, Row, Col, Image, Card, Button } from "react-bootstrap"
 import "./message.css"
+
 // import LatestEvents from "./LatestEvents"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
@@ -67,9 +68,10 @@ function Message({ props }) {
 						events.slice(startIndex, startIndex + 6)
 							.map((event, i) => <CardStyle key={i} event={event} />)
 					) : (
-						<div className='flex items-center justify-center py-2 gap-x-2'>
-							<Loader2 className='w-6 h-6 animate-spin a-titles' />
-							<h2 className='animate-pulse'>Loading...</h2>
+						<div className="flex relative my-5 items-center justify-center ">
+							<div class="loader my-2">Loading
+								<span></span>
+							</div>
 						</div>
 					)}
 				</Row>

@@ -6,30 +6,31 @@ import { Loader2 } from "lucide-react"
 
 function Courses() {
 	const { researchs } = useSelector((state) => state.researchs)
-	
+
 	return (
 		<>
-			<div className='container23  mt-5 mb-4 '>
+			<div className='container23  mt-5 mb-5 '>
 				<h1 className='a-title pb-2 pl-0 ml-0 m-0'>
 					RESEARCH IN<strong className='a-titles'> LIMELIGHT</strong>
 				</h1>
 				<div className='row'>
-					{researchs ? (
-						researchs.length === 0 ? (
-							<h1 className='py-3 text-center'>
-								Currently there is no any research.
-							</h1>
-						) : researchs.length > 0 ? (
-							researchs.map((research, i) => (
+					{researchs && researchs.length > 0 ? (
+						researchs.map((research, i) => {
+
+							return (
 								<CardStyle key={i} research={research} />
-							))
-						) : (
-							<div className='flex items-center justify-center py-2 gap-x-2'>
-								<Loader2 className='w-6 h-6 animate-spin a-titles' />
-								<h2 className='animate-pulse'>Loading...</h2>
+							);
+						})
+					) : (
+						<div className="flex relative my-5 items-center justify-center ">
+							<div class="loader mb-5">Loading
+								<span></span>
 							</div>
-						)
-					) : null}
+						</div>
+					)}
+
+
+
 				</div>
 			</div>
 		</>
