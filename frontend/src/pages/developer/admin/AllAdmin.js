@@ -91,63 +91,7 @@ export default function AllAdmin() {
 									) : (
 										<LoaderCom />
 									)}
-									{/* <TableRow>
-										<TableCell className='font-medium'>
-											Dr. Ghulam Ali
-										</TableCell>
-										<TableCell>drghulamali@gmail.com</TableCell>
-										<TableCell>Admin</TableCell>
-										<TableCell className='flex gap-2'>
-											<Link to='/Developer/update-admin'>
-												<Button className='w-6 h-6' size='icon' variant='ghost'>
-													<FileEditIcon className='w-4 h-4' />
-													<span className='sr-only'>Edit</span>
-												</Button>
-											</Link>
-											<Button className='w-6 h-6' size='icon' variant='ghost'>
-												<TrashIcon className='w-4 h-4' />
-												<span className='sr-only'>Delete</span>
-											</Button>
-										</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell className='font-medium'>
-											Prof. Riaz Ul Amin
-										</TableCell>
-										<TableCell>rialulamin@gmail.com</TableCell>
-										<TableCell>Manager</TableCell>
-										<TableCell className='flex gap-2'>
-											<Link to='/Developer/update-admin'>
-												<Button className='w-6 h-6' size='icon' variant='ghost'>
-													<FileEditIcon className='w-4 h-4' />
-													<span className='sr-only'>Edit</span>
-												</Button>
-											</Link>
-											<Button className='w-6 h-6' size='icon' variant='ghost'>
-												<TrashIcon className='w-4 h-4' />
-												<span className='sr-only'>Delete</span>
-											</Button>
-										</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell className='font-medium'>
-											Prof. Ahmad Nazir
-										</TableCell>
-										<TableCell>ahmadnazir@gmail.com</TableCell>
-										<TableCell>Support</TableCell>
-										<TableCell className='flex gap-2'>
-											<Link to='/Developer/update-admin'>
-												<Button className='w-6 h-6' size='icon' variant='ghost'>
-													<FileEditIcon className='w-4 h-4' />
-													<span className='sr-only'>Edit</span>
-												</Button>
-											</Link>
-											<Button className='w-6 h-6' size='icon' variant='ghost'>
-												<TrashIcon className='w-4 h-4' />
-												<span className='sr-only'>Delete</span>
-											</Button>
-										</TableCell>
-									</TableRow> */}
+
 								</TableBody>
 							</Table>
 						</div>

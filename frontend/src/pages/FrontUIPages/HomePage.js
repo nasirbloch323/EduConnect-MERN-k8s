@@ -12,6 +12,7 @@ import Anoucment from "../../components/FrontUIComponent/container/Anoucment"
 import Gotop from "../../components/FrontUIComponent/Gotop/Gotop"
 import { getAllAnn } from "@/redux/announcements/annHandle"
 import { useDispatch } from "react-redux"
+// import NotificationPopup from "@/components/FrontUIComponent/notificationsPopup/NotificationPopup"
 
 // import Chatbot from '../../components/FrontUIComponent/chatbot/Chatbot';
 
@@ -33,6 +34,7 @@ const HomePage = () => {
 			<Courses />
 			<VideoPage />
 			<Footer />
+			{/* <NotificationPopup/> */}
 			<Gotop />
 			{/* <Chatbot /> */}
 		</>

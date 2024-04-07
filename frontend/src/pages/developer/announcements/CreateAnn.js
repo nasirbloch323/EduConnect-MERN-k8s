@@ -1,12 +1,17 @@
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Label } from "@/components/ui/label"
 import { useDispatch, useSelector } from "react-redux"
 import { productsCreate } from "../../../redux/announcements/annHandle"
+import JoditEditor from 'jodit-react';
+import ReactHtmlParser from 'html-react-parser'; // Import html-react-parser library
+
 
 export default function CreateAnn() {
+	const editor = useRef(null);
+	const [content, setContent] = useState('');
 	const dispatch = useDispatch()
 	const { createStatus } = useSelector((state) => state.products)
 
@@ -47,6 +52,11 @@ export default function CreateAnn() {
 		)
 	}
 
+
+	const handleDescChange = (value) => {
+		// const plainText = ReactHtmlParser(value); // Using html-react-parser to convert HTML to plain text
+		setDesc(value);
+	};
 	return (
 		<>
 			<div className='space-y-2'>
@@ -83,6 +93,12 @@ export default function CreateAnn() {
 							>
 								Description
 							</Label>
+							{/* <JoditEditor
+								ref={editor}
+								value={desc}
+								// config={config}
+								onChange={handleDescChange}
+							/> */}
 							<Textarea
 								className='flex-1 w-full text-base'
 								type='text'
