@@ -68,8 +68,7 @@ const AdminRegisterPage = () => {
 
     useEffect(() => {
         if (status === 'success' || (currentUser !== null && currentRole === 'Admin')) {
-            toast.success('Create Account Successfully');
-
+            // toast.success('Create Account Successfully');
 
         }
         else if (status === 'failed') {
@@ -85,20 +84,23 @@ const AdminRegisterPage = () => {
     return (
         <>
 
-            <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-                <Grid container component="main" sx={{ height: '100vh' }}>
+            <Container maxWidth='full' sx={{ mt: 2, mb: 4 }}
+            className='w-full'>
+                <Grid  component="main" sx={{ height: '100vh' }}>
                     <CssBaseline />
                     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                         <Box
                             sx={{
-                                my: 8,
+                                my: 2,
                                 mx: 4,
                                 display: 'flex',
                                 flexDirection: 'column',
-                                alignItems: 'center',
+                                alignItems: 'start',
                             }}
                         >
-                            <Typography variant="h4" sx={{ mb: 2, color: "#2c2143" }}>
+                            <Typography variant="h5" 
+                            className='text-center text-[#2c2143] my-3   
+                            text-xl'>
                                 Admin Register
                             </Typography>
                             <Typography variant="h7">
@@ -107,7 +109,7 @@ const AdminRegisterPage = () => {
                                 You will be able to add students and faculty and
                                 manage the system.
                             </Typography>
-                            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
+                            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 2 }} className='mb-4'>
                                 <TextField
                                     margin="normal"
                                     required

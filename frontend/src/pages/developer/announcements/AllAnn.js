@@ -81,6 +81,7 @@ const EditAnn = ({ ann }) => {
 	const dispatch = useDispatch()
 	const [fields, setFields] = useState({
 		name: ann.name,
+		date: ann.date,
 		desc: ann.desc,
 		image: ann.image,
 	})
@@ -88,7 +89,6 @@ const EditAnn = ({ ann }) => {
 		setFields((pre) => ({
 			...pre,
 			[e.target.name]: e.target.value,
-
 		}))
 		// console.log(fields)
 	}
@@ -103,46 +103,49 @@ const EditAnn = ({ ann }) => {
 					Edit
 				</Button>
 			</DialogTrigger>
-			<DialogContent className='sm:max-w-[425px]'>
+			<DialogContent className='sm:max-w-[500px] z-50  overflow-y-scroll'>
 				<DialogHeader>
-					<DialogTitle>Edit Announcement</DialogTitle>
-					<DialogDescription>
-						Make changes to your Post here. Click save when you're done.
-					</DialogDescription>
+					<DialogTitle>Edit Event</DialogTitle>
 				</DialogHeader>
-				<form onSubmit={handleSubmit} className='grid gap-4 py-4'>
-					<div className='space-y-2'>
-						<Label htmlFor='new-title'>New Title</Label>
+				<form onSubmit={handleSubmit} className='grid gap-1 py-4'>
+					<div className=''>
+						<Label htmlFor='new-title text-sm'>New Title</Label>
 						<Input
-							type='text'
 							value={fields.name}
-							name='title'
+							name='name'
 							placeholder='Enter the title'
-
+							type='text'
 							onChange={handleChange}
 							id='new-title'
 						/>
 					</div>
-					<div className='space-y-2'>
+					<div>
+						<Label className='text-sm new-title' htmlFor='startDate'>
+							Date
+						</Label>
+						<Input
+							className='flex-1 w-full text-base'
+							type='date'
+							name='date'
+							value={fields.date}
+							placeholder='date'
+							onChange={handleChange}
+							required
+						/>
+					</div>
+
+					<div>
 						<Label htmlFor='new-description'>New Description</Label>
 						<Textarea
-							typq="textarea"
 							value={fields.desc}
 							className='min-h-[100px]'
 							id='new-description'
-							name='description'
+							name='desc'
 							placeholder='Enter the description'
 							onChange={handleChange}
 						/>
 					</div>
-					<div className='space-y-2'>
-						<Label htmlFor='new-description'>New Description</Label>
-
-						<img src={fields.image?.url} alt={ann.name} onChange={handleChange} className="w-full h-48" />
-
-
-					</div>
-					<div className='space-y-2'>
+					<div className='pt-1'>
 						<Button type='submit'>Save Changes</Button>
 					</div>
 				</form>

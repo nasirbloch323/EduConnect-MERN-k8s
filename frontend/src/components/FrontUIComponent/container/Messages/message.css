@@ -1,4 +1,4 @@
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 640px) {
   .main-row {
     margin: 0 !important;
   }
@@ -6,6 +6,16 @@
   .message-container {
     padding: 0px !important;
   }
+
+  .container22 {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+}
+
+.container22 {
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
 .car-body {
@@ -90,7 +100,7 @@
   border: 1px solid #7A1CCB;
 }
 
-.message-container {
-  padding-left: 30px;
+/* .message-container {
+  padding-left: 20px;
   padding-right: 30px;
-}
+} */

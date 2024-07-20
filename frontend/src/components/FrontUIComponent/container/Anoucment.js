@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Loader2 } from "lucide-react";
 import moment from "moment";
+import '../../../components/Loading.css'
 
 function Anoucment() {
 	const { items: data } = useSelector((state) => state.products);
@@ -20,7 +21,7 @@ function Anoucment() {
 
 	return (
 		<>
-			<div className="container anouncment">
+			<div className=" container1 mt-40">
 				<h1 className="a-title">
 					Latest <strong className="a-titles">Announcement</strong>
 				</h1>
@@ -53,9 +54,9 @@ function Anoucment() {
 											<h5 className="card-title">{ann.name}</h5>
 											<p className="card-text1">{truncatedDescription}</p>
 											<p className="card-text1 flex mb-0  text-[#7A1CCB]">
-											<Link to={`/announcement/${ann._id}`} className="news-header-btn">
-                                                    Read More
-                                                </Link>
+												<Link to={`/announcement/${ann._id}`} className="news-header-btn">
+													Read More
+												</Link>
 												<p className="fixed pr-3  right-0 pt-3 m-0">
 													{moment(ann.date).format("MM/DD/YYYY")}
 												</p>
@@ -66,9 +67,12 @@ function Anoucment() {
 							);
 						})
 					) : (
-						<div className="flex items-center justify-center py-2 gap-x-2">
-							<Loader2 className="w-6 h-6 animate-spin a-titles" />
-							<h2 className="animate-pulse">Loading...</h2>
+
+
+						<div className="flex relative mt-5 items-center justify-center ">
+							<div class="loader">Loading
+								<span></span>
+							</div>
 						</div>
 					)}
 				</div>
