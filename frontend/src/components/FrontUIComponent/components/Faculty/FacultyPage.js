@@ -4,24 +4,24 @@ import "./faculty.css"
 import Topbar from "../../container/header/Topbar"
 import Footer from "../../container/footer/Footer"
 import Topnavbar from "../../container/header/Topnavbar"
-
+import pg from "./faculty-img/pro-ghulam.jpeg"
 function FacultyPage() {
 	const displayFaculty = [
-		"Ali",
-		"usama",
-		"nasir",
-		"hamid",
-		"muzzamal",
-		"nabeel",
+		{ name: "Pro Ghulam Ali", img: pg, duty: "Head of SE" },
+		{
+			name: "Pro Ahmad Ali",
+			img: pg,
+			duty: "Head of DS",
+		},
 	].map((member, index) => (
 		<Col xs={12} sm={6} md={4} lg={3} key={index + member}>
 			<div className='our-team'>
 				<div className='picture'>
-					<Image src='https://picsum.photos/130/130?image=1027' fluid />
+					<Image src={member.img} fluid />
 				</div>
 				<div className='team-content'>
-					<h3 className='name'>{member}</h3>
-					<h4 className='title'>Web Developer</h4>
+					<h3 className='name'>{member.name}</h3>
+					<h4 className='title'>{member.duty}</h4>
 				</div>
 				<ul className='social'>
 					<li>
@@ -56,7 +56,7 @@ function FacultyPage() {
 			<section>
 				<Container
 					style={{ backgroundColor: "brown", color: "#fff" }}
-					className='text-center py-5 aboutpage'
+					className='py-5 text-center aboutpage'
 					fluid
 				>
 					<Row>
@@ -68,8 +68,10 @@ function FacultyPage() {
 						</Col>
 					</Row>
 				</Container>
-				<Container className='mt-5 mb-5'>
-					<Row>{displayFaculty}</Row>
+				<Container className='mt-5 mb-5 '>
+					<Row className='flex items-center justify-center '>
+						{displayFaculty}
+					</Row>
 				</Container>
 			</section>
 			<Footer />

@@ -34,18 +34,15 @@ import PageNotFound from "./components/FrontUIComponent/PageNotFound/PageNotFoun
 import Jobs from "./pages/FrontUIPages/Jobs"
 import AdminHomePage from "./pages/admin/AdminHomePage"
 // import AllAdmin from "./pages/developer/admin/AllAdmin"
-import NoteState from "./context/NoteState";
-import Home from "./components/cgpa/Home";
-import GpaCal from "./components/cgpa/GpaCal";
-import SecondPage from "./components/cgpa/SecondPage";
-import CgpaCal from "./components/cgpa/CgpaCal";
-import MyPage from "./components/cgpa/MyPage";
-import UafGpa from "./components/cgpa/UafGpa";
-import UafCgpa from "./components/cgpa/UafCgpa";
+import NoteState from "./context/NoteState"
+import Home from "./components/cgpa/Home"
+import GpaCal from "./components/cgpa/GpaCal"
+import SecondPage from "./components/cgpa/SecondPage"
+import CgpaCal from "./components/cgpa/CgpaCal"
+import MyPage from "./components/cgpa/MyPage"
+import UafGpa from "./components/cgpa/UafGpa"
+import UafCgpa from "./components/cgpa/UafCgpa"
 import SinglePageDetails from "./components/FrontUIComponent/container/SinglePageDetails"
-
-
-
 
 const App = () => {
 	AOS.init({
@@ -70,11 +67,20 @@ const App = () => {
 						<Route path='/contact' element={<ContactPage />} />
 
 						{/* Developer */}
-						<Route path="/Developerregister" element={<DevRegister />} />
-						<Route path="/Developerlogin" element={<Login role="Developer" />} />
+						<Route path='/Developerregister' element={<DevRegister />} />
+						<Route
+							path='/Developerlogin'
+							element={<Login role='Developer' />}
+						/>
 						{/* Admin {teacher,student} */}
-						<Route path='/Studentlogin' element={<LoginPage role='Student' />} />
-						<Route path='/Teacherlogin' element={<LoginPage role='Teacher' />} />
+						<Route
+							path='/Studentlogin'
+							element={<LoginPage role='Student' />}
+						/>
+						<Route
+							path='/Teacherlogin'
+							element={<LoginPage role='Teacher' />}
+						/>
 						<Route path='/Adminregister' element={<AdminRegisterPage />} />
 						<Route path='/Adminlogin' element={<LoginPage role='Admin' />} />
 
@@ -84,57 +90,51 @@ const App = () => {
 						<Route path='/admission' element={<AdminHomePage />} />
 						<Route path='*' element={<PageNotFound />} />
 
+						<Route path='/cgpa' exact element={<Home />} />
+						<Route path='/cgpa/gpa-cal/:flag/:index' element={<GpaCal />} />
+						<Route
+							path='/cgpa/second-page/:numRows/:flag/:index'
+							element={<SecondPage />}
+						/>
+						<Route
+							path='/cgpa/uaf-gpa/:numRows/:flag/:index'
+							element={<UafGpa />}
+						/>
+						<Route path='/cgpa/cgpa-cal' element={<CgpaCal />} />
+						<Route path='/cgpa/my-page/:numSem' element={<MyPage />} />
+						<Route path='/cgpa/uaf-cgpa/:numSem' element={<UafCgpa />} />
 
-						<Route path="/cgpa" exact element={<Home />} />
-						<Route path="/cgpa/gpa-cal/:flag/:index" element={<GpaCal />} />
-						<Route path="/cgpa/second-page/:numRows/:flag/:index" element={<SecondPage />} />
-						<Route path="/cgpa/uaf-gpa/:numRows/:flag/:index" element={<UafGpa />} />
-						<Route path="/cgpa/cgpa-cal" element={<CgpaCal />} />
-						<Route path="/cgpa/my-page/:numSem" element={<MyPage />} />
-						<Route path="/cgpa/uaf-cgpa/:numSem" element={<UafCgpa />} />
-
-						{/* <Route path="/announcement" element={<SinglePageDetails />} /> */}
+						<Route path='/announcement/:id' element={<SinglePageDetails />} />
 
 						{/* developer all */}
-
 					</Routes>
+				)}
 
-				)
-				}
+				{currentRole === "Developer" && (
+					<>
+						<DevDashboard />
+					</>
+				)}
+				{currentRole === "Admin" && (
+					<>
+						<AdminDashboard />
+					</>
+				)}
 
-				{
-					currentRole === "Developer" && (
-						<>
-							<DevDashboard />
-						</>
-					)
-				}
-				{
-					currentRole === "Admin" && (
-						<>
-							<AdminDashboard />
-						</>
-					)
-				}
+				{currentRole === "Student" && (
+					<>
+						<StudentDashboard />
+					</>
+				)}
 
-				{
-					currentRole === "Student" && (
-						<>
-							<StudentDashboard />
-						</>
-					)
-				}
-
-				{
-					currentRole === "Teacher" && (
-						<>
-							<TeacherDashboard />
-						</>
-					)
-				}
+				{currentRole === "Teacher" && (
+					<>
+						<TeacherDashboard />
+					</>
+				)}
 				<ToastContainer />
-			</Router >
-		</NoteState >
+			</Router>
+		</NoteState>
 	)
 }
 
