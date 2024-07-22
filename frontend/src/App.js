@@ -87,7 +87,7 @@ const App = () => {
 						{/* <Route path='*' element={<Navigate to="/" />} /> */}
 
 						<Route path='/jobs' element={<Jobs />} />
-						<Route path='/admission' element={<AdminHomePage />} />
+						{/* <Route path='/admission' element={<AdminHomePage />} /> */}
 						<Route path='*' element={<PageNotFound />} />
 
 						<Route path='/cgpa' exact element={<Home />} />
