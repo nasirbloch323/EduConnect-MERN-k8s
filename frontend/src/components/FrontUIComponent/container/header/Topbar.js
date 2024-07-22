@@ -17,15 +17,15 @@ function Topbar() {
 		<>
 			<Navbar
 				expand='lg'
-				className='topbar  text-capitalize'
+				className='topbar text-capitalize'
 				style={{ backgroundColor: "#fff" }}
 			>
-				<Navbar.Brand href='/' className='logo p-0 m-0'>
+				<Navbar.Brand href='/' className='p-0 m-0 logo'>
 					<img src={logo} alt='logo' className='header-logo' />
 				</Navbar.Brand>
 				<Navbar.Toggle
 					aria-controls='basic-navbar-nav'
-					className='mobile-humber p-0 m-0'
+					className='p-0 m-0 mobile-humber'
 				/>
 				<Navbar.Collapse id='basic-navbar-nav w-100 border-0 p-0 m-0'>
 					<Nav className='mx-auto '>
@@ -61,7 +61,7 @@ function Topbar() {
 									Admission
 								</Link>
 							</button>
-							<div className='megamenu__option-children'>
+							{/* <div className='megamenu__option-children'>
 								<div className='megamenu__option'>
 									<div className='megamenu__option-label'>
 										FACULTY OF COMPUTING
@@ -210,7 +210,7 @@ function Topbar() {
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> */}
 						</div>
 
 						<div className='dropdown'>
@@ -256,7 +256,7 @@ function Topbar() {
 							</Link>
 						</button>
 						<button className=''>
-							<Link to='/directorates' className=' nav-items '>
+							<Link to='/directorates' className=' nav-items'>
 								{" "}
 								directorates
 							</Link>
